@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using SplineMesh;
+//using SplineMesh;
 
 namespace Utils {
     /// <summary>
@@ -11,7 +11,7 @@ namespace Utils {
 
         public  List<Spawnable> spawnables;
         public  Transform       spawnParent;
-        private SplineNode      _firstNode;
+        //private SplineNode      _firstNode;
 
         List<Vector2> probabilitiesOfSpawnableObjects = new List<Vector2>();
 
