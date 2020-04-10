@@ -5,6 +5,16 @@ using UnityEngine;
 public class PoliceAbilities : MonoBehaviour
 {
 
+    public void OnArrestButtonClicked()
+    {
+        //Logic of arrest selected for police
+    }
+    
+    public void OnAggressiveArrestButtonClicked()
+    {
+        //Logic of aggressive arrest selected for police
+    }
+
     public void OnRubberBulletsButtonClicked()
     {
         //Logic of rubber bullets selected for police
@@ -20,5 +30,10 @@ public class PoliceAbilities : MonoBehaviour
     public void OnLethalForceButtonClicked()
     {
         //Logic of lethal force selected for police
+    }
+    
+    public void OnReinforceSquadButtonClicked()
+    {
+        //Logic of reinforce selected for police
     }
 }
