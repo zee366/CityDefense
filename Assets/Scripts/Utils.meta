@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Utils.meta
 guid: 6e69286d0bce3824394ddb0807da9bd4
+=======
+guid: 41bfbd8c452464a4f97ec985d9a698b9
+>>>>>>> develop:Assets/Low poly cars/Prefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

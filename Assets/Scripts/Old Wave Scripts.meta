@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Old Wave Scripts.meta
 guid: 3c40ab418734f8548848764b3dbb5ca4
+=======
+guid: 31cb8d54028ba0642b179378f1d21dd4
+>>>>>>> develop:Assets/Level.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
