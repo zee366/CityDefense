@@ -24,7 +24,8 @@ public class Destructible : MonoBehaviour
     // The starting level of destruction (100 = not damaged)
     private float _destructionLevel = 100f;
 
-    // Index into DamagedFX array
+    // Indices into DamagedFX array
+    private int _prevParticleSystem = -1;
     private int _nextParticleSystem = 0;
 
     // Verify that health has dropped into the next tier of graphical destruction effects
@@ -43,9 +44,18 @@ public class Destructible : MonoBehaviour
     // Grab all the particle systems in the next group and play them
     private void PlayNextParticleSystem() {
         if(_nextParticleSystem < DamagedFX.Length) {
-            ParticleSystem[] group = DamagedFX[_nextParticleSystem++].GetComponentsInChildren<ParticleSystem>();
-            foreach(ParticleSystem ps in group)
+            if(_prevParticleSystem >= 0) {
+                ParticleSystem[] stopGroup = DamagedFX[_prevParticleSystem].GetComponentsInChildren<ParticleSystem>();
+                foreach(ParticleSystem ps in stopGroup)
+                    ps.Stop();
+
+            }
+
+            ParticleSystem[] startGroup = DamagedFX[_nextParticleSystem].GetComponentsInChildren<ParticleSystem>();
+            foreach(ParticleSystem ps in startGroup)
                 ps.Play();
+
+            _prevParticleSystem = _nextParticleSystem++;
         }
     }
 
@@ -60,13 +70,20 @@ public class Destructible : MonoBehaviour
 
     // Sink into the ground over time. Play the final dying special effect
     private IEnumerator Sink() {
-        ParticleSystem[] group = DeathFX.GetComponentsInChildren<ParticleSystem>();
-        foreach(ParticleSystem ps in group)
+        ParticleSystem[] stopGroup = DamagedFX[_prevParticleSystem].GetComponentsInChildren<ParticleSystem>();
+        foreach(ParticleSystem ps in stopGroup)
+            ps.Stop();
+
+        ParticleSystem[] startGroup = DeathFX.GetComponentsInChildren<ParticleSystem>();
+        foreach(ParticleSystem ps in startGroup)
             ps.Play();
 
         while(true) {
             Vector3 movement = Vector3.down * sinkSpeed * Time.deltaTime;
             transform.position += movement;
+
+            DeathFX.transform.position -= movement;
+
             destructionTime -= Time.deltaTime;
             if(destructionTime <= 0f) {
                 Destroy(gameObject);
