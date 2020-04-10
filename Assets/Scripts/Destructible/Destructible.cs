@@ -15,11 +15,11 @@ public class Destructible : MonoBehaviour
     [Tooltip("The interval separating various levels of destruction")]
     public float destructionStep;
 
-    [Tooltip("Array of particle systems that will become emabled as the object takes more and more damage")]
-    public ParticleSystem[] DamagedFX;
+    [Tooltip("Array of particle system groups that will become enabled as the object takes more and more damage")]
+    public GameObject[] DamagedFX;
 
-    [Tooltip("The final particle effect to play during the death animation")]
-    public ParticleSystem DeathFX;
+    [Tooltip("The final particle effect group to play during the death animation")]
+    public GameObject DeathFX;
 
     // The starting level of destruction (100 = not damaged)
     private float _destructionLevel = 100f;
@@ -27,7 +27,8 @@ public class Destructible : MonoBehaviour
     // Index into DamagedFX array
     private int _nextParticleSystem = 0;
 
-    public void CheckParticleFX() {
+    // Verify that health has dropped into the next tier of graphical destruction effects
+    private void CheckParticleFX() {
         for(int i = _nextParticleSystem; i < DamagedFX.Length; ++i) {
             if(health < _destructionLevel) {
                 PlayNextParticleSystem();
@@ -39,11 +40,16 @@ public class Destructible : MonoBehaviour
         }
     }
 
-    public void PlayNextParticleSystem() {
-        if(_nextParticleSystem < DamagedFX.Length)
-            DamagedFX[_nextParticleSystem++].Play();
+    // Grab all the particle systems in the next group and play them
+    private void PlayNextParticleSystem() {
+        if(_nextParticleSystem < DamagedFX.Length) {
+            ParticleSystem[] group = DamagedFX[_nextParticleSystem++].GetComponentsInChildren<ParticleSystem>();
+            foreach(ParticleSystem ps in group)
+                ps.Play();
+        }
     }
 
+    // Deal damage to the object, verify if we need to play the next special effect, die if health is 0 or less
     public void TakeDamage(float damage) {
         health -= damage;
         CheckParticleFX();
@@ -52,8 +58,12 @@ public class Destructible : MonoBehaviour
             Die();
     }
 
-    IEnumerator Sink() {
-        DeathFX.Play();
+    // Sink into the ground over time. Play the final dying special effect
+    private IEnumerator Sink() {
+        ParticleSystem[] group = DeathFX.GetComponentsInChildren<ParticleSystem>();
+        foreach(ParticleSystem ps in group)
+            ps.Play();
+
         while(true) {
             Vector3 movement = Vector3.down * sinkSpeed * Time.deltaTime;
             transform.position += movement;
@@ -66,7 +76,8 @@ public class Destructible : MonoBehaviour
         }
     }
 
-    public void Die() {
+    // Called when health drops to 0 or less
+    private void Die() {
         StartCoroutine(Sink());
     }
 }
