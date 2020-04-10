@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     passTag: RenderDitherFadedLayerPass
-    Event: 300
+    Event: 250
     filterSettings:
       RenderQueueType: 0
       LayerMask:
@@ -96,11 +96,12 @@ MonoBehaviour:
       LayerMask:
         serializedVersion: 2
         m_Bits: 2048
-      PassNames: []
+      PassNames:
+      - DepthOnly
     overrideMaterial: {fileID: 2100000, guid: 824327b1e519111439912f3752c5c0b2, type: 2}
     overrideMaterialPassIndex: 0
     overrideDepthState: 1
-    depthCompareFunction: 8
+    depthCompareFunction: 4
     enableWrite: 1
     stencilSettings:
       overrideStencilState: 0
