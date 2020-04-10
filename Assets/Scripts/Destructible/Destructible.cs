@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
-    [Tooltip("Current health of the object")]
+    [Tooltip("Maximum health of the object")]
     public float health;
 
     [Tooltip("Time for which the death animation will play after reaching 0 health")]
@@ -12,26 +12,31 @@ public class Destructible : MonoBehaviour
     [Tooltip("Speed at which the object sinks into the ground during the death animation")]
     public float sinkSpeed;
 
-    [Tooltip("The interval separating various levels of destruction")]
-    public float destructionStep;
-
     [Tooltip("Array of particle system groups that will become enabled as the object takes more and more damage")]
     public GameObject[] DamagedFX;
 
     [Tooltip("The final particle effect group to play during the death animation")]
     public GameObject DeathFX;
 
-    // The starting level of destruction (100 = not damaged)
-    private float _destructionLevel = 100f;
+    // Current health of the object
+    private float _currentHealth;
+    // The starting level of destruction (1 = not damaged)
+    private float _destructionLevel = 1f;
+    // The interval separating various levels of destruction
+    private float destructionStep = 0.34f;
 
     // Indices into DamagedFX array
     private int _prevParticleSystem = -1;
     private int _nextParticleSystem = 0;
 
+    private void Awake() {
+        _currentHealth = health;
+    }
+
     // Verify that health has dropped into the next tier of graphical destruction effects
     private void CheckParticleFX() {
         for(int i = _nextParticleSystem; i < DamagedFX.Length; ++i) {
-            if(health < _destructionLevel) {
+            if((_currentHealth / health) < _destructionLevel) {
                 PlayNextParticleSystem();
                 _destructionLevel -= destructionStep;
             }
@@ -61,10 +66,10 @@ public class Destructible : MonoBehaviour
 
     // Deal damage to the object, verify if we need to play the next special effect, die if health is 0 or less
     public void TakeDamage(float damage) {
-        health -= damage;
+        _currentHealth -= damage;
         CheckParticleFX();
 
-        if(health <= 0f)
+        if(_currentHealth <= 0f)
             Die();
     }
 
