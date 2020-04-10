@@ -70,9 +70,11 @@ public class Destructible : MonoBehaviour
 
     // Sink into the ground over time. Play the final dying special effect
     private IEnumerator Sink() {
-        ParticleSystem[] stopGroup = DamagedFX[_prevParticleSystem].GetComponentsInChildren<ParticleSystem>();
-        foreach(ParticleSystem ps in stopGroup)
-            ps.Stop();
+        if(_prevParticleSystem >= 0) {
+            ParticleSystem[] stopGroup = DamagedFX[_prevParticleSystem].GetComponentsInChildren<ParticleSystem>();
+            foreach(ParticleSystem ps in stopGroup)
+                ps.Stop();
+        }
 
         ParticleSystem[] startGroup = DeathFX.GetComponentsInChildren<ParticleSystem>();
         foreach(ParticleSystem ps in startGroup)
