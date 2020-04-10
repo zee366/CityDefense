@@ -5,14 +5,12 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform PlayerTransform;
-
+    public Vector3 OrthoOffset = new Vector3(0f,0f,0f);
     public float minHeight = 15f;
     public float maxHeight = 100f;
     public float maxHeight_epsilon = 3f;
     public float orthoSize = 250f;
     public float scrollStep = 30f;
-    public Quaternion squadViewOrientation = Quaternion.Euler(60, 0, 0);
-    public Quaternion strategicViewOrientation = Quaternion.Euler(90, 0, 0);
 
     private Vector3 _cameraOffset;
 
@@ -24,7 +22,7 @@ public class CameraController : MonoBehaviour
         _cameraOffset = transform.position - PlayerTransform.position;
     }
 
-    void LateUpdate()
+    void Update()
     {
         float scrollwheel_delta = Input.GetAxis("Mouse ScrollWheel");
 
@@ -50,12 +48,15 @@ public class CameraController : MonoBehaviour
                 Camera.main.transform.position = new Vector3(CamX + dX, CamY + dY, CamZ + dZ);
         }
 
+        Quaternion squadViewOrientation = Quaternion.Euler(60, 0, 0);
+        Quaternion strategicViewOrientation = Quaternion.Euler(90, 0, 0);
+
         // Strategic view
         if (Camera.main.transform.position.y >= maxHeight)
         {
             LookAtPlayer = false;
             Camera.main.orthographic = true;
-            Camera.main.transform.position = new Vector3(0, maxHeight, 0);
+            Camera.main.transform.position = new Vector3(OrthoOffset.x, maxHeight, OrthoOffset.z);
             Camera.main.transform.localRotation = strategicViewOrientation;
             Camera.main.orthographicSize = orthoSize;
         }

@@ -308,13 +308,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 1953349053}
+  OrthoOffset: {x: -6, y: 0, z: -28}
   minHeight: 15
   maxHeight: 200
   maxHeight_epsilon: 3
-  orthoSize: 250
+  orthoSize: 185
   scrollStep: 150
-  squadViewOrientation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  strategicViewOrientation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   LookAtPlayer: 0
 --- !u!1001 &1176074620
 PrefabInstance:
