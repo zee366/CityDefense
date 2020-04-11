@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform PlayerTransform;
     public Vector3 OrthoOffset = new Vector3(0f,0f,0f);
     public float minHeight = 15f;
     public float maxHeight = 100f;
@@ -16,14 +15,22 @@ public class CameraController : MonoBehaviour
 
     public bool LookAtPlayer = false;
 
+    GameObject target; 
+
     // Start is called before the first frame update
     void Start()
     {
-        _cameraOffset = transform.position - PlayerTransform.position;
+        target = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
+
+        if (target != null)
+            _cameraOffset = transform.position - target.transform.position;
     }
 
     void Update()
     {
+
+        if (target != null)
+        {
         float scrollwheel_delta = Input.GetAxis("Mouse ScrollWheel");
 
         if (scrollwheel_delta != 0)     // If scrolling...
@@ -68,13 +75,34 @@ public class CameraController : MonoBehaviour
             Camera.main.transform.localRotation = squadViewOrientation;
             Camera.main.orthographic = false;
 
-            Vector3 newPos = new Vector3((PlayerTransform.position + _cameraOffset).x, Camera.main.transform.position.y, (PlayerTransform.position + _cameraOffset).z);
+            Vector3 newPos = new Vector3((target.transform.position + _cameraOffset).x, Camera.main.transform.position.y, (target.transform.position + _cameraOffset).z);
 
             transform.position = Vector3.Slerp(transform.position, newPos, 1.0f);
 
             if (LookAtPlayer)
-                transform.LookAt(PlayerTransform);
+                transform.LookAt(target.transform);
         }
 
+        }
+        else
+        {
+            Start();
+        }
+    }
+
+    GameObject GetChildWithName(GameObject obj, string name)
+    {
+        // Source: http://answers.unity.com/answers/1355797/view.html
+
+        Transform trans = obj.transform;
+        Transform childTrans = trans.Find(name);
+        if (childTrans != null)
+        {
+            return childTrans.gameObject;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
