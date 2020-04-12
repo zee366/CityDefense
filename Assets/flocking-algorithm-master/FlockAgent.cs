@@ -56,7 +56,7 @@ public class FlockAgent : MonoBehaviour
                 navMeshAgent.velocity=new Vector3();
             }
         }
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray,out hit)) {
                     navMeshAgent.destination=hit.point;
