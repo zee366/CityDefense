@@ -22,7 +22,8 @@ public class PoliceAbilities : MonoBehaviour
     GameObject bulletSetType;
 
     //water cannon
-    GameObject waterCannon;
+    public GameObject waterCannon;
+    
 
 
 
@@ -71,13 +72,15 @@ public class PoliceAbilities : MonoBehaviour
     public void UseSmokeGrenade()
     {
         //logic for throwing grenade at an arch
-        GameObject sG = Instantiate(smokeGrenade, transform.forward + new Vector3(0, 1.5f, 0), Quaternion.identity);
+        GameObject sG = Instantiate(smokeGrenade, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
         sG.GetComponent<Rigidbody>().AddForce(transform.forward * launchForce, ForceMode.Impulse);
     }
 
     public void UseWaterCannon()
     {
         //logic for using water cannon
+        Instantiate(waterCannon, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
+        //GameObject sG = Instantiate(waterCannon, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
     }
 
     public void UseLethalBullets()
