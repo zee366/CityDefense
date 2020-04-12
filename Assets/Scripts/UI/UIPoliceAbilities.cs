@@ -25,8 +25,6 @@ public class UIPoliceAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        policeSquadLeader = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0").GetComponent<PoliceAbilities>();
-
         smokeGTimer = 5.5f;
         smokeGrenadeCoolDown = false;
 
@@ -41,6 +39,12 @@ public class UIPoliceAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ( policeSquadLeader == null ) {
+            GameObject go = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
+            if(go != null)
+                policeSquadLeader = go.GetComponent<PoliceAbilities>();
+        }
+
         if (smokeGrenadeCoolDown)
         {
             smokeGButton.fillAmount -= 1 / smokeGTimer * Time.deltaTime;
