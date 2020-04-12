@@ -26,7 +26,11 @@ public class CameraController : MonoBehaviour
         target = GetChildWithName(policeFlock, "Agent 0");
 
         if (target != null)
+        {
+            float playerCamOffset = 50f; 
+            transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - playerCamOffset);
             _cameraOffset = transform.position - target.transform.position;
+        }
     }
 
     void Update()
