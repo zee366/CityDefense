@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIPoliceAbilities : MonoBehaviour
 {
     public PoliceAbilities policeSquadLeader;
+    //public GameObject policeSquadLeader;
 
-    
+    public Image smokeGButton;
     float smokeGTimer;
-    float smokeGTimerDelay;
     bool smokeGrenadeCoolDown;
 
+    public Image waterCButton;
     float waterCTimer;
-    float waterCTimerDelay;
     bool waterCannonCoolDown;
 
+    public Image reinforceButton;
     float reinforceTimer;
-    float reinforceTimerDelay;
     bool reinforceCoolDown;
 
 
@@ -24,16 +25,15 @@ public class UIPoliceAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        smokeGTimer = 2.0f;
-        smokeGTimerDelay = 2.0f;
+        policeSquadLeader = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0").GetComponent<PoliceAbilities>();
+
+        smokeGTimer = 5.5f;
         smokeGrenadeCoolDown = false;
 
         waterCTimer = 3.0f;
-        waterCTimerDelay = 3.0f;
         waterCannonCoolDown = false;
 
         reinforceTimer = 2.0f;
-        reinforceTimerDelay = 2.0f;
         reinforceCoolDown = false;
 
     }
@@ -43,30 +43,30 @@ public class UIPoliceAbilities : MonoBehaviour
     {
         if (smokeGrenadeCoolDown)
         {
-            smokeGTimer -= Time.deltaTime;
-            if (smokeGTimer <= 0)
+            smokeGButton.fillAmount -= 1 / smokeGTimer * Time.deltaTime;
+            if (smokeGButton.fillAmount <= 0)
             {
-                smokeGTimer = smokeGTimerDelay;
+                smokeGButton.fillAmount = 1;
                 smokeGrenadeCoolDown = false;
             }
         }
 
         if (waterCannonCoolDown)
         {
-            waterCTimer -= Time.deltaTime;
-            if (waterCTimer <= 0)
+            waterCButton.fillAmount -= 1 / waterCTimer * Time.deltaTime;
+            if (waterCButton.fillAmount <= 0)
             {
-                waterCTimer = waterCTimerDelay;
+                waterCButton.fillAmount = 1;
                 waterCannonCoolDown = false;
             }
         }
 
         if (reinforceCoolDown)
         {
-            reinforceTimer -= Time.deltaTime;
-            if (reinforceTimer <= 0)
+            reinforceButton.fillAmount -= 1 / reinforceTimer * Time.deltaTime;
+            if (reinforceButton.fillAmount <= 0)
             {
-                reinforceTimer = reinforceTimerDelay;
+                reinforceButton.fillAmount = 1;
                 reinforceCoolDown = false;
             }
         }
@@ -121,6 +121,22 @@ public class UIPoliceAbilities : MonoBehaviour
         {
             policeSquadLeader.ReinforceSquad();
             reinforceCoolDown = true;
+        }
+    }
+
+    GameObject GetChildWithName(GameObject obj, string name)
+    {
+        // Source: http://answers.unity.com/answers/1355797/view.html
+
+        Transform trans = obj.transform;
+        Transform childTrans = trans.Find(name);
+        if (childTrans != null)
+        {
+            return childTrans.gameObject;
+        }
+        else
+        {
+            return null;
         }
     }
 }

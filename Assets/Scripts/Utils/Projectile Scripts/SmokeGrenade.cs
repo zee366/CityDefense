@@ -7,17 +7,21 @@ public class SmokeGrenade : MonoBehaviour
     public float timeDelay;
     float startTimer;
 
-    float damageGiven;
+    public float damageGiven;
     public float explosiveForce;
     public float explosiveForceRadius;
 
-    Animator animator;
+    //Smoke smokePrefab;
+    ParticleSystem smokeParticleSystem;
+    Animator smokeAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
+        smokeParticleSystem = GetComponentInChildren<ParticleSystem>();
+        smokeAnimator = GetComponentInChildren<Animator>();
         startTimer = 0.0f;
-        animator = GetComponent<Animator>();
+        Destroy(gameObject, 5.0f);
     }
 
     // Update is called once per frame
@@ -31,8 +35,9 @@ public class SmokeGrenade : MonoBehaviour
     public void SmokeExplosion()
     {
         Collider[] col = Physics.OverlapSphere(transform.position, explosiveForceRadius);
-        animator.Play("Smoke");
         GetComponent<MeshRenderer>().enabled = false;
+        smokeParticleSystem.Play();
+        smokeAnimator.Play("Smoke Animation");
         foreach (Collider c in col)
         {
             if (c.gameObject.GetComponent<TesterRioter>())
@@ -41,6 +46,5 @@ public class SmokeGrenade : MonoBehaviour
                 c.gameObject.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, transform.position, explosiveForceRadius);
             }
         }
-        Destroy(gameObject);
     }
 }

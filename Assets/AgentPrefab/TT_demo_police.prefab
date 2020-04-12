@@ -1121,6 +1121,7 @@ GameObject:
   - component: {fileID: 8337970867724791999}
   - component: {fileID: 2655583103346243514}
   - component: {fileID: -5091373100132121274}
+  - component: {fileID: -2173794855750037054}
   m_Layer: 0
   m_Name: TT_demo_police
   m_TagString: Untagged
@@ -1229,3 +1230,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-2173794855750037054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521664622314873621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2e16f4199c1274da6b3dd012ecbbfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rioterTarget: {fileID: 0}
+  smokeGrenade: {fileID: 1339690406208628, guid: 16d37ac307b43584892cb41bc081c64f,
+    type: 3}
+  launchForce: 4
+  bulletTypes:
+  - {fileID: 8478801755559832920, guid: fb43438f9a0eecd479f125cbdf4d1733, type: 3}
+  - {fileID: 8230775745890380023, guid: c169cd226ce54354d8a11a2dcb6d5657, type: 3}
+  waterCannon: {fileID: 9093078772802160931, guid: d3e05c9e8d391104c9e2afea1e80cd68,
+    type: 3}
