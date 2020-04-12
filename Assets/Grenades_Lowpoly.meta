@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Grenades_Lowpoly.meta
 guid: 3ec8b8c8cbbb15a429c9c49c392c380c
+=======
+guid: c6a8f4481d292ea4e990401bb61be09f
+>>>>>>> develop:Assets/flocking-algorithm-master/Editor.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
