@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class UIPoliceAbilities : MonoBehaviour
 {
-    public PoliceAbilities policeSquadLeader;
-    //public GameObject policeSquadLeader;
+    //public PoliceAbilities policeSquadLeader;
+    public List<PoliceAbilities> policeSquad;
+    Flock flock;
 
     public Image smokeGButton;
     float smokeGTimer;
@@ -25,6 +26,7 @@ public class UIPoliceAbilities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        flock = FindObjectOfType<Flock>();
         smokeGTimer = 5.5f;
         smokeGrenadeCoolDown = false;
 
@@ -39,10 +41,20 @@ public class UIPoliceAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( policeSquadLeader == null ) {
-            GameObject go = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
-            if(go != null)
-                policeSquadLeader = go.GetComponent<PoliceAbilities>();
+        //if ( policeSquadLeader == null ) {
+        //    GameObject go = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
+        //    if(go != null)
+        //        policeSquadLeader = go.GetComponent<PoliceAbilities>();
+        //}
+
+        if (policeSquad.Count != flock.agents.Count)
+        {
+            foreach (FlockAgent fA in flock.agents)
+            {
+                PoliceAbilities pA = fA.gameObject.GetComponent<PoliceAbilities>();
+                if (!policeSquad.Contains(pA))
+                    policeSquad.Add(fA.gameObject.GetComponent<PoliceAbilities>());
+            }
         }
 
         if (smokeGrenadeCoolDown)
@@ -80,32 +92,42 @@ public class UIPoliceAbilities : MonoBehaviour
     public void OnArrestButtonClicked()
     {
         //Logic of arrest selected for police
-        policeSquadLeader.Arrest();
+        //policeSquadLeader.Arrest();
+        foreach (PoliceAbilities pA in policeSquad)
+            pA.Arrest();
     }
     
     public void OnAggressiveArrestButtonClicked()
     {
         //Logic of aggressive arrest selected for police
-        policeSquadLeader.AggressiveArrest();
+        //policeSquadLeader.AggressiveArrest();
+        foreach (PoliceAbilities pA in policeSquad)
+            pA.AggressiveArrest();
     }
 
     public void OnRubberBulletsButtonClicked()
     {
         //Logic of rubber bullets selected for police
-        policeSquadLeader.UseRubberBullets();
+        //policeSquadLeader.UseRubberBullets();
+        foreach (PoliceAbilities pA in policeSquad)
+            pA.UseRubberBullets();
     }
     
     public void OnFireBulletsButtonClicked()
     {
         //Logic of rubber bullets selected for police
-        policeSquadLeader.FireBullets();
+        //policeSquadLeader.FireBullets();
+        foreach (PoliceAbilities pA in policeSquad)
+            pA.FireBullets();
     }
     public void OnSmokeGrendadeButtonClicked()
     {
         //Logic of smoke grenade selected for police
         if (!smokeGrenadeCoolDown)
         {
-            policeSquadLeader.UseSmokeGrenade();
+            //policeSquadLeader.UseSmokeGrenade();
+            foreach (PoliceAbilities pA in policeSquad)
+                pA.UseSmokeGrenade();
             smokeGrenadeCoolDown = true;
         }
     }
@@ -114,14 +136,18 @@ public class UIPoliceAbilities : MonoBehaviour
         //Logic of water cannon selected for police
         if (!waterCannonCoolDown)
         {
-            policeSquadLeader.UseWaterCannon();
+            //policeSquadLeader.UseWaterCannon();
+            foreach (PoliceAbilities pA in policeSquad)
+                pA.UseWaterCannon();
             waterCannonCoolDown = true;
         }
     }
     public void OnLethalForceButtonClicked()
     {
         //Logic of lethal force selected for police
-        policeSquadLeader.UseLethalBullets();
+        //policeSquadLeader.UseLethalBullets();
+        foreach (PoliceAbilities pA in policeSquad)
+            pA.UseLethalBullets();
     }
     
     public void OnReinforceSquadButtonClicked()
@@ -129,7 +155,12 @@ public class UIPoliceAbilities : MonoBehaviour
         //Logic of reinforce selected for police
         if (!reinforceCoolDown)
         {
-            policeSquadLeader.ReinforceSquad();
+            //policeSquadLeader.ReinforceSquad();
+            foreach (PoliceAbilities pA in policeSquad)
+            {
+                pA.ReinforceSquad();
+                break;
+            }
             reinforceCoolDown = true;
         }
     }

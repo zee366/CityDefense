@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDelay: 1
-  damageGiven: 10
+  damageGiven: 5
   explosiveForce: 5
   explosiveForceRadius: 5
 --- !u!136 &4455125288490089475

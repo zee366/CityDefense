@@ -13,6 +13,7 @@ public class PoliceAbilities : MonoBehaviour
     //rioters
     //specify class
     public TesterRioter rioterTarget;
+    public float targetRadius;
 
     //Grenade prefab
     public GameObject smokeGrenade;
@@ -48,7 +49,17 @@ public class PoliceAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Collider[] col = Physics.OverlapSphere(transform.position, targetRadius);
+
+        foreach (Collider c in col)
+        {
+            if (c.gameObject.GetComponent<TesterRioter>())
+            {
+                rioterTarget = c.gameObject.GetComponent<TesterRioter>();
+                break;
+            }
+            rioterTarget = null;
+        }
     }
 
     
@@ -63,7 +74,7 @@ public class PoliceAbilities : MonoBehaviour
         {
             infoBubble.SetFramingImage(arrestImg);
             infoBubble.Open();
-            Destroy(rioterTarget);
+            Destroy(rioterTarget.gameObject);
             infoBubble.Close();
         }
         else
@@ -84,7 +95,7 @@ public class PoliceAbilities : MonoBehaviour
         {
             infoBubble.SetFramingImage(aggressiveArrestImg);
             infoBubble.Open();
-            Destroy(rioterTarget);
+            Destroy(rioterTarget.gameObject);
             infoBubble.Close();
         }
         else
@@ -121,11 +132,11 @@ public class PoliceAbilities : MonoBehaviour
             {
                 if (!Physics.Raycast(start, direction.normalized, out hit, distance, layerMask))
                 {
-                    GameObject bullet = Instantiate(bulletSetType, transform.position, bulletSetType.transform.rotation); //TODO fix so spawn point isn't animation spawn point/prefab spawn point
-                    if(bulletSetType == bulletTypes[0])
-                        bullet.GetComponent<Animator>().Play("RubberBulletsAnimation");     //TODO so that animation is from transform.position
-                    else
-                        bullet.GetComponent<Animator>().Play("LethalBulletsAnimation");     //TODO so that animation is from transform.position
+                    //GameObject bullet = Instantiate(bulletSetType, transform.position, bulletSetType.transform.rotation); //TODO fix so spawn point isn't animation spawn point/prefab spawn point
+                    //if(bulletSetType == bulletTypes[0])
+                    //    bullet.GetComponent<Animator>().Play("RubberBulletsAnimation");     //TODO so that animation is from transform.position
+                    //else
+                    //    bullet.GetComponent<Animator>().Play("LethalBulletsAnimation");     //TODO so that animation is from transform.position
                     rioterTarget.TakeDamage(bulletDamage);
                 }
             }
@@ -172,10 +183,11 @@ public class PoliceAbilities : MonoBehaviour
         //...
 
         //logic for summoning a police squad member
-        //Create a flock object
         //spawn point is at donut shop
-        //make it join calling flock/leader in calling flock
+        //joins calling flock once they select a position
         //make sure they're not an Agent 0...
-        //make sure they avoid rioters on way to calling flock
+        //TODO? make sure they avoid rioters on way to calling flock?
+        Flock f = FindObjectOfType<Flock>();
+        f.AddAgent();
     }
 }

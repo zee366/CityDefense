@@ -1191,6 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd226f0843830a46ac146bb00cae5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  partOfFlock: 0
   navMeshAgent: {fileID: 0}
   centre: {x: 0, y: 0, z: 0}
 --- !u!54 &2655583103346243514
@@ -1244,6 +1245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rioterTarget: {fileID: 0}
+  targetRadius: 10
   smokeGrenade: {fileID: 1339690406208628, guid: 16d37ac307b43584892cb41bc081c64f,
     type: 3}
   launchForce: 4
