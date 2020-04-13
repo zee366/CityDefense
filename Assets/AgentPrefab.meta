@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/AgentPrefab.meta
 guid: df0ff8a40294bc5458c14a983ec5544d
-=======
-guid: ab51619243a3b0a4db8fa45a395c5a20
->>>>>>> Render Texture Minimap:Assets/Minimap.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
