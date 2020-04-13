@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2059949100446070995}
   - component: {fileID: 2059949100444973587}
   - component: {fileID: 4556798625527326097}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: house15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,6 @@ MonoBehaviour:
   health: 90
   destructionTime: 14
   sinkSpeed: 4
-  destructionStep: 30
   DamagedFX:
   - {fileID: 667163411707666222}
   - {fileID: 3682007011846712010}

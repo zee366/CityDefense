@@ -119,7 +119,7 @@ public class PoliceAbilities : MonoBehaviour
             float distance = direction.magnitude;
 
             //get the layermask of the rioter
-            int layerMask = 1 << 10;
+            int layerMask = 1 << 11;
 
             //invert this layermask to collide with everything, but the player
             layerMask = ~layerMask;
