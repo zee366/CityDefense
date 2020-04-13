@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class MinimapController : MonoBehaviour
 {
-    public Camera cam;
+
+    public Camera Cam;
+    public GameObject Damage_Map; 
+
     // Start is called before the first frame update
     void Start()
     {
-        // Make sure the camera is disabled in the Minimap Component prefab! Else performance will be very poor! 
-        cam.Render();     
+        InvokeRepeating("UpdateRender", 0.0f, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateRender()
     {
-        
+        Cam.Render();
     }
 }
