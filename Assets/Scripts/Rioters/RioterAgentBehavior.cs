@@ -14,7 +14,7 @@ namespace Rioters {
         void Awake() {
             _planner = new Planner<RioterHTNContext>();
             _domain = _domainDefinition.Create();
-            _context = new RioterHTNContext();
+            _context = new RioterHTNContext(this);
         }
 
 

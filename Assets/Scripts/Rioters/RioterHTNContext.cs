@@ -4,10 +4,20 @@ using FluidHTN;
 using FluidHTN.Contexts;
 using FluidHTN.Debug;
 using FluidHTN.Factory;
+using UnityEngine;
 
 namespace Rioters {
 
     public class RioterHTNContext : BaseContext {
+
+        public MonoBehaviour Agent { get; }
+
+        public Vector3 Position {
+            get { return Agent.transform.position; }
+        }
+
+        public List<Destructible> destructiblesInRange = new List<Destructible>();
+        public Destructible CurrentTarget { get; set; }
 
         public override IFactory                          Factory          { get; set; } = new DefaultFactory();
         public override List<string>                      MTRDebug         { get; set; } = null;
@@ -18,6 +28,8 @@ namespace Rioters {
 
         private         byte[] _worldState = new byte[Enum.GetValues(typeof(RiotersWorldState)).Length];
         public override byte[] WorldState => _worldState;
+
+        public RioterHTNContext(MonoBehaviour agent) { Agent = agent; }
 
         #region context blackboard manipulation
 

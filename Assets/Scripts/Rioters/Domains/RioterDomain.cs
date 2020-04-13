@@ -6,7 +6,7 @@ namespace Rioters {
     public class RioterDomain : AIDomainDefinition {
 
         public override Domain<RioterHTNContext> Create() {
-            return new DomainBuilder<RioterHTNContext>("MonTest")
+            return new DomainBuilder<RioterHTNContext>("Rioter")
                    .Select("first")
                    .Condition("Had no target", (ctx) => ctx.HasState(RiotersWorldState.HasTargetBuilding))
                    .Action("Find New building target")
