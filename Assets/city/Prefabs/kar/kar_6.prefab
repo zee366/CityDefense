@@ -370,7 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   destructionTime: 10
-  sinkSpeed: 0.12
+  sinkSpeed: 0.25
   DamagedFX:
   - {fileID: 3469135804687010485}
   - {fileID: 372924733353307760}
