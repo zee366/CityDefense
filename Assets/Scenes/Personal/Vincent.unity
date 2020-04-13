@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 553598798}
   - component: {fileID: 553598797}
   - component: {fileID: 553598802}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: RioterTester (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 2049301087}
   - component: {fileID: 2049301086}
   - component: {fileID: 2049301091}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: RioterTester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 2140679291}
   - component: {fileID: 2140679290}
   - component: {fileID: 2140679295}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: RioterTester (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
