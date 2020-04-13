@@ -94,6 +94,12 @@ public class UIPoliceAbilities : MonoBehaviour
         //Logic of rubber bullets selected for police
         policeSquadLeader.UseRubberBullets();
     }
+    
+    public void OnFireBulletsButtonClicked()
+    {
+        //Logic of rubber bullets selected for police
+        policeSquadLeader.FireBullets();
+    }
     public void OnSmokeGrendadeButtonClicked()
     {
         //Logic of smoke grenade selected for police

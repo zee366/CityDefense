@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TesterRioter : MonoBehaviour
 {
-    float health;
+    public float health;
+
     // Start is called before the first frame update
     void Start()
     {

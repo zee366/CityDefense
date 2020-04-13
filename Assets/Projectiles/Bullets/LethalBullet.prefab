@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 647124472765078783}
   - component: {fileID: 4228779324635252246}
   - component: {fileID: 6210230418905329079}
-  - component: {fileID: 7775025857596362126}
+  - component: {fileID: 1143978391105548378}
   m_Layer: 0
   m_Name: LethalBullet
   m_TagString: Untagged
@@ -79,17 +79,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &7775025857596362126
-CapsuleCollider:
+--- !u!95 &1143978391105548378
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8230775745890380023}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40002027dcc9d4944b688162c5018ac9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
