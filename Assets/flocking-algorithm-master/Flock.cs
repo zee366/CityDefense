@@ -10,6 +10,7 @@ public class Flock : MonoBehaviour
 {
     public FlockAgent agentPrefab;
     public List<FlockAgent> agents = new List<FlockAgent>();
+    List<FlockAgent> newAgents = new List<FlockAgent>();
     public FlockBehavior[] behaviors;
     public float[] weights;
 
@@ -32,6 +33,7 @@ public class Flock : MonoBehaviour
     float squareNeighborRadius;
     float squareAvoidanceRadius;
     public GameObject spawnPoint;
+    public GameObject donutSpawnPoint;
 
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
@@ -102,7 +104,8 @@ public class Flock : MonoBehaviour
             else if(!SquadisFormed()){
                 //print(agent.name + " total distance is " + agent.Distance());
                 if(agent.Distance()>avgDistance*1.5&&Time.time > .2f){
-                    agent.navMeshAgent.speed=40f;
+                    if (agent.navMeshAgent)
+                        agent.navMeshAgent.speed = 40f;
                 }
                 if(Time.time > .2f) {
                     //agent.Move(move);
@@ -110,7 +113,26 @@ public class Flock : MonoBehaviour
             }
             
         }
-        
+
+        if (newAgents.Count != 0)
+        {
+            int size = newAgents.Count;
+            for (int i = 0; i < size; i++)
+            {
+                if (newAgents[i].navMeshAgent)
+                {
+                    newAgents[i].navMeshAgent.destination = AveragePositionOfFlock();
+                    newAgents[i].navMeshAgent.speed = 40f;
+
+                    if ((newAgents[i].transform.position - newAgents[i].navMeshAgent.destination).magnitude <= 1.0f)
+                    {
+                        agents.Add(newAgents[i]);
+                        newAgents[i].Initialize(this);
+                        newAgents.Remove(newAgents[i]);
+                    }
+                }
+            }
+        }
     }
 
     private bool SquadisFormed()
@@ -162,6 +184,33 @@ public class Flock : MonoBehaviour
             }
         }
         return context;
+    }
+
+    //Function for reinforce squad from police abilities
+    public void AddAgent()
+    {
+        FlockAgent newAgent = Instantiate(
+                agentPrefab,
+                donutSpawnPoint.transform.position,
+                Quaternion.Euler(Vector3.forward),
+                transform
+                );
+        newAgent.name = "Agent " + agents.Count;
+        newAgents.Add(newAgent);
+        //agents.Add(newAgent);
+
+    }
+
+    private Vector3 AveragePositionOfFlock()
+    {
+        Vector3 avgPosition = new Vector3();
+        //foreach (FlockAgent fA in agents)
+        for(int i = 0; i < agents.Count; i++)
+        {
+            FlockAgent fA = agents[i];
+            avgPosition += fA.transform.position;
+        }
+        return avgPosition /= agents.Count;
     }
 
     void OnDrawGizmosSelected()

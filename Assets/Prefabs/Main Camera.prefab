@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d7683e84f1ecb4c81a85ca8f4e5ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OrthoOffset: {x: 0, y: 0, z: 0}
+  OrthoOffset: {x: 0, y: 0, z: -29.7}
   minHeight: 15
   maxHeight: 100
   maxHeight_epsilon: 3
-  orthoSize: 250
+  orthoSize: 197.3
   scrollStep: 30
   LookAtPlayer: 0
