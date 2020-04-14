@@ -26,8 +26,11 @@ namespace Rioters.Operators {
 
 
         private TaskStatus StartMove(RioterHTNContext c) {
-            Debug.Log("Move: Started");
-            if ( c.NavAgent.SetDestination(c.CurrentTarget.transform.position) ) {
+            if ( c.CurrentTarget == null )
+                return TaskStatus.Failure;
+
+            Vector3 closestTargetBound = c.CurrentTarget.GetComponent<Collider>().ClosestPointOnBounds(c.Position);
+            if ( c.NavAgent.SetDestination(closestTargetBound) ) {
                 c.NavAgent.isStopped = false;
                 return TaskStatus.Continue;
             }
@@ -37,8 +40,7 @@ namespace Rioters.Operators {
 
 
         private TaskStatus UpdateMove(RioterHTNContext c) {
-            if ( c.NavAgent.remainingDistance <= c.NavAgent.stoppingDistance ) {
-                Debug.Log("Move: Reached target : "+c.NavAgent.destination);
+            if ( !c.NavAgent.pathPending && c.NavAgent.remainingDistance <= c.NavAgent.radius ) {
                 c.NavAgent.isStopped = true;
                 return TaskStatus.Success;
             }

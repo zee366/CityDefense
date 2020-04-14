@@ -8,14 +8,7 @@ namespace Rioters {
 
         public override Domain<RioterHTNContext> Create() {
             return new RiotersDomainBuilder("Rioter")
-                // .Sequence("Sensing his surroundings")
-                //     .Action("Sensing")
-                //         .SetOperator(new SensingOperator())
-                //         .Effect("Sensed", EffectType.PlanAndExecute, (ctx, type) => ctx.SetState(RiotersWorldState.HasSensedSurroundings, true, type))
-                //     .End()
-                // .End()
                 .Select("Towards closest destructible, or regroup")
-                    //.Condition("Sensed", (ctx) => ctx.HasState(RiotersWorldState.HasSensedSurroundings))
                     .Sequence("To destructible")
                         .Condition("Has potential targets", (ctx) => ctx.HasState(RiotersWorldState.HasDestructiblesInRange))
                         .PrimitiveTask<FindDestructible>("Find closest target")

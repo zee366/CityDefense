@@ -22,6 +22,8 @@ public class Destructible : MonoBehaviour
 
     // Current health of the object
     private float _currentHealth;
+    private Coroutine _sinkingCoro;
+
     // The starting level of destruction (1 = not damaged)
     private float _destructionLevel = 1f;
     // The interval separating various levels of destruction
@@ -108,7 +110,8 @@ public class Destructible : MonoBehaviour
 
     // Called when health drops to 0 or less
     private void Die() {
+        if(_sinkingCoro != null) return;
 
-        StartCoroutine(Sink());
+        _sinkingCoro = StartCoroutine(Sink());
     }
 }

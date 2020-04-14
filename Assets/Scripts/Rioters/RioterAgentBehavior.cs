@@ -49,7 +49,6 @@ namespace Rioters {
             _context.destructiblesInRange.Clear();
 
             // Sense
-            Debug.DrawLine(transform.position, transform.position + Vector3.forward * _sensingRange, Color.cyan, 2f);
             int count = Physics.OverlapSphereNonAlloc(transform.position, _sensingRange, _sensedColliders);
 
             for ( int i = 0; i < count; i++ ) {
@@ -58,7 +57,6 @@ namespace Rioters {
                     _context.destructiblesInRange.Add(destructible);
             }
 
-            Debug.Log(_context.destructiblesInRange.Count);
             // Change world state
             _context.SetState(RiotersWorldState.HasDestructiblesInRange, _context.destructiblesInRange.Count > 0, EffectType.Permanent);
 

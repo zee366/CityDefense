@@ -10,13 +10,15 @@ namespace Rioters.Operators {
             if ( ctx is RioterHTNContext c ) {
                 Destructible _closest = null;
                 float _closestDist = float.PositiveInfinity;
+
                 foreach ( Destructible destructible in c.destructiblesInRange ) {
                     if ( _closest == null ) {
                         _closest = destructible;
                         continue;
                     }
 
-                    float dist = Vector3.Distance(destructible.transform.position, c.Position);
+                    Vector3 closestPoint = destructible.GetComponent<Collider>().ClosestPointOnBounds(c.Position);
+                    float dist = Vector3.Distance(closestPoint, c.Position);
                     if ( dist < _closestDist ) {
                         _closestDist = dist;
                         _closest = destructible;
