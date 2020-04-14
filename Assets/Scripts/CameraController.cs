@@ -18,12 +18,19 @@ public class CameraController : MonoBehaviour
     GameObject target; 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        target = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
+    void Start() {
+        GameObject policeFlock = GameObject.Find("PoliceFlock");
+        if(policeFlock == null)
+            Debug.LogError("Could not find GameObject by name 'PoliceFlock'. Required for this CameraController.");
+
+        target = GetChildWithName(policeFlock, "Agent 0");
 
         if (target != null)
+        {
+            float playerCamOffset = 50f; 
+            transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - playerCamOffset);
             _cameraOffset = transform.position - target.transform.position;
+        }
     }
 
     void Update()

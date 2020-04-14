@@ -9,6 +9,7 @@ public class FlockAgent : MonoBehaviour
 {
 
     Flock agentFlock;
+    public bool partOfFlock;
 
     Animator animator;
 
@@ -56,7 +57,7 @@ public class FlockAgent : MonoBehaviour
                 navMeshAgent.velocity=new Vector3();
             }
         }
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && partOfFlock) {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray,out hit)) {
                     navMeshAgent.destination=hit.point;
@@ -66,8 +67,8 @@ public class FlockAgent : MonoBehaviour
 
     public void Initialize(Flock flock)
     {
+        partOfFlock = true;
         agentFlock = flock;
-
     }
 
     public void Move(Vector3 velocity)
