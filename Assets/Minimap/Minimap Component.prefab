@@ -151,6 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2841976254042198658}
   - component: {fileID: 2841976254042198685}
+  - component: {fileID: 1568292683}
   m_Layer: 0
   m_Name: Minimap Camera
   m_TagString: Untagged
@@ -166,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2841976254042198687}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -883.1, y: -368.5, z: -27.3}
+  m_LocalPosition: {x: -883.1, y: -54.7, z: -27.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1780378946381214124}
@@ -200,21 +201,41 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 188.21
-  m_Depth: 0
+  m_Depth: -100
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1847
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 3b98cb4fb6a03ed4e9a1351b3a4284ef, type: 2}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1568292683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2841976254042198687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 0
+  m_RequiresDepthTextureOption: 0
+  m_RequiresOpaqueTextureOption: 0
+  m_RendererOverrideOption: 0
+  m_RendererData: {fileID: 11400000, guid: 235f1db4a065e924cac63418ff6b048a, type: 2}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &6736229544593712471
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +286,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152a64177b417c14eb4503b61298bfbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
+  Cam: {fileID: 2841976254042198685}
   Damage_Map: {fileID: 0}
-  period: 1
