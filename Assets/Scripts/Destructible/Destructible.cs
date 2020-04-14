@@ -104,4 +104,9 @@ public class Destructible : MonoBehaviour
     private void Die() {
         StartCoroutine(Sink());
     }
+
+    public float GetCurrentHealth()
+    {
+        return _currentHealth; 
+    }
 }
