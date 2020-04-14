@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/ExampleAssets.meta
-guid: 990f5c2df70993f4987a388ca178996a
-=======
-guid: ab51619243a3b0a4db8fa45a395c5a20
->>>>>>> Render Texture Minimap:Assets/Minimap.meta
+guid: 6bc1a9635d30d6347ab92ea3153b24c6
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

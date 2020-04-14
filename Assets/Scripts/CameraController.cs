@@ -33,6 +33,19 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    private void DisableMinimap(bool disable)
+    {
+        GameObject policeFlock = GameObject.Find("Canvas");
+        GameObject target = GetChildWithName(policeFlock, "Minimap Component");
+        if (disable)
+        {
+            target.SetActive(false);
+            return;
+        }
+        target.SetActive(true);
+
+    }
+
     void Update()
     {
 
@@ -69,6 +82,7 @@ public class CameraController : MonoBehaviour
         if (Camera.main.transform.position.y >= maxHeight)
         {
             LookAtPlayer = false;
+            DisableMinimap(true);
             Camera.main.orthographic = true;
             Camera.main.transform.position = new Vector3(OrthoOffset.x, maxHeight, OrthoOffset.z);
             Camera.main.transform.localRotation = strategicViewOrientation;
@@ -79,6 +93,7 @@ public class CameraController : MonoBehaviour
         if (Camera.main.transform.position.y < maxHeight)
         {
             LookAtPlayer = true;
+            DisableMinimap(false);
             Camera.main.transform.localRotation = squadViewOrientation;
             Camera.main.orthographic = false;
 
