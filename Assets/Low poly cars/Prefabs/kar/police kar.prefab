@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8319256654757794707}
   - component: {fileID: 8319256654758924627}
   - component: {fileID: 4041076255398854079}
+  - component: {fileID: -3073973065698152820}
   m_Layer: 0
   m_Name: police kar
   m_TagString: Untagged
@@ -116,6 +117,19 @@ MonoBehaviour:
   - {fileID: 649107965880426038}
   - {fileID: 3871426394241106305}
   DeathFX: {fileID: 6354822732192782134}
+--- !u!65 &-3073973065698152820
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8319256654756925331}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0137331, y: 1.2351667, z: 5.1099243}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8319256654756925337
 GameObject:
   m_ObjectHideFlags: 0

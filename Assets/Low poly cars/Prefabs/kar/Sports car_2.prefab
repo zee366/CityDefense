@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 304231572940925658}
   - component: {fileID: 304231572939958298}
   - component: {fileID: 1098620039990413122}
+  - component: {fileID: -8206085351783580869}
   m_Layer: 0
   m_Name: Sports car_2
   m_TagString: Untagged
@@ -434,6 +435,19 @@ MonoBehaviour:
   - {fileID: 5121097698327933101}
   - {fileID: 7831322082793846992}
   DeathFX: {fileID: 9357569035200682}
+--- !u!65 &-8206085351783580869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304231572941960922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1001931, z: 4.76619}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3715494363341085490
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1969276471201837351}
   - component: {fileID: 1969276471202837479}
   - component: {fileID: 118713455060229543}
+  - component: {fileID: -6739842837444708694}
   m_Layer: 0
   m_Name: truck_1
   m_TagString: Untagged
@@ -115,6 +116,19 @@ MonoBehaviour:
   - {fileID: 2554339180468375494}
   - {fileID: 6890958243433419515}
   DeathFX: {fileID: 8914752217076501652}
+--- !u!65 &-6739842837444708694
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969276471205096743}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.7604619, z: 5.7583733}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1969276471205096745
 GameObject:
   m_ObjectHideFlags: 0

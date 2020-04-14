@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3235774943317066598}
   - component: {fileID: 3235774943318196646}
   - component: {fileID: 683920101158713130}
+  - component: {fileID: 5342770252917036044}
   m_Layer: 0
   m_Name: vintage car1
   m_TagString: Untagged
@@ -115,6 +116,19 @@ MonoBehaviour:
   - {fileID: 2790617325882732680}
   - {fileID: 4360732762237795755}
   DeathFX: {fileID: 6556652300773748371}
+--- !u!65 &5342770252917036044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235774943320203110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1972858, z: 5.079439}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3235774943320203112
 GameObject:
   m_ObjectHideFlags: 0

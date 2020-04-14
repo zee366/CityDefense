@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 4039818065362744982}
   - component: {fileID: 4039818065363842134}
   - component: {fileID: 1461692318419284834}
+  - component: {fileID: 4223698460633456418}
   m_Layer: 0
   m_Name: car of the future_2
   m_TagString: Untagged
@@ -354,6 +355,19 @@ MonoBehaviour:
   - {fileID: 6243080945420803491}
   - {fileID: 5937804973525386181}
   DeathFX: {fileID: 5934704720598769249}
+--- !u!65 &4223698460633456418
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4039818065361578646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1873837, z: 3.8297362}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4039818065361578654
 GameObject:
   m_ObjectHideFlags: 0

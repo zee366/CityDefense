@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6765773463700139425}
   - component: {fileID: 2575463383384141197}
+  - component: {fileID: -1041029442102095}
   m_Layer: 0
   m_Name: kar_l_2
   m_TagString: Untagged
@@ -60,6 +61,19 @@ MonoBehaviour:
   - {fileID: 6194389278538414175}
   - {fileID: 3505914480790958419}
   DeathFX: {fileID: 3602207086798220817}
+--- !u!65 &-1041029442102095
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6765773463700107649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6765773463700107651
 GameObject:
   m_ObjectHideFlags: 0

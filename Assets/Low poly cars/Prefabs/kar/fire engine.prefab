@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 6561546721805285849}
   - component: {fileID: 6561546721804188441}
   - component: {fileID: 4445942451630676874}
+  - component: {fileID: 3963060100080221066}
   m_Layer: 0
   m_Name: fire engine
   m_TagString: Untagged
@@ -435,6 +436,19 @@ MonoBehaviour:
   - {fileID: 1331170300567662256}
   - {fileID: 1685926907478392115}
   DeathFX: {fileID: 2791951580684439441}
+--- !u!65 &3963060100080221066
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561546721806443993}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.841302, y: 2.1947513, z: 5.0451016}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2005842855661570345
 PrefabInstance:
   m_ObjectHideFlags: 0

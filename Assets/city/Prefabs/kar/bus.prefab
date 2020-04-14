@@ -247,6 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8967502748195884598}
   - component: {fileID: 5300786890215685177}
+  - component: {fileID: 167895357060341924}
   m_Layer: 0
   m_Name: bus
   m_TagString: Untagged
@@ -297,6 +298,19 @@ MonoBehaviour:
   - {fileID: 8880107423420303016}
   - {fileID: 3192486677782731662}
   DeathFX: {fileID: 7539230384197317086}
+--- !u!65 &167895357060341924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8967502748195590678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8967502748195590684
 GameObject:
   m_ObjectHideFlags: 0

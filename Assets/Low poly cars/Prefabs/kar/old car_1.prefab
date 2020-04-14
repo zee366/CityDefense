@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 1440465381776609212}
   - component: {fileID: 1440465381777706364}
   - component: {fileID: 5805931115709955283}
+  - component: {fileID: 6492711098523350575}
   m_Layer: 0
   m_Name: old car_1
   m_TagString: Untagged
@@ -434,6 +435,19 @@ MonoBehaviour:
   - {fileID: 3032283748912739828}
   - {fileID: 3305818115369257153}
   DeathFX: {fileID: 7904849079845211263}
+--- !u!65 &6492711098523350575
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440465381779641276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1108516, z: 4.761872}
+  m_Center: {x: 0, y: 0.005329221, z: 0}
 --- !u!1001 &1191640081410887289
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2607143741348891008}
   - component: {fileID: 2607143741347760960}
   - component: {fileID: 167803399184639832}
+  - component: {fileID: -7682481042392115489}
   m_Layer: 0
   m_Name: Taxi_2
   m_TagString: Untagged
@@ -115,6 +116,19 @@ MonoBehaviour:
   - {fileID: 5833499361948900905}
   - {fileID: 7556920708614886826}
   DeathFX: {fileID: 3275701023242194715}
+--- !u!65 &-7682481042392115489
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2607143741345502592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1808717, z: 3.7940295}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2607143741345502600
 GameObject:
   m_ObjectHideFlags: 0

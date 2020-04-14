@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1284159862449270912}
   - component: {fileID: 1284159862448271936}
   - component: {fileID: 1900158910956967377}
+  - component: {fileID: -7282765760854209283}
   m_Layer: 0
   m_Name: pickup_1
   m_TagString: Untagged
@@ -115,6 +116,19 @@ MonoBehaviour:
   - {fileID: 861194045948593984}
   - {fileID: 7819355482150108428}
   DeathFX: {fileID: 3659726943630314542}
+--- !u!65 &-7282765760854209283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284159862450269312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.562088, y: 1.0257177, z: 3.6709838}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1284159862450269320
 GameObject:
   m_ObjectHideFlags: 0

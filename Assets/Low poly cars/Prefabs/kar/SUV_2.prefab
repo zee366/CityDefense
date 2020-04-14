@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4928484580288701441}
   - component: {fileID: 4928484580287604417}
   - component: {fileID: 3692114344418560629}
+  - component: {fileID: -4203308007426443193}
   m_Layer: 0
   m_Name: SUV_2
   m_TagString: Untagged
@@ -114,6 +115,19 @@ MonoBehaviour:
   - {fileID: 1025880140897373488}
   - {fileID: 4527034813544731490}
   DeathFX: {fileID: 7711199793072580021}
+--- !u!65 &-4203308007426443193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928484580289869825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.137276, z: 3.6919472}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4928484580289869833
 GameObject:
   m_ObjectHideFlags: 0

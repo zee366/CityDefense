@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7991604998372573025}
   - component: {fileID: 7991604998371474849}
   - component: {fileID: 1336950398269402052}
+  - component: {fileID: -2126850843199838782}
   m_Layer: 0
   m_Name: limousine
   m_TagString: Untagged
@@ -114,6 +115,19 @@ MonoBehaviour:
   - {fileID: 5859179584719238646}
   - {fileID: 9018680195846350040}
   DeathFX: {fileID: 4430327883811657875}
+--- !u!65 &-2126850843199838782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7991604998369207137}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1251571, z: 6.115224}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7991604998369207145
 GameObject:
   m_ObjectHideFlags: 0
