@@ -26,8 +26,9 @@ namespace Rioters.Operators {
 
 
         private TaskStatus StartMove(RioterHTNContext c) {
-            c.NavAgent.isStopped = false;
+            Debug.Log("Move: Started");
             if ( c.NavAgent.SetDestination(c.CurrentTarget.transform.position) ) {
+                c.NavAgent.isStopped = false;
                 return TaskStatus.Continue;
             }
 
@@ -37,6 +38,7 @@ namespace Rioters.Operators {
 
         private TaskStatus UpdateMove(RioterHTNContext c) {
             if ( c.NavAgent.remainingDistance <= c.NavAgent.stoppingDistance ) {
+                Debug.Log("Move: Reached target : "+c.NavAgent.destination);
                 c.NavAgent.isStopped = true;
                 return TaskStatus.Success;
             }

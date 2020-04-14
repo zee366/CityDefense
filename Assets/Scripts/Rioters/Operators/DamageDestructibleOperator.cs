@@ -8,12 +8,12 @@ namespace Rioters.Operators {
             if ( ctx is RioterHTNContext c ) {
 
                 // TODO: Get attack damage from context
-                c.CurrentTarget.TakeDamage(1f);
+                c.CurrentTarget.TakeDamage(0.3f);
 
                 // TODO: Play animation here
 
                 // Check if totally destroyed
-                if ( c.CurrentTarget.health <= 0 ) {
+                if ( c.CurrentTarget.IsDead ) {
                     return TaskStatus.Success;
                 }
 

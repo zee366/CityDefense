@@ -8,25 +8,24 @@ using UnityEngine;
 using UnityEngine.AI;
 
 namespace Rioters {
-
     public class RioterHTNContext : BaseContext {
 
-        public MonoBehaviour Agent { get; }
-        public NavMeshAgent NavAgent { get; set; }
+        public MonoBehaviour Agent    { get; }
+        public NavMeshAgent  NavAgent { get; set; }
 
         public Vector3 Position {
             get { return Agent.transform.position; }
         }
 
         public List<Destructible> destructiblesInRange = new List<Destructible>();
-        public Destructible CurrentTarget { get; set; }
+        public Destructible       CurrentTarget { get; set; }
 
         public override IFactory                          Factory          { get; set; } = new DefaultFactory();
         public override List<string>                      MTRDebug         { get; set; } = null;
         public override List<string>                      LastMTRDebug     { get; set; } = null;
         public override bool                              DebugMTR         { get; }      = false;
         public override Queue<IBaseDecompositionLogEntry> DecompositionLog { get; set; } = null;
-        public override bool                              LogDecomposition { get; }      = false;
+        public override bool                              LogDecomposition { get; }      = true;
 
         private         byte[] _worldState = new byte[Enum.GetValues(typeof(RiotersWorldState)).Length];
         public override byte[] WorldState => _worldState;

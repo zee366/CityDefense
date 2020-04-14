@@ -1,5 +1,6 @@
 using FluidHTN;
 using FluidHTN.Factory;
+using FluidHTN.Operators;
 using FluidHTN.PrimitiveTasks;
 using Rioters.Conditions;
 using Rioters.Effects;
@@ -64,13 +65,22 @@ namespace Rioters {
         }
 
 
+        public RiotersDomainBuilder SetOperator(IOperator op) {
+            if ( Pointer is IPrimitiveTask task ) {
+                task.SetOperator(op);
+            }
+
+            return this;
+        }
+
+
         public RiotersDomainBuilder MoveToDestructible() {
             Action("Move to building");
             if ( Pointer is IPrimitiveTask task ) {
                 task.SetOperator(new MoveToDestructibleOperator());
             }
 
-            SetState(RiotersWorldState.TargetInRange, EffectType.PlanAndExecute);
+            SetState(RiotersWorldState.TargetInAttackRange, EffectType.PlanAndExecute);
             End();
             return this;
         }
