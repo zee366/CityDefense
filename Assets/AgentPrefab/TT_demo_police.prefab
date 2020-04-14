@@ -1121,12 +1121,8 @@ GameObject:
   - component: {fileID: 8337970867724791999}
   - component: {fileID: 2655583103346243514}
   - component: {fileID: -5091373100132121274}
-<<<<<<< HEAD
   - component: {fileID: -2173794855750037054}
-  m_Layer: 0
-=======
   m_Layer: 10
->>>>>>> develop
   m_Name: TT_demo_police
   m_TagString: Untagged
   m_Icon: {fileID: 0}
