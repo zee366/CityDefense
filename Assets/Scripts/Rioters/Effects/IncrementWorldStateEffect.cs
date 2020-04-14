@@ -6,11 +6,11 @@ namespace Rioters.Effects {
 
         public string       Name  { get; }
         public EffectType   Type  { get; }
-        public AIWorldState State { get; }
+        public RiotersWorldState State { get; }
         public byte         Value { get; }
 
 
-        public IncrementWorldStateEffect(AIWorldState state, EffectType type) {
+        public IncrementWorldStateEffect(RiotersWorldState state, EffectType type) {
             Name  = $"IncrementState({state})";
             Type  = type;
             State = state;
@@ -18,7 +18,7 @@ namespace Rioters.Effects {
         }
 
 
-        public IncrementWorldStateEffect(AIWorldState state, byte value, EffectType type) {
+        public IncrementWorldStateEffect(RiotersWorldState state, byte value, EffectType type) {
             Name  = $"IncrementState({state})";
             Type  = type;
             State = state;
@@ -27,7 +27,7 @@ namespace Rioters.Effects {
 
 
         public void Apply(IContext ctx) {
-            if ( ctx is AIContext c ) {
+            if ( ctx is RioterHTNContext c ) {
                 var currentValue = c.GetState(State);
                 c.SetState(State, (byte) (currentValue + Value), Type);
                 if ( ctx.LogDecomposition )
