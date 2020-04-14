@@ -35,8 +35,8 @@ public class CameraController : MonoBehaviour
 
     private void DisableMinimap(bool disable)
     {
-        GameObject policeFlock = GameObject.Find("Canvas");
-        GameObject target = GetChildWithName(policeFlock, "Minimap Component");
+        GameObject canvas = GameObject.Find("Canvas");
+        GameObject target = GetChildWithName(canvas, "Minimap Component");
         if (disable)
         {
             target.SetActive(false);
