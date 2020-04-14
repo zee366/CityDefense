@@ -5,12 +5,14 @@ using FluidHTN.Contexts;
 using FluidHTN.Debug;
 using FluidHTN.Factory;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Rioters {
 
     public class RioterHTNContext : BaseContext {
 
         public MonoBehaviour Agent { get; }
+        public NavMeshAgent NavAgent { get; set; }
 
         public Vector3 Position {
             get { return Agent.transform.position; }

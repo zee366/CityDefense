@@ -1,7 +1,8 @@
 namespace Rioters {
     public enum RiotersWorldState : byte {
 
-        HasTargetBuilding,
+        FoundTargetDestructible,
+        TargetInRange
 
     }
 }

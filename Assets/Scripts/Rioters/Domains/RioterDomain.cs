@@ -6,20 +6,21 @@ namespace Rioters {
     public class RioterDomain : AIDomainDefinition {
 
         public override Domain<RioterHTNContext> Create() {
-            return new DomainBuilder<RioterHTNContext>("Rioter")
-                   .Select("first")
-                   .Condition("Had no target", (ctx) => ctx.HasState(RiotersWorldState.HasTargetBuilding))
-                   .Action("Find New building target")
-                   .Do((ctx) => {
-                       Debug.Log("Finding new building");
-                       return TaskStatus.Success;
-                   })
-                   .Effect("Set target here",
-                           EffectType.PlanAndExecute,
-                           (ctx, type) => { ctx.SetState(RiotersWorldState.HasTargetBuilding, true, type); })
-                   .End()
-                   .End()
-                   .Build();
+            return new RiotersDomainBuilder("Rioter")
+                .Sequence("Find destructible target")
+                    .PrimitiveTask<FindDestructible>("Find target")
+                        .Condition("Has no target", (ctx) => !ctx.HasState(RiotersWorldState.FoundTargetDestructible))
+                        .Effect("Set target here", EffectType.PlanAndExecute,
+                                   (ctx, type) => { ctx.SetState(RiotersWorldState.FoundTargetDestructible, true, type); })
+                    .End()
+                    .MoveToDestructible()
+                    .End()
+                    .PrimitiveTask<DamageDestructible>("Deal damage to target")
+                        .Condition("At target", (ctx) => ctx.HasState(RiotersWorldState.TargetInRange))
+                        .Effect("Dealt damage", EffectType.PlanAndExecute, (ctx, type) => { })
+                    .End()
+                .End()
+                .Build();
         }
 
     }

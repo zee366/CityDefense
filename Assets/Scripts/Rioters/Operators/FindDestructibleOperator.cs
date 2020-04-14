@@ -4,7 +4,7 @@ using FluidHTN.Operators;
 using UnityEngine;
 
 namespace Rioters.Operators {
-    public class FindDestructible : IOperator {
+    public class FindDestructibleOperator : IOperator {
 
         public TaskStatus Update(IContext ctx) {
             if ( ctx is RioterHTNContext c ) {
