@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 5290127257308548011}
   - component: {fileID: 5290127257307548011}
   - component: {fileID: 7089897863210496364}
+  - component: {fileID: -571887225114916975}
   m_Layer: 0
   m_Name: Ambulance_2
   m_TagString: Untagged
@@ -278,6 +279,19 @@ MonoBehaviour:
   - {fileID: 6373505113900470813}
   - {fileID: 2787462740605842008}
   DeathFX: {fileID: 3787544363767102542}
+--- !u!65 &-571887225114916975
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290127257305552811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.8971945, z: 5.4861774}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5290127257305552813
 GameObject:
   m_ObjectHideFlags: 0

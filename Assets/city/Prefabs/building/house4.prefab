@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5940546928266727196}
   - component: {fileID: 5940546928267824604}
   - component: {fileID: 5052707947969706043}
+  - component: {fileID: -1444935629470995933}
   m_Layer: 9
   m_Name: house4
   m_TagString: Untagged
@@ -116,6 +117,19 @@ MonoBehaviour:
   - {fileID: 1494996649505163488}
   - {fileID: 3153860323940111229}
   DeathFX: {fileID: 3389895609540156294}
+--- !u!65 &-1444935629470995933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940546928265892636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.283413, y: 12.188343, z: 27.379417}
+  m_Center: {x: 1.2966399, y: 3.7771225, z: 13.548443}
 --- !u!1001 &1095371690034487012
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4945269027430346353}
   - component: {fileID: 4945269027429379249}
   - component: {fileID: 572910976179760802}
+  - component: {fileID: -5302161263259013247}
   m_Layer: 0
   m_Name: catafalque_2
   m_TagString: Untagged
@@ -116,6 +117,19 @@ MonoBehaviour:
   - {fileID: 1035971315524230407}
   - {fileID: 5797094338362364174}
   DeathFX: {fileID: 7981724761109130152}
+--- !u!65 &-5302161263259013247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4945269027427185265}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1289825, z: 5.1256795}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4945269027427185267
 GameObject:
   m_ObjectHideFlags: 0
