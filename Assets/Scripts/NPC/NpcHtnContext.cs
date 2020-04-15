@@ -17,6 +17,8 @@ namespace Rioters {
             get { return Agent.transform.position; }
         }
 
+        public float DPS { get; set; }
+
         public List<Transform> policesInRange = new List<Transform>();
         public Transform ClosestPolice { get; set; }
 

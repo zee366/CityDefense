@@ -1,5 +1,6 @@
 using FluidHTN;
 using FluidHTN.Operators;
+using UnityEngine;
 
 namespace Rioters.Operators {
     public class DamageDestructibleOperator : IOperator {
@@ -7,8 +8,7 @@ namespace Rioters.Operators {
         public TaskStatus Update(IContext ctx) {
             if ( ctx is NpcHtnContext c ) {
 
-                // TODO: Get attack damage from context
-                c.CurrentTarget.TakeDamage(0.3f);
+                c.CurrentTarget.TakeDamage(Time.deltaTime * c.DPS);
 
                 // TODO: Play animation here
 

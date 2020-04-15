@@ -16,6 +16,9 @@ namespace Rioters {
         [SerializeField]
         private float _sensingRange = 10f;
 
+        [SerializeField]
+        private float _damagePerSecond = 2f;
+
         private Planner<NpcHtnContext> _planner;
         private Domain<NpcHtnContext>  _domain;
         private NpcHtnContext          _context;
@@ -31,6 +34,7 @@ namespace Rioters {
             _context                    = new NpcHtnContext(this);
             _context.NavAgent           = GetComponent<NavMeshAgent>();
             _context.NavAgent.isStopped = true;
+            _context.DPS                = _damagePerSecond;
             _context.Init();
         }
 

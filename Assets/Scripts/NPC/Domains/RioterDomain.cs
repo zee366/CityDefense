@@ -7,7 +7,8 @@ namespace Rioters {
 
         public override Domain<NpcHtnContext> Create() {
             return new NpcDomainBuilder("Rioter")
-                .Select("Receive Damage")    // TODO
+                // High priority first
+                .Select("Receive Effect from police actions (Damage, Stun, wtv)")    // TODO
                 .End()
                 .Select("Police close & enough stamina, flee!")
                     .HasState(NpcWorldState.PoliceInRange)
@@ -19,8 +20,8 @@ namespace Rioters {
                     .End()
                 .End()
                 .Select("Towards closest destructible, or regroup")
-                    .HasStateGreaterThan(NpcWorldState.StaminaLevel, 1)    // Need at least a basic level of stamina
                     .Sequence("To destructible")
+                        .HasStateGreaterThan(NpcWorldState.StaminaLevel, 1) // Need at least a basic level of stamina
                         .Condition("Has potential targets", (ctx) => ctx.HasState(NpcWorldState.HasDestructiblesInRange))
                         .PrimitiveTask<FindDestructible>("Find closest target").End()
                         .MoveToDestructible()    // Self contained Task
