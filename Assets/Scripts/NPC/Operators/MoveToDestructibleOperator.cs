@@ -6,7 +6,7 @@ namespace Rioters.Operators {
     public class MoveToDestructibleOperator : IOperator {
 
         public TaskStatus Update(IContext ctx) {
-            if ( ctx is RioterHTNContext c ) {
+            if ( ctx is NpcHtnContext c ) {
                 if ( c.NavAgent.isStopped ) {
                     return StartMove(c);
                 } else {
@@ -19,13 +19,13 @@ namespace Rioters.Operators {
 
 
         public void Stop(IContext ctx) {
-            if ( ctx is RioterHTNContext c ) {
+            if ( ctx is NpcHtnContext c ) {
                 c.NavAgent.isStopped = true;
             }
         }
 
 
-        private TaskStatus StartMove(RioterHTNContext c) {
+        private TaskStatus StartMove(NpcHtnContext c) {
             if ( c.CurrentTarget == null )
                 return TaskStatus.Failure;
 
@@ -39,7 +39,7 @@ namespace Rioters.Operators {
         }
 
 
-        private TaskStatus UpdateMove(RioterHTNContext c) {
+        private TaskStatus UpdateMove(NpcHtnContext c) {
             if ( !c.NavAgent.pathPending && c.NavAgent.remainingDistance <= c.NavAgent.radius ) {
                 c.NavAgent.isStopped = true;
                 return TaskStatus.Success;

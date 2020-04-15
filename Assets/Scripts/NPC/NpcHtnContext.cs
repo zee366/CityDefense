@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 namespace Rioters {
-    public class RioterHTNContext : BaseContext {
+    public class NpcHtnContext : BaseContext {
 
         public MonoBehaviour Agent    { get; }
         public NavMeshAgent  NavAgent { get; set; }
@@ -27,24 +27,24 @@ namespace Rioters {
         public override Queue<IBaseDecompositionLogEntry> DecompositionLog { get; set; } = null;
         public override bool                              LogDecomposition { get; }      = true;
 
-        private         byte[] _worldState = new byte[Enum.GetValues(typeof(RiotersWorldState)).Length];
+        private         byte[] _worldState = new byte[Enum.GetValues(typeof(NpcWorldState)).Length];
         public override byte[] WorldState => _worldState;
 
-        public RioterHTNContext(MonoBehaviour agent) { Agent = agent; }
+        public NpcHtnContext(MonoBehaviour agent) { Agent = agent; }
 
         #region context blackboard manipulation
 
-        public bool HasState(RiotersWorldState state, bool value) { return HasState((int) state, (byte) (value ? 1 : 0)); }
+        public bool HasState(NpcWorldState state, bool value) { return HasState((int) state, (byte) (value ? 1 : 0)); }
 
-        public bool HasState(RiotersWorldState state, byte value) { return HasState((int) state, value); }
+        public bool HasState(NpcWorldState state, byte value) { return HasState((int) state, value); }
 
-        public bool HasState(RiotersWorldState state) { return HasState((int) state, 1); }
+        public bool HasState(NpcWorldState state) { return HasState((int) state, 1); }
 
-        public void SetState(RiotersWorldState state, bool value, EffectType type) { SetState((int) state, (byte) (value ? 1 : 0), true, type); }
+        public void SetState(NpcWorldState state, bool value, EffectType type) { SetState((int) state, (byte) (value ? 1 : 0), true, type); }
 
-        public void SetState(RiotersWorldState state, byte value, EffectType type) { SetState((int) state, value, true, type); }
+        public void SetState(NpcWorldState state, byte value, EffectType type) { SetState((int) state, value, true, type); }
 
-        public byte GetState(RiotersWorldState state) { return GetState((int) state); }
+        public byte GetState(NpcWorldState state) { return GetState((int) state); }
 
         #endregion
 

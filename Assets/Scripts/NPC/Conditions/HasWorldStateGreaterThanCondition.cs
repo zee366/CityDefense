@@ -6,11 +6,11 @@ namespace Rioters.Conditions {
     public class HasWorldStateGreaterThanCondition : ICondition {
 
         public string       Name  { get; }
-        public RiotersWorldState State { get; }
+        public NpcWorldState State { get; }
         public byte         Value { get; }
 
 
-        public HasWorldStateGreaterThanCondition(RiotersWorldState state, byte value) {
+        public HasWorldStateGreaterThanCondition(NpcWorldState state, byte value) {
             Name  = $"HasStateGreaterThan({state})";
             State = state;
             Value = value;
@@ -18,7 +18,7 @@ namespace Rioters.Conditions {
 
 
         public bool IsValid(IContext ctx) {
-            if ( ctx is RioterHTNContext c ) {
+            if ( ctx is NpcHtnContext c ) {
                 var currentValue = c.GetState(State);
                 var result       = currentValue > Value;
                 if ( ctx.LogDecomposition )

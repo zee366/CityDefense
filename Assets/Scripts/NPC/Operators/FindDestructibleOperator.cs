@@ -7,7 +7,7 @@ namespace Rioters.Operators {
     public class FindDestructibleOperator : IOperator {
 
         public TaskStatus Update(IContext ctx) {
-            if ( ctx is RioterHTNContext c ) {
+            if ( ctx is NpcHtnContext c ) {
                 Destructible _closest = null;
                 float _closestDist = float.PositiveInfinity;
 

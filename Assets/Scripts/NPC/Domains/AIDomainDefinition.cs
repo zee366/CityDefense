@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Rioters {
     public abstract class AIDomainDefinition : ScriptableObject {
 
-        public abstract Domain<RioterHTNContext> Create();
+        public abstract Domain<NpcHtnContext> Create();
 
     }
 }

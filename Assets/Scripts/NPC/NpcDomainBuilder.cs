@@ -7,35 +7,35 @@ using Rioters.Effects;
 using Rioters.Operators;
 
 namespace Rioters {
-    public class RiotersDomainBuilder : BaseDomainBuilder<RiotersDomainBuilder, RioterHTNContext> {
+    public class NpcDomainBuilder : BaseDomainBuilder<NpcDomainBuilder, NpcHtnContext> {
 
-        public RiotersDomainBuilder(string domainName) : base(domainName, new DefaultFactory()) { }
+        public NpcDomainBuilder(string domainName) : base(domainName, new DefaultFactory()) { }
 
-        public RiotersDomainBuilder(string domainName, IFactory factory) : base(domainName, factory) { }
+        public NpcDomainBuilder(string domainName, IFactory factory) : base(domainName, factory) { }
 
 
-        public RiotersDomainBuilder HasState(RiotersWorldState state) {
+        public NpcDomainBuilder HasState(NpcWorldState state) {
             var condition = new HasWorldStateCondition(state);
             Pointer.AddCondition(condition);
             return this;
         }
 
 
-        public RiotersDomainBuilder HasState(RiotersWorldState state, byte value) {
+        public NpcDomainBuilder HasState(NpcWorldState state, byte value) {
             var condition = new HasWorldStateCondition(state, value);
             Pointer.AddCondition(condition);
             return this;
         }
 
 
-        public RiotersDomainBuilder HasStateGreaterThan(RiotersWorldState state, byte value) {
+        public NpcDomainBuilder HasStateGreaterThan(NpcWorldState state, byte value) {
             var condition = new HasWorldStateGreaterThanCondition(state, value);
             Pointer.AddCondition(condition);
             return this;
         }
 
 
-        public RiotersDomainBuilder SetState(RiotersWorldState state, EffectType type) {
+        public NpcDomainBuilder SetState(NpcWorldState state, EffectType type) {
             if ( Pointer is IPrimitiveTask task ) {
                 var effect = new SetWorldStateEffect(state, type);
                 task.AddEffect(effect);
@@ -45,7 +45,7 @@ namespace Rioters {
         }
 
 
-        public RiotersDomainBuilder SetState(RiotersWorldState state, bool value, EffectType type) {
+        public NpcDomainBuilder SetState(NpcWorldState state, bool value, EffectType type) {
             if ( Pointer is IPrimitiveTask task ) {
                 var effect = new SetWorldStateEffect(state, value, type);
                 task.AddEffect(effect);
@@ -55,7 +55,7 @@ namespace Rioters {
         }
 
 
-        public RiotersDomainBuilder SetState(RiotersWorldState state, byte value, EffectType type) {
+        public NpcDomainBuilder SetState(NpcWorldState state, byte value, EffectType type) {
             if ( Pointer is IPrimitiveTask task ) {
                 var effect = new SetWorldStateEffect(state, value, type);
                 task.AddEffect(effect);
@@ -65,7 +65,7 @@ namespace Rioters {
         }
 
 
-        public RiotersDomainBuilder SetOperator(IOperator op) {
+        public NpcDomainBuilder SetOperator(IOperator op) {
             if ( Pointer is IPrimitiveTask task ) {
                 task.SetOperator(op);
             }
@@ -74,13 +74,24 @@ namespace Rioters {
         }
 
 
-        public RiotersDomainBuilder MoveToDestructible() {
+        public NpcDomainBuilder MoveToDestructible() {
             Action("Move to building");
             if ( Pointer is IPrimitiveTask task ) {
                 task.SetOperator(new MoveToDestructibleOperator());
             }
 
-            SetState(RiotersWorldState.TargetInAttackRange, EffectType.PlanAndExecute);
+            SetState(NpcWorldState.TargetInAttackRange, EffectType.PlanAndExecute);
+            End();
+            return this;
+        }
+
+
+        public NpcDomainBuilder Flee(NpcType type) {
+            Action("Flee from Npc type: "+type);
+            if ( Pointer is IPrimitiveTask task ) {
+                // task.SetOperator(new MoveToDestructibleOperator());
+            }
+
             End();
             return this;
         }

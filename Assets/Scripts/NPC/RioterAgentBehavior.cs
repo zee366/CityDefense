@@ -16,19 +16,19 @@ namespace Rioters {
         [SerializeField]
         private float _sensingRange = 10f;
 
-        private Planner<RioterHTNContext> _planner;
-        private Domain<RioterHTNContext>  _domain;
-        private RioterHTNContext          _context;
-        private float                     _currentSensingTimer;
-        private Collider[]                _sensedColliders = new Collider[128];
+        private Planner<NpcHtnContext> _planner;
+        private Domain<NpcHtnContext>  _domain;
+        private NpcHtnContext          _context;
+        private float                  _currentSensingTimer;
+        private Collider[]             _sensedColliders = new Collider[128];
 
 
         void Awake() {
             _currentSensingTimer = _sensingInterval;
-            _planner             = new Planner<RioterHTNContext>();
+            _planner             = new Planner<NpcHtnContext>();
             _domain              = _domainDefinition.Create();
 
-            _context                    = new RioterHTNContext(this);
+            _context                    = new NpcHtnContext(this);
             _context.NavAgent           = GetComponent<NavMeshAgent>();
             _context.NavAgent.isStopped = true;
             _context.Init();
@@ -58,7 +58,7 @@ namespace Rioters {
             }
 
             // Change world state
-            _context.SetState(RiotersWorldState.HasDestructiblesInRange, _context.destructiblesInRange.Count > 0, EffectType.Permanent);
+            _context.SetState(NpcWorldState.HasDestructiblesInRange, _context.destructiblesInRange.Count > 0, EffectType.Permanent);
 
             _currentSensingTimer = 0;
         }

@@ -5,7 +5,7 @@ namespace Rioters.Operators {
     public class DamageDestructibleOperator : IOperator {
 
         public TaskStatus Update(IContext ctx) {
-            if ( ctx is RioterHTNContext c ) {
+            if ( ctx is NpcHtnContext c ) {
 
                 // TODO: Get attack damage from context
                 c.CurrentTarget.TakeDamage(0.3f);

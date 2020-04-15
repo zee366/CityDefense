@@ -6,11 +6,11 @@ namespace Rioters.Effects {
 
         public string       Name  { get; }
         public EffectType   Type  { get; }
-        public RiotersWorldState State { get; }
+        public NpcWorldState State { get; }
         public byte         Value { get; }
 
 
-        public SetWorldStateEffect(RiotersWorldState state, EffectType type) {
+        public SetWorldStateEffect(NpcWorldState state, EffectType type) {
             Name  = $"SetState({state})";
             Type  = type;
             State = state;
@@ -18,7 +18,7 @@ namespace Rioters.Effects {
         }
 
 
-        public SetWorldStateEffect(RiotersWorldState state, bool value, EffectType type) {
+        public SetWorldStateEffect(NpcWorldState state, bool value, EffectType type) {
             Name  = $"SetState({state})";
             Type  = type;
             State = state;
@@ -26,7 +26,7 @@ namespace Rioters.Effects {
         }
 
 
-        public SetWorldStateEffect(RiotersWorldState state, byte value, EffectType type) {
+        public SetWorldStateEffect(NpcWorldState state, byte value, EffectType type) {
             Name  = $"SetState({state})";
             Type  = type;
             State = state;
@@ -35,7 +35,7 @@ namespace Rioters.Effects {
 
 
         public void Apply(IContext ctx) {
-            if ( ctx is RioterHTNContext c ) {
+            if ( ctx is NpcHtnContext c ) {
                 if ( ctx.LogDecomposition ) ctx.Log(Name, $"SetWorldStateEffect.Apply({State}:{Value}:{Type})", ctx.CurrentDecompositionDepth + 1, this);
                 c.SetState(State, Value, Type);
                 return;
