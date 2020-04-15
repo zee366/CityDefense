@@ -2,6 +2,7 @@ namespace Rioters {
 
     public enum NpcWorldState : byte {
 
+        StaminaLevel,
         PoliceInRange,
         HasDestructiblesInRange,
         TargetInAttackRange

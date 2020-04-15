@@ -35,6 +35,31 @@ namespace Rioters {
         }
 
 
+        public NpcDomainBuilder IncrementState(NpcWorldState state, EffectType type) { return IncrementState(state, 1, type); }
+
+
+        public NpcDomainBuilder IncrementState(NpcWorldState state, byte value, EffectType type) {
+            if ( Pointer is IPrimitiveTask task ) {
+                var effect = new IncrementWorldStateEffect(state, value, type);
+                task.AddEffect(effect);
+            }
+
+            return this;
+        }
+
+        public NpcDomainBuilder DecrementState(NpcWorldState state, EffectType type) { return DecrementState(state, 1, type); }
+
+
+        public NpcDomainBuilder DecrementState(NpcWorldState state, byte value, EffectType type) {
+            if ( Pointer is IPrimitiveTask task ) {
+                var effect = new IncrementWorldStateEffect(state, (byte)-value, type);
+                task.AddEffect(effect);
+            }
+
+            return this;
+        }
+
+
         public NpcDomainBuilder SetState(NpcWorldState state, EffectType type) {
             if ( Pointer is IPrimitiveTask task ) {
                 var effect = new SetWorldStateEffect(state, type);
@@ -86,13 +111,12 @@ namespace Rioters {
         }
 
 
-        public NpcDomainBuilder Flee(NpcType type) {
-            Action("Flee from Npc type: "+type);
+        public NpcDomainBuilder Flee(NpcType type, float refreshInterval = 2f) {
+            Action("Flee from Npc type: " + type);
             if ( Pointer is IPrimitiveTask task ) {
-                // task.SetOperator(new MoveToDestructibleOperator());
+                task.SetOperator(new FleeOperator(type, refreshInterval));
             }
 
-            End();
             return this;
         }
 

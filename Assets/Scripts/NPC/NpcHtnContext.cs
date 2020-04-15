@@ -17,6 +17,9 @@ namespace Rioters {
             get { return Agent.transform.position; }
         }
 
+        public List<Transform> policesInRange = new List<Transform>();
+        public Transform ClosestPolice { get; set; }
+
         public List<Destructible> destructiblesInRange = new List<Destructible>();
         public Destructible       CurrentTarget { get; set; }
 

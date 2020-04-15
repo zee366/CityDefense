@@ -55,6 +55,10 @@ namespace Rioters {
                 // Check for destructibles
                 if ( _sensedColliders[i].TryGetComponent(out Destructible destructible) && !destructible.IsDead )
                     _context.destructiblesInRange.Add(destructible);
+
+                // Check for Police
+                if ( _sensedColliders[i].TryGetComponent(out PoliceAbilities p) )
+                    _context.policesInRange.Add(_sensedColliders[i].transform);
             }
 
             // Change world state
