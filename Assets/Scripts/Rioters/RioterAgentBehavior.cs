@@ -29,6 +29,7 @@ namespace Rioters {
             _domain              = _domainDefinition.Create();
 
             _context                    = new RioterHTNContext(this);
+            _context.anim               = GetComponent<Animator>();
             _context.NavAgent           = GetComponent<NavMeshAgent>();
             _context.NavAgent.isStopped = true;
             _context.Init();
