@@ -7,35 +7,27 @@ public class Roadlight : MonoBehaviour {
 
     public Material greenLight;
     public Material redLight;
-
-    private bool state = false;
-
+    public MeshRenderer _meshRenderer;
     private int counter;
     // Start is called before the first frame update
     void Awake() {
-        greenLight.DisableKeyword("_EMISSION");
-        redLight.DisableKeyword("_EMISSION");
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _meshRenderer.materials[2] = Instantiate(redLight);
+        _meshRenderer.materials[6] = Instantiate(greenLight);
+
+        _meshRenderer.materials[6].DisableKeyword("_EMISSION");
+        _meshRenderer.materials[2].DisableKeyword("_EMISSION");
     }
 
 
-    public void ToggleLight() {
-        if ( state ) {
-            greenLight.EnableKeyword ("_EMISSION");
-            redLight.DisableKeyword ("_EMISSION");
-        } else {
-            redLight.EnableKeyword ("_EMISSION");
-            greenLight.DisableKeyword ("_EMISSION");
-        }
-        state = !state;
-    } 
-    
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        counter++;
-        if ( counter <= 60 ) return;
+    public void turnOnGreenLight() {
+        _meshRenderer.materials[6].EnableKeyword("_EMISSION");
+        _meshRenderer.materials[2].DisableKeyword("_EMISSION");
+    }
 
-        counter = 0;
-        ToggleLight();
+
+    public void turnOnRedLight() {
+        _meshRenderer.materials[2].EnableKeyword("_EMISSION");
+        _meshRenderer.materials[6].DisableKeyword("_EMISSION");
     }
 }
