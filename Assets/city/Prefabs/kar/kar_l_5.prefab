@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7491451866972396163}
   - component: {fileID: 926812795749475279}
+  - component: {fileID: 1606049748795849146}
   m_Layer: 0
   m_Name: kar_l_5
   m_TagString: Untagged
@@ -116,6 +117,7 @@ Transform:
   - {fileID: 1738107718935760074}
   - {fileID: 359359511288890349}
   - {fileID: 869156240336084671}
+  - {fileID: 8153066144112835777}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -131,7 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Police Wagon
   health: 50
+  objectValue: 45000
+  anchorPoint: {fileID: 8153066144112835777}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -139,6 +144,19 @@ MonoBehaviour:
   - {fileID: 3543001065650208626}
   - {fileID: 3299177969677152341}
   DeathFX: {fileID: 2682570390787927303}
+--- !u!65 &1606049748795849146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491451866972423843}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.545828, y: 2.3934479, z: 2.082409}
+  m_Center: {x: -0.055987358, y: 1.007761, z: -0.16795921}
 --- !u!1 &7491451866972423849
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +480,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &9106242990130153180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8153066144112835777}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8153066144112835777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106242990130153180}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.95, y: 4.26, z: -0.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7491451866972396163}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &883386030824552906
 PrefabInstance:
   m_ObjectHideFlags: 0

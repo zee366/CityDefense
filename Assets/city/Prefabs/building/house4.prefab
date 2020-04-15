@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &481306450156403100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2865231230839596425}
+  m_Layer: 9
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2865231230839596425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481306450156403100}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.65, y: 12.68, z: 10.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5940546928265924412}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5940546928265892636
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +42,7 @@ GameObject:
   - component: {fileID: 5940546928266727196}
   - component: {fileID: 5940546928267824604}
   - component: {fileID: 5052707947969706043}
+  - component: {fileID: 7293748619730151227}
   m_Layer: 9
   m_Name: house4
   m_TagString: Untagged
@@ -34,6 +65,7 @@ Transform:
   - {fileID: 4434621732355668824}
   - {fileID: 212082810717528261}
   - {fileID: 8927831859933325468}
+  - {fileID: 2865231230839596425}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,7 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Family Home
   health: 50
+  objectValue: 250000
+  anchorPoint: {fileID: 2865231230839596425}
   destructionTime: 14
   sinkSpeed: 4
   DamagedFX:
@@ -116,6 +151,19 @@ MonoBehaviour:
   - {fileID: 1494996649505163488}
   - {fileID: 3153860323940111229}
   DeathFX: {fileID: 3389895609540156294}
+--- !u!65 &7293748619730151227
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940546928265892636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.283413, y: 12.188343, z: 27.379417}
+  m_Center: {x: 1.2966399, y: 3.7771225, z: 13.548443}
 --- !u!1001 &1095371690034487012
 PrefabInstance:
   m_ObjectHideFlags: 0

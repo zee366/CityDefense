@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &630886452512670011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7360326900786870551}
+  m_Layer: 9
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7360326900786870551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630886452512670011}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 16.68, z: -10.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3356476957628212965}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3356476957627857605
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +42,7 @@ GameObject:
   - component: {fileID: 3356476957624821445}
   - component: {fileID: 3356476957625918469}
   - component: {fileID: 8880673252928722678}
+  - component: {fileID: 384799220378735400}
   m_Layer: 9
   m_Name: house20
   m_TagString: Untagged
@@ -34,6 +65,7 @@ Transform:
   - {fileID: 5092239886190819262}
   - {fileID: 9022284490956265941}
   - {fileID: 2433432910761218593}
+  - {fileID: 7360326900786870551}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -105,7 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Large Office Building
   health: 100
+  objectValue: 1200000
+  anchorPoint: {fileID: 7360326900786870551}
   destructionTime: 14
   sinkSpeed: 4
   DamagedFX:
@@ -113,6 +148,19 @@ MonoBehaviour:
   - {fileID: 8043145544808547334}
   - {fileID: 6052886832379079277}
   DeathFX: {fileID: 1687760657245854590}
+--- !u!65 &384799220378735400
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3356476957627857605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.89687, y: 27.794601, z: 17.680038}
+  m_Center: {x: -0.29578924, y: -3.4351144, z: -9.031921}
 --- !u!1001 &3447070669357190035
 PrefabInstance:
   m_ObjectHideFlags: 0

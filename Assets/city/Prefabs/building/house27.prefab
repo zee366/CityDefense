@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6376338197746946247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7189051823095381103}
+  m_Layer: 9
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7189051823095381103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376338197746946247}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.18, y: 6.73, z: 4.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7987942261477691676}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7987942261477526844
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +42,7 @@ GameObject:
   - component: {fileID: 7987942261474267452}
   - component: {fileID: 7987942261475267580}
   - component: {fileID: 8891680855077995478}
+  - component: {fileID: 8755101661075962936}
   m_Layer: 9
   m_Name: house27
   m_TagString: Untagged
@@ -34,6 +65,7 @@ Transform:
   - {fileID: 3057726611598201518}
   - {fileID: 8179044873733173601}
   - {fileID: 4093083514751136168}
+  - {fileID: 7189051823095381103}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,7 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Store
   health: 50
+  objectValue: 250000
+  anchorPoint: {fileID: 7189051823095381103}
   destructionTime: 14
   sinkSpeed: 4
   DamagedFX:
@@ -116,6 +151,19 @@ MonoBehaviour:
   - {fileID: 241647742776975638}
   - {fileID: 6391864106369319641}
   DeathFX: {fileID: 7791471565401359026}
+--- !u!65 &8755101661075962936
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7987942261477526844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.700299, y: 7.9205184, z: 13.729009}
+  m_Center: {x: 5.74978, y: -0.0063545704, z: 2.981295}
 --- !u!1001 &391388763974251253
 PrefabInstance:
   m_ObjectHideFlags: 0

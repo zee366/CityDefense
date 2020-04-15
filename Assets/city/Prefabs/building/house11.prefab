@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3633247173250280351}
   - component: {fileID: 3633247173251377503}
   - component: {fileID: 8630313091423601657}
+  - component: {fileID: 385766985332136669}
   m_Layer: 9
   m_Name: house11
   m_TagString: Untagged
@@ -34,6 +35,7 @@ Transform:
   - {fileID: 8607286850680106595}
   - {fileID: 134026821463711893}
   - {fileID: 3610910848083044118}
+  - {fileID: 1587876810282100205}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,7 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Convenience Store
   health: 60
+  objectValue: 750000
+  anchorPoint: {fileID: 1587876810282100205}
   destructionTime: 14
   sinkSpeed: 4
   DamagedFX:
@@ -109,6 +114,49 @@ MonoBehaviour:
   - {fileID: 6793260822954204635}
   - {fileID: 2948050019222475565}
   DeathFX: {fileID: 339427477782146633}
+--- !u!65 &385766985332136669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633247173253379999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 27.283197, y: 12.868308, z: 27.267826}
+  m_Center: {x: 13.298232, y: 2.5069404, z: -2.954021}
+--- !u!1 &7276820398507620137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1587876810282100205}
+  m_Layer: 9
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1587876810282100205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276820398507620137}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.56, y: 8.67, z: -2.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3633247173253147583}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1521140933882088894
 PrefabInstance:
   m_ObjectHideFlags: 0

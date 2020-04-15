@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 3808338654935835115}
   - component: {fileID: 3808338654934836011}
   - component: {fileID: 2539387056710764680}
+  - component: {fileID: 1301222349549745943}
   m_Layer: 0
   m_Name: foreign car_1
   m_TagString: Untagged
@@ -358,6 +359,7 @@ Transform:
   - {fileID: 2421725847782816994}
   - {fileID: 6463285847941774101}
   - {fileID: 6240095721836987316}
+  - {fileID: 371945770304732040}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -427,7 +429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Red Import
   health: 50
+  objectValue: 28000
+  anchorPoint: {fileID: 371945770304732040}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -435,6 +440,49 @@ MonoBehaviour:
   - {fileID: 625447996084391770}
   - {fileID: 8108607212765448365}
   DeathFX: {fileID: 9200008029027282956}
+--- !u!65 &1301222349549745943
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808338654936776171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.0132033, z: 3.3905354}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7252843254989056048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371945770304732040}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &371945770304732040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252843254989056048}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.04, y: 1.81, z: -2.09}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 3808338654936605131}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3875109964207409634
 PrefabInstance:
   m_ObjectHideFlags: 0

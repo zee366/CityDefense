@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8069898597234943940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8256146118871205174}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8256146118871205174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069898597234943940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.23, y: 5.54, z: -0.31}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8967502748195884598}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8967502748195590672
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8967502748195884598}
   - component: {fileID: 5300786890215685177}
+  - component: {fileID: 7264910444989919361}
   m_Layer: 0
   m_Name: bus
   m_TagString: Untagged
@@ -274,6 +305,7 @@ Transform:
   - {fileID: 5911469117078517008}
   - {fileID: 394142794065045558}
   - {fileID: 4725684927591826022}
+  - {fileID: 8256146118871205174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -289,7 +321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: City Bus
   health: 50
+  objectValue: 50000
+  anchorPoint: {fileID: 8256146118871205174}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -297,6 +332,19 @@ MonoBehaviour:
   - {fileID: 8880107423420303016}
   - {fileID: 3192486677782731662}
   DeathFX: {fileID: 7539230384197317086}
+--- !u!65 &7264910444989919361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8967502748195590678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.464636, y: 3.2485657, z: 2.1242828}
+  m_Center: {x: 1.4301558, y: 1.4384222, z: -0.16533661}
 --- !u!1 &8967502748195590684
 GameObject:
   m_ObjectHideFlags: 0

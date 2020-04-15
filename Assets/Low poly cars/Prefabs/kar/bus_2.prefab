@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 2729877666890674309}
   - component: {fileID: 2729877666891772485}
   - component: {fileID: 7757467326065586704}
+  - component: {fileID: 5056268172983514548}
   m_Layer: 0
   m_Name: bus_2
   m_TagString: Untagged
@@ -198,6 +199,7 @@ Transform:
   - {fileID: 75658154891111226}
   - {fileID: 2934904299386235880}
   - {fileID: 4834720683286221228}
+  - {fileID: 4760429661569682029}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,7 +268,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: City Bus
   health: 50
+  objectValue: 50000
+  anchorPoint: {fileID: 4760429661569682029}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -274,6 +279,19 @@ MonoBehaviour:
   - {fileID: 2898472906831665282}
   - {fileID: 112419125925517392}
   DeathFX: {fileID: 7651012860732809748}
+--- !u!65 &5056268172983514548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729877666893769861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1894417, y: 2.291648, z: 8.618255}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2729877666893769863
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +452,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6779932798371105023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4760429661569682029}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4760429661569682029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779932798371105023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 4.26, z: -4.99}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 2729877666894065829}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1535832580194328122
 PrefabInstance:
   m_ObjectHideFlags: 0

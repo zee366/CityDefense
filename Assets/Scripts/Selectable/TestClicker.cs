@@ -5,18 +5,24 @@ using UnityEngine.EventSystems;
 
 public class TestClicker : MonoBehaviour
 {
-    Selectable selected;
-    // Update is called once per frame
+    public Tooltip tooltip;
+
+    private Destructible _selected;
+
     void Update()
     {
         if(Input.GetMouseButtonDown(0)) {
-            if(selected)
-                selected.ClearSelection();
+            if(_selected) {
+                tooltip.gameObject.SetActive(false);
+            }
 
             RaycastHit rayHit;
             if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out rayHit)) {
-                Selectable obj = rayHit.collider.GetComponent<Selectable>();
-                selected = obj ? obj.OnClick() : null;
+                _selected = rayHit.collider.GetComponent<Destructible>();
+                if(_selected) {
+                    tooltip.SetTarget(_selected);
+                    tooltip.gameObject.SetActive(true);
+                }
             }
         }
     }

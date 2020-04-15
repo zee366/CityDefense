@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 5505447385235849836}
   - component: {fileID: 5505447385234882732}
   - component: {fileID: 7107013160237860350}
+  - component: {fileID: 8224171081781260918}
   m_Layer: 0
   m_Name: pickup
   m_TagString: Untagged
@@ -358,6 +359,7 @@ Transform:
   - {fileID: 2415855099866213614}
   - {fileID: 1846658121588680327}
   - {fileID: 3152554592500209838}
+  - {fileID: 2891280815210691810}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -427,7 +429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Blue Pickup
   health: 50
+  objectValue: 40000
+  anchorPoint: {fileID: 2891280815210691810}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -435,6 +440,49 @@ MonoBehaviour:
   - {fileID: 626963629982981974}
   - {fileID: 3500738058465891647}
   DeathFX: {fileID: 213257712806308630}
+--- !u!65 &8224171081781260918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5505447385236889196}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.562088, y: 1.0257177, z: 3.6709838}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7924939562678149112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2891280815210691810}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2891280815210691810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924939562678149112}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 2.26, z: -2.66}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 5505447385236652620}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1007734223315080071
 PrefabInstance:
   m_ObjectHideFlags: 0

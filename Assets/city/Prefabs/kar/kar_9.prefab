@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4809626395624556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148128128780955967}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &148128128780955967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4809626395624556}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.85, y: 3.68, z: -0.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8684452386598030444}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8684452386598522944
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8684452386598030444}
   - component: {fileID: 5906431021856518478}
+  - component: {fileID: 5915219129170931287}
   m_Layer: 0
   m_Name: kar_9
   m_TagString: Untagged
@@ -359,6 +390,7 @@ Transform:
   - {fileID: 3484793984636681336}
   - {fileID: 5582204085645469941}
   - {fileID: 2732491991719004306}
+  - {fileID: 148128128780955967}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -374,7 +406,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Yellow Taxi
   health: 50
+  objectValue: 30000
+  anchorPoint: {fileID: 148128128780955967}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -382,6 +417,19 @@ MonoBehaviour:
   - {fileID: 1831208965426450368}
   - {fileID: 7224409844559584077}
   DeathFX: {fileID: 927312221165075242}
+--- !u!65 &5915219129170931287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8684452386598522956}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.4957933, y: 2.2580721, z: 2.0621452}
+  m_Center: {x: 0.046405315, y: 0.9590236, z: -0.17015076}
 --- !u!1 &8684452386598522958
 GameObject:
   m_ObjectHideFlags: 0

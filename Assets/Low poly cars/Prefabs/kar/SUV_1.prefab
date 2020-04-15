@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 4566457706118923387}
   - component: {fileID: 4566457706117924539}
   - component: {fileID: 2019174781827713201}
+  - component: {fileID: 7210845078096648874}
   m_Layer: 0
   m_Name: SUV_1
   m_TagString: Untagged
@@ -358,6 +359,7 @@ Transform:
   - {fileID: 5917411701634463433}
   - {fileID: 7562840999063453444}
   - {fileID: 4587475698621854787}
+  - {fileID: 895928083186594997}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -426,7 +428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Red SUV
   health: 50
+  objectValue: 45000
+  anchorPoint: {fileID: 895928083186594997}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -434,6 +439,49 @@ MonoBehaviour:
   - {fileID: 8875299534109377905}
   - {fileID: 4738104162280082620}
   DeathFX: {fileID: 1629255951216887803}
+--- !u!65 &7210845078096648874
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4566457706120190075}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.137276, z: 3.6919472}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6732677794771459741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895928083186594997}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895928083186594997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732677794771459741}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.1, y: 2.0276074, z: -2.49}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 4566457706120217691}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3167554458981138755
 PrefabInstance:
   m_ObjectHideFlags: 0

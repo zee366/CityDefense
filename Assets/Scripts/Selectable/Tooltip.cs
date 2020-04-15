@@ -3,9 +3,11 @@ using UnityEngine.UI;
 
 public class Tooltip : MonoBehaviour
 {
-    public Slider slider;
+    [Header("Tooltip Elements")]
+    public Text objectName;
+    public Text objectValue;
+    public Slider healthSlider;
     public Image fillImage;
-    public Transform AnchorPoint;
 
     private Color _fullHealthColor = Color.green;
     private Color _zeroHealthColor = Color.red;
@@ -13,14 +15,16 @@ public class Tooltip : MonoBehaviour
     private Destructible _destructible;
 
     private void OnEnable() {
-        _destructible = GetComponentInParent<Destructible>();
-        transform.position = Camera.main.WorldToScreenPoint(AnchorPoint.position);
+        transform.position = Camera.main.WorldToScreenPoint(_destructible.anchorPoint.position);
+        objectName.text = _destructible.objectName;
+        objectValue.text = "$" + _destructible.objectValue.ToString("F2");
+
         SetHealthUI();
     }
 
     void Update()
     {
-        transform.position = Camera.main.WorldToScreenPoint(AnchorPoint.position);
+        transform.position = Camera.main.WorldToScreenPoint(_destructible.anchorPoint.position);
         SetHealthUI();
     }
 
@@ -28,7 +32,11 @@ public class Tooltip : MonoBehaviour
         float currentHealth = _destructible.GetCurrentHealth();
         float startingHealth = _destructible.health;
 
-        slider.value = _destructible.GetCurrentHealth() / startingHealth;
+        healthSlider.value = _destructible.GetCurrentHealth() / startingHealth;
         fillImage.color = Color.Lerp(_zeroHealthColor, _fullHealthColor, currentHealth / startingHealth);
+    }
+
+    public void SetTarget(Destructible selected) {
+        _destructible = selected;
     }
 }

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2971842419695575840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9208775689980733111}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9208775689980733111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971842419695575840}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.43, y: 4.82, z: -0.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4533561450164387978}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4533561450164362400
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4533561450164387978}
   - component: {fileID: 3972715079584600587}
+  - component: {fileID: 3460091797781799463}
   m_Layer: 0
   m_Name: truck1
   m_TagString: Untagged
@@ -443,6 +474,7 @@ Transform:
   - {fileID: 4722169965626534639}
   - {fileID: 7792019181567077366}
   - {fileID: 6914384938862347426}
+  - {fileID: 9208775689980733111}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -458,7 +490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Green Dump Truck
   health: 50
+  objectValue: 50000
+  anchorPoint: {fileID: 9208775689980733111}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -466,6 +501,19 @@ MonoBehaviour:
   - {fileID: 7547258785847236951}
   - {fileID: 4978565943282833486}
   DeathFX: {fileID: 8557242845744690970}
+--- !u!65 &3460091797781799463
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533561450164362410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.9727573, y: 2.9310455, z: 2.0601807}
+  m_Center: {x: 0.74465084, y: 1.2936735, z: -0.17669678}
 --- !u!1 &4533561450164362412
 GameObject:
   m_ObjectHideFlags: 0

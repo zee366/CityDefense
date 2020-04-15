@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5579365754718258438}
   - component: {fileID: 5579365754717292486}
   - component: {fileID: 8691352497359060929}
+  - component: {fileID: 844137682303537021}
   m_Layer: 0
   m_Name: Sports car
   m_TagString: Untagged
@@ -38,6 +39,7 @@ Transform:
   - {fileID: 5766627734108867280}
   - {fileID: 6288033929726072226}
   - {fileID: 8602212471884900106}
+  - {fileID: 5388254622402548101}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,7 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Blue Sports Car
   health: 50
+  objectValue: 55000
+  anchorPoint: {fileID: 5388254622402548101}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -114,6 +119,19 @@ MonoBehaviour:
   - {fileID: 8733207757896251752}
   - {fileID: 9112522552819050010}
   DeathFX: {fileID: 6797209310382036146}
+--- !u!65 &844137682303537021
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579365754715101446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1001931, z: 4.76619}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5579365754715101448
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +452,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6950174764662624873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5388254622402548101}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5388254622402548101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950174764662624873}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.12, y: 2.0691397, z: -2.8860164}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 5579365754714866982}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &325197448983913152
 PrefabInstance:
   m_ObjectHideFlags: 0

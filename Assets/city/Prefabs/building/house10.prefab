@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4088843583490053354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5661905065885267961}
+  m_Layer: 9
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5661905065885267961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4088843583490053354}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.38, y: 15.88, z: 10.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7736930190657330431}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7736930190657814751
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +42,7 @@ GameObject:
   - component: {fileID: 7736930190656560351}
   - component: {fileID: 7736930190655561247}
   - component: {fileID: 8552620247330979615}
+  - component: {fileID: 1626096733804486205}
   m_Layer: 9
   m_Name: house10
   m_TagString: Untagged
@@ -34,6 +65,7 @@ Transform:
   - {fileID: 576607174936530278}
   - {fileID: 1802830736741994269}
   - {fileID: 2001201238443750538}
+  - {fileID: 5661905065885267961}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,7 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Family Home
   health: 50
+  objectValue: 250000
+  anchorPoint: {fileID: 5661905065885267961}
   destructionTime: 14
   sinkSpeed: 4
   DamagedFX:
@@ -116,6 +151,19 @@ MonoBehaviour:
   - {fileID: 2392887340959170270}
   - {fileID: 3472638635558796453}
   DeathFX: {fileID: 5704057635602646928}
+--- !u!65 &1626096733804486205
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7736930190657814751}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.283413, y: 12.188343, z: 27.379417}
+  m_Center: {x: 1.2966399, y: 3.7771225, z: 13.548443}
 --- !u!1001 &992186311220175414
 PrefabInstance:
   m_ObjectHideFlags: 0

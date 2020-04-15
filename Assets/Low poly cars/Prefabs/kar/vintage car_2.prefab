@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3202654936550744228}
   - component: {fileID: 3202654936551875172}
   - component: {fileID: 7777909204133745084}
+  - component: {fileID: 8998593058474331601}
   m_Layer: 0
   m_Name: vintage car_2
   m_TagString: Untagged
@@ -38,6 +39,7 @@ Transform:
   - {fileID: 199014264098056621}
   - {fileID: 7754195082041145560}
   - {fileID: 5775585024013212484}
+  - {fileID: 1786058701527026208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,7 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Purple Vintage Sedan
   health: 50
+  objectValue: 35000
+  anchorPoint: {fileID: 1786058701527026208}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -114,6 +119,19 @@ MonoBehaviour:
   - {fileID: 3167914118776756757}
   - {fileID: 4803603744158272352}
   DeathFX: {fileID: 8724392266840500476}
+--- !u!65 &8998593058474331601
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202654936553880740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6908122, y: 1.1840038, z: 4.6799006}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3202654936553880744
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +452,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &3852057671015991163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1786058701527026208}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1786058701527026208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3852057671015991163}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.8898704, z: -3.31}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 3202654936554168452}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &347659509084357827
 PrefabInstance:
   m_ObjectHideFlags: 0

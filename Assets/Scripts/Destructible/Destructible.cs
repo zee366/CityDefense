@@ -3,9 +3,21 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
+    [Header("Tooltip Settings")]
+    [Tooltip("Descriptive name of this object")]
+    public string objectName;
+
     [Tooltip("Maximum health of the object")]
     public float health;
 
+    [Tooltip("Dollar value of this object")]
+    public float objectValue;
+
+    [Tooltip("The anchor point of this object's tooltip")]
+    public Transform anchorPoint;
+
+    [Header("Destruction Settings")]
+    [Space(10f)]
     [Tooltip("Time for which the death animation will play after reaching 0 health")]
     public float destructionTime;
 

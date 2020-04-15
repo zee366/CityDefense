@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1197713191122588446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 576346810994933910}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &576346810994933910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197713191122588446}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 3.81, z: -0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7995840492280349791}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7995840492280060017
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7995840492280349791}
   - component: {fileID: 4726379793365126494}
+  - component: {fileID: 7141300646661929143}
   m_Layer: 0
   m_Name: kar_17
   m_TagString: Untagged
@@ -439,6 +470,7 @@ Transform:
   - {fileID: 1522894629716416864}
   - {fileID: 3539114336255422129}
   - {fileID: 7752772354567280700}
+  - {fileID: 576346810994933910}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -454,7 +486,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Yellow Pickup
   health: 50
+  objectValue: 40000
+  anchorPoint: {fileID: 576346810994933910}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -462,6 +497,19 @@ MonoBehaviour:
   - {fileID: 4330162563329698520}
   - {fileID: 1740868634694245641}
   DeathFX: {fileID: 4801639919516478340}
+--- !u!65 &7141300646661929143
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995840492280060031}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.292589, y: 2.2529314, z: 2.0392532}
+  m_Center: {x: -0.09226704, y: 0.9664086, z: -0.1893959}
 --- !u!1001 &107802373674101856
 PrefabInstance:
   m_ObjectHideFlags: 0

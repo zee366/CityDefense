@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1186887628575281055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1639616761767661205}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1639616761767661205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186887628575281055}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.05, y: 2.0211892, z: -3.32}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 8741828309358468124}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8741828309358493744
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +362,7 @@ GameObject:
   - component: {fileID: 8741828309361859644}
   - component: {fileID: 8741828309360762620}
   - component: {fileID: 180820160774496660}
+  - component: {fileID: 7182852426701322717}
   m_Layer: 0
   m_Name: police kar_2
   m_TagString: Untagged
@@ -358,6 +389,7 @@ Transform:
   - {fileID: 6397383962192831352}
   - {fileID: 8339236902346297692}
   - {fileID: 2621199221453313164}
+  - {fileID: 1639616761767661205}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -428,7 +460,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Police Cruiser
   health: 50
+  objectValue: 45000
+  anchorPoint: {fileID: 1639616761767661205}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -436,6 +471,19 @@ MonoBehaviour:
   - {fileID: 8213907808545280192}
   - {fileID: 6525523135922496228}
   DeathFX: {fileID: 960926697642764084}
+--- !u!65 &7182852426701322717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8741828309358493756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0137331, y: 1.2351667, z: 5.1099243}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3475877197738172812
 PrefabInstance:
   m_ObjectHideFlags: 0
