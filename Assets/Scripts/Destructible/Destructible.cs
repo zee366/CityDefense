@@ -130,9 +130,4 @@ public class Destructible : MonoBehaviour
 
         _sinkingCoro = StartCoroutine(Sink());
     }
-
-    public float GetCurrentHealth()
-    {
-        return _currentHealth; 
-    }
 }
