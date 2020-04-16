@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6035384835966044706}
   - component: {fileID: 6035384835969468930}
   - component: {fileID: 6035384835968338114}
+  - component: {fileID: 2517032146806005464}
   m_Layer: 0
   m_Name: props13
   m_TagString: Untagged
@@ -59,11 +60,11 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: ffe80e02bb9e2c24fb390673d58f269e, type: 3}
   - {fileID: 2100002, guid: ffe80e02bb9e2c24fb390673d58f269e, type: 3}
-  - {fileID: 2100004, guid: ffe80e02bb9e2c24fb390673d58f269e, type: 3}
+  - {fileID: 2100000, guid: 37141674d08cf5640bc299e6c1cb8027, type: 2}
   - {fileID: 2100006, guid: ffe80e02bb9e2c24fb390673d58f269e, type: 3}
   - {fileID: 2100008, guid: ffe80e02bb9e2c24fb390673d58f269e, type: 3}
   - {fileID: 2100010, guid: ffe80e02bb9e2c24fb390673d58f269e, type: 3}
-  - {fileID: 2100012, guid: ffe80e02bb9e2c24fb390673d58f269e, type: 3}
+  - {fileID: 2100000, guid: 17c6d4f29aaa4c14aa6f8f6c1162800c, type: 2}
   - {fileID: 2100014, guid: ffe80e02bb9e2c24fb390673d58f269e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -72,6 +73,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -84,3 +86,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2517032146806005464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035384835966408194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca6ab49af036a8429e7b0a6d625b11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenLight: {fileID: 2100000, guid: 17c6d4f29aaa4c14aa6f8f6c1162800c, type: 2}
+  redLight: {fileID: 2100000, guid: 37141674d08cf5640bc299e6c1cb8027, type: 2}
