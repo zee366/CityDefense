@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using HNSW.Net;
@@ -35,6 +36,26 @@ public class DynamicClustersApproximator : MonoBehaviour {
     }
 
 
+    public Vector3 GetClosestApproximatedClusterPosition(Vector3 from) {
+        // Can't query if not built yet
+        if ( _graph == null ) return from;
+
+        float[] queryPos = {from.x, from.y, from.z};
+
+        IList<SmallWorld<float[], float>.KNNSearchResult> k_closest;
+        lock ( _lock ) {
+            k_closest = _graph.KNNSearch(queryPos, N_CLOSEST_FOR_CLUSTER);
+        }
+
+        // Averaging results positions
+        Vector3 avg = Vector3.zero;
+        for ( int i = 0; i < k_closest.Count; i++ )
+            avg += new Vector3(k_closest[i].Item[0], k_closest[i].Item[1], k_closest[i].Item[2]);
+
+        return avg / k_closest.Count;
+    }
+
+
     /// <summary>
     /// Add the transform reference to the data set for graph building.
     /// </summary>
@@ -56,9 +77,9 @@ public class DynamicClustersApproximator : MonoBehaviour {
             }
 
             // Start rebuilding in a thread with all data
-            _task = Task.Factory.StartNew( () => RebuildGraph(posAsVectors) );
+            _task = Task.Factory.StartNew(() => RebuildGraph(posAsVectors));
 
-            yield return new WaitUntil(()=> _task.IsCompleted);
+            yield return new WaitUntil(() => _task.IsCompleted);
         }
     }
 
