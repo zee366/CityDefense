@@ -39,9 +39,11 @@ public class CameraController : MonoBehaviour
         GameObject target = GetChildWithName(canvas, "Minimap Component");
         if (disable)
         {
+            if(target)
             target.SetActive(false);
             return;
         }
+        if(target)
         target.SetActive(true);
 
     }
