@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 498568}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 469044}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 461078}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 485236}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R Toe0Nub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470122}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 440404}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 457832}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 449796}
   - component: {fileID: 3316742}
   - component: {fileID: 2336604}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: f_head_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482450}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 453400}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 476598}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 HeadNub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 499200}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 489274}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 420776}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Object033
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463826}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L Toe0Nub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493588}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 475370}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 Footsteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494844}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Reporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,6 +636,9 @@ Transform:
   - {fileID: 405672}
   - {fileID: 420776}
   - {fileID: 2740070058906941015}
+  - {fileID: 908303915612602164}
+  - {fileID: 3098532907582282307}
+  - {fileID: 7682998312866061671}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -648,7 +651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 460888}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,7 +682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483394}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 426958}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +745,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 428488}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,7 +777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405672}
   - component: {fileID: 13793640}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: f_body_18_black_dress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +872,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447472}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: R_hand_container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,7 +904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465358}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 479028}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 401458}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 L Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +997,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486634}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1029,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bip001 R Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1057,7 +1060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 453866}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HEAD_CONTAINER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1093,7 @@ GameObject:
   - component: {fileID: 7402145557255065894}
   - component: {fileID: 3673977638237210365}
   - component: {fileID: 384099687010972452}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_lense_Boole1_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1168,7 +1171,7 @@ GameObject:
   - component: {fileID: 8334127965417721931}
   - component: {fileID: 9063181434170271537}
   - component: {fileID: 2613966480798275001}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Null_Object_Cylinder_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1246,7 +1249,7 @@ GameObject:
   - component: {fileID: 3635844211703663182}
   - component: {fileID: 4360866059215934381}
   - component: {fileID: 6600556271344836322}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_Boole_camer_body_window_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1324,7 +1327,7 @@ GameObject:
   - component: {fileID: 7667184011464606616}
   - component: {fileID: 302459006939471001}
   - component: {fileID: 5796294211371046380}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder2_Cylinder_19_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1402,7 +1405,7 @@ GameObject:
   - component: {fileID: 7091370923082535151}
   - component: {fileID: 7779526187170781455}
   - component: {fileID: 6655142216028275547}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_9_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1480,7 +1483,7 @@ GameObject:
   - component: {fileID: 5546140960720681357}
   - component: {fileID: 6043768695902572585}
   - component: {fileID: 4714624941209617565}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Null_Object_Cylinder_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1558,7 +1561,7 @@ GameObject:
   - component: {fileID: 1549399837645130360}
   - component: {fileID: 144606022061180635}
   - component: {fileID: 8891667579248325645}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_9_Cylinder_26_Cylinder_10_Cylinder_27_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1636,7 +1639,7 @@ GameObject:
   - component: {fileID: 874297605128840116}
   - component: {fileID: 7357311879363288704}
   - component: {fileID: 3246901493598443869}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder2_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1714,7 +1717,7 @@ GameObject:
   - component: {fileID: 6615449821636024348}
   - component: {fileID: 8669996750039357248}
   - component: {fileID: 473494297912521722}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_lense_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1792,8 +1795,7 @@ GameObject:
   - component: {fileID: 3796816887537602544}
   - component: {fileID: 7795269132834377385}
   - component: {fileID: 1955148431679620152}
-  - component: {fileID: 6305742612652457824}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1860,19 +1862,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6305742612652457824
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2436999884733062209}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2610683914951936825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1873,7 @@ GameObject:
   - component: {fileID: 66939537070006476}
   - component: {fileID: 1733927488365320911}
   - component: {fileID: 4010595891466171710}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Null_Object_Cylinder_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1962,7 +1951,7 @@ GameObject:
   - component: {fileID: 7386953951218446494}
   - component: {fileID: 1158410992437194488}
   - component: {fileID: 2706045069277302531}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_11_Cylinder_4_Cylinder_7_Cylinder_6_Cylinder_1_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2040,7 +2029,7 @@ GameObject:
   - component: {fileID: 8707648932956599529}
   - component: {fileID: 7929354913663228388}
   - component: {fileID: 8667788647143099195}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_Boole_camer_body_window_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2107,6 +2096,98 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &3375962529342679226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 908303915612602164}
+  - component: {fileID: 3330019868976847913}
+  - component: {fileID: 2492386850307940635}
+  - component: {fileID: 937502350340112950}
+  m_Layer: 12
+  m_Name: AOE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &908303915612602164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375962529342679226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_Children: []
+  m_Father: {fileID: 494844}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3330019868976847913
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375962529342679226}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2492386850307940635
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375962529342679226}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 396e90bb73518114cb4644782a22c818, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!135 &937502350340112950
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375962529342679226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3593784999937751826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,7 +2199,7 @@ GameObject:
   - component: {fileID: 45690170229764812}
   - component: {fileID: 8219320378956885475}
   - component: {fileID: 5162774239566748942}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Null_Object_Cylinder_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2196,7 +2277,7 @@ GameObject:
   - component: {fileID: 8521854261296677095}
   - component: {fileID: 5246144193291269155}
   - component: {fileID: 7710171020546777742}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder2_Cylinder_19_Cylinder__Cylinder_21_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2274,7 +2355,7 @@ GameObject:
   - component: {fileID: 4262076461259945151}
   - component: {fileID: 6229430791760806208}
   - component: {fileID: 3628594645452289612}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_Boole_camer_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2352,7 +2433,7 @@ GameObject:
   - component: {fileID: 3185685403785692229}
   - component: {fileID: 3683297217499314869}
   - component: {fileID: 6845282865021602911}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_lense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2430,7 +2511,7 @@ GameObject:
   - component: {fileID: 2847171790656289360}
   - component: {fileID: 5377508986277956183}
   - component: {fileID: 454762915796707429}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2508,7 +2589,7 @@ GameObject:
   - component: {fileID: 2850356902691962329}
   - component: {fileID: 2584794465969283001}
   - component: {fileID: 2045283439412560371}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2584,7 +2665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1002456717322031613}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2656,7 +2737,7 @@ GameObject:
   - component: {fileID: 6085802846884734497}
   - component: {fileID: 503349396724535356}
   - component: {fileID: 5152371525235617006}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2734,7 +2815,7 @@ GameObject:
   - component: {fileID: 805267567968387610}
   - component: {fileID: 6773096054390823538}
   - component: {fileID: 383834740437552700}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder2_Cylinder_19_Cylinder__Cylinder_21_Cylinder_23_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2812,7 +2893,7 @@ GameObject:
   - component: {fileID: 500221061801075198}
   - component: {fileID: 8818038151388412067}
   - component: {fileID: 6551864681402942460}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder2_Cylinder_19_Cylinder__Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2890,7 +2971,7 @@ GameObject:
   - component: {fileID: 8014349211515690555}
   - component: {fileID: 4998406641613782554}
   - component: {fileID: 5152256272774467036}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_9_Cylinder_26_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2968,7 +3049,7 @@ GameObject:
   - component: {fileID: 7673137392780656191}
   - component: {fileID: 5326262560807500301}
   - component: {fileID: 2539353018534888154}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3046,7 +3127,7 @@ GameObject:
   - component: {fileID: 1067124664328514641}
   - component: {fileID: 7493037630165708707}
   - component: {fileID: 1135010059042799423}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Null_Object_Cylinder_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3124,7 +3205,7 @@ GameObject:
   - component: {fileID: 8093758625774019243}
   - component: {fileID: 7258212530234909681}
   - component: {fileID: 6802647074097589384}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_11_Cylinder_4_Cylinder_7_Cylinder_6_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3202,7 +3283,7 @@ GameObject:
   - component: {fileID: 8201705911955561961}
   - component: {fileID: 1805743028440004350}
   - component: {fileID: 4951441146937291309}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_11_Cylinder_4_Cylinder_7_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3280,7 +3361,7 @@ GameObject:
   - component: {fileID: 8001142568055842594}
   - component: {fileID: 2546444178925021458}
   - component: {fileID: 1287041557415992628}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Null_Object_Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3347,6 +3428,99 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &5758031171370750370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3098532907582282307}
+  - component: {fileID: 5420142244376382819}
+  - component: {fileID: 6815127727913133532}
+  - component: {fileID: 8334730590808260051}
+  m_Layer: 12
+  m_Name: Cylinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3098532907582282307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758031171370750370}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000016292068}
+  m_LocalPosition: {x: 0.6166667, y: 94.333336, z: 0}
+  m_LocalScale: {x: 2.5, y: 0.1, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 494844}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5420142244376382819
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758031171370750370}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6815127727913133532
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758031171370750370}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c2885503fdd07c64e92d02d9cd0ef3d0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &8334730590808260051
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758031171370750370}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6487580369880212082
 GameObject:
   m_ObjectHideFlags: 0
@@ -3358,7 +3532,7 @@ GameObject:
   - component: {fileID: 3356330741205853892}
   - component: {fileID: 6934044043829193086}
   - component: {fileID: 752665006814325181}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_lense_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3436,7 +3610,7 @@ GameObject:
   - component: {fileID: 7758712518608456541}
   - component: {fileID: 6078448631797323858}
   - component: {fileID: 5502883606877855545}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Null_Object_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3503,6 +3677,99 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6650254659382144688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7682998312866061671}
+  - component: {fileID: 8002953154065821249}
+  - component: {fileID: 8021881431382978432}
+  - component: {fileID: 1515215370835659229}
+  m_Layer: 12
+  m_Name: Cylinder (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7682998312866061671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650254659382144688}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000016292068}
+  m_LocalPosition: {x: 0.6166667, y: 94.225, z: 0}
+  m_LocalScale: {x: 3, y: 0.1, z: 3}
+  m_Children: []
+  m_Father: {fileID: 494844}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8002953154065821249
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650254659382144688}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8021881431382978432
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650254659382144688}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6de644094c02ae449b846e69553b117b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1515215370835659229
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650254659382144688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &7203189851461643942
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,7 +3781,7 @@ GameObject:
   - component: {fileID: 301722166447941902}
   - component: {fileID: 1840009638925186237}
   - component: {fileID: 3392225098411447378}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_lense_Boole1_Cylinder_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3592,7 +3859,7 @@ GameObject:
   - component: {fileID: 4658868118162119480}
   - component: {fileID: 2505061732436454155}
   - component: {fileID: 8110908061938484971}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3670,8 +3937,7 @@ GameObject:
   - component: {fileID: 8540371492910889861}
   - component: {fileID: 3508472636257012542}
   - component: {fileID: 8785388932356619076}
-  - component: {fileID: 7641891082456767479}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3738,20 +4004,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &7641891082456767479
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7276975063060692761}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &7433240884910366505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3763,7 +4015,7 @@ GameObject:
   - component: {fileID: 330664503333519702}
   - component: {fileID: 1562952674360050014}
   - component: {fileID: 404886737674476826}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_9_Cylinder_26_Cylinder_10_Cylinder_27_Cylinder_13_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3841,7 +4093,7 @@ GameObject:
   - component: {fileID: 3066812254850877827}
   - component: {fileID: 769447247512822332}
   - component: {fileID: 6326908782644056019}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_Boole_window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3919,7 +4171,7 @@ GameObject:
   - component: {fileID: 6847064771746860433}
   - component: {fileID: 7247892800041636759}
   - component: {fileID: 3927580024157580144}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_9_Cylinder_26_Cylinder_10_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3997,7 +4249,7 @@ GameObject:
   - component: {fileID: 5433382747011372001}
   - component: {fileID: 4492389286705600166}
   - component: {fileID: 4863374671985423927}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4075,7 +4327,7 @@ GameObject:
   - component: {fileID: 4146957716427283056}
   - component: {fileID: 2182224771206765618}
   - component: {fileID: 7978812530689819126}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4153,7 +4405,7 @@ GameObject:
   - component: {fileID: 1701478151980103278}
   - component: {fileID: 2893245085157693289}
   - component: {fileID: 490509800619676264}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_nob_Null_Object_Cylinder_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4231,7 +4483,7 @@ GameObject:
   - component: {fileID: 6399580138510598203}
   - component: {fileID: 4127205162175194202}
   - component: {fileID: 4410260799172762500}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: camra_Boole_camer_body_window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4309,7 +4561,7 @@ GameObject:
   - component: {fileID: 741560519556998239}
   - component: {fileID: 3884184383813072959}
   - component: {fileID: 6218454440092888780}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_11_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4387,7 +4639,7 @@ GameObject:
   - component: {fileID: 1131133544472135305}
   - component: {fileID: 3541679669723225394}
   - component: {fileID: 1368917627568010592}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: trypod_Cylinder_11_Cylinder_4_Cylinder_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4461,9 +4713,129 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 494844}
     m_Modifications:
+    - target: {fileID: 100270, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 102700, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 109132, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 112318, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 119000, guid: 907fd825e3988774caab4234b943bf44, type: 3}
       propertyPath: m_Name
       value: TT_demo_male_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 119000, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 124658, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 129268, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 132190, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 135204, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 136230, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 141680, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 142768, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 144788, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 145716, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 149602, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 155236, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 157886, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 162778, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 167464, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 168080, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 170892, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 171350, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 176458, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 179958, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 183268, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 190478, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 191160, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 192116, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 193096, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 197466, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 409688, guid: 907fd825e3988774caab4234b943bf44, type: 3}
       propertyPath: m_LocalRotation.x
