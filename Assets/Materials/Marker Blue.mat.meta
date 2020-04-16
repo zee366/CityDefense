@@ -1,13 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Scenes/Main.unity.meta
-guid: e546d5d670dcd6b46bc3edf342f21fa8
-DefaultImporter:
-=======
-guid: 888083caef5eca54e8beacbd21df37e6
+guid: 6903ccd6011c3d34e90dfd67de2aa8d1
 NativeFormatImporter:
->>>>>>> New Map Markers, Reporter Aura, Slight Minimap Optimization:Assets/Materials/Marker Blue.mat.meta
   externalObjects: {}
-  mainObjectFileID: 2100000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

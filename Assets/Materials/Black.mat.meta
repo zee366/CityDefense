@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/AgentPrefab.meta
-guid: df0ff8a40294bc5458c14a983ec5544d
-folderAsset: yes
-DefaultImporter:
-=======
-guid: 8f143e3ff55741f4d9165c090949c994
+guid: 0f6105d6d8c51ae40902b5bddcfc8f59
 NativeFormatImporter:
->>>>>>> New Map Markers, Reporter Aura, Slight Minimap Optimization:Assets/Materials/Black.mat.meta
   externalObjects: {}
-  mainObjectFileID: 2100000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
