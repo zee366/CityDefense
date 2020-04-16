@@ -14,7 +14,7 @@ using UnityEngine;
 /// </summary>
 public class DynamicClustersApproximator : MonoBehaviour {
 
-    private const int N_CLOSEST_FOR_CLUSTER = 13; // Value for the KNN-search. Finding N closest to have a cluster approximation.
+    private const int N_CLOSEST_FOR_CLUSTER = 31; // Value for the KNN-search. Finding N closest to have a cluster approximation.
 
     [SerializeField]
     private bool _verbose;
@@ -36,6 +36,11 @@ public class DynamicClustersApproximator : MonoBehaviour {
     }
 
 
+    /// <summary>
+    /// Entry point to get estimated closest cluster position. Computed from N_CLOSEST_FOR_CLUSTER
+    /// </summary>
+    /// <param name="from"></param>
+    /// <returns></returns>
     public Vector3 GetClosestApproximatedClusterPosition(Vector3 from) {
         // Can't query if not built yet
         if ( _graph == null ) return from;
@@ -63,6 +68,16 @@ public class DynamicClustersApproximator : MonoBehaviour {
     public void RegisterTransform(Transform transform) {
         lock ( _lock ) {
             _dataSources.Add(transform);
+        }
+    }
+
+    /// <summary>
+    /// Remove a transform from the registered list
+    /// </summary>
+    /// <param name="transform"></param>
+    public void DeregisterTransform(Transform transform) {
+        lock ( _lock ) {
+            _dataSources.Remove(transform);
         }
     }
 
