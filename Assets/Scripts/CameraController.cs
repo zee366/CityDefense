@@ -18,12 +18,32 @@ public class CameraController : MonoBehaviour
     GameObject target; 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        target = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
+    void Start() {
+        GameObject policeFlock = GameObject.Find("PoliceFlock");
+        if(policeFlock == null)
+            Debug.LogError("Could not find GameObject by name 'PoliceFlock'. Required for this CameraController.");
+
+        target = GetChildWithName(policeFlock, "Agent 0");
 
         if (target != null)
+        {
+            float playerCamOffset = 50f; 
+            transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - playerCamOffset);
             _cameraOffset = transform.position - target.transform.position;
+        }
+    }
+
+    private void DisableMinimap(bool disable)
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        GameObject target = GetChildWithName(canvas, "Minimap Component");
+        if (disable)
+        {
+            target.SetActive(false);
+            return;
+        }
+        target.SetActive(true);
+
     }
 
     void Update()
@@ -62,6 +82,7 @@ public class CameraController : MonoBehaviour
         if (Camera.main.transform.position.y >= maxHeight)
         {
             LookAtPlayer = false;
+            DisableMinimap(true);
             Camera.main.orthographic = true;
             Camera.main.transform.position = new Vector3(OrthoOffset.x, maxHeight, OrthoOffset.z);
             Camera.main.transform.localRotation = strategicViewOrientation;
@@ -72,6 +93,7 @@ public class CameraController : MonoBehaviour
         if (Camera.main.transform.position.y < maxHeight)
         {
             LookAtPlayer = true;
+            DisableMinimap(false);
             Camera.main.transform.localRotation = squadViewOrientation;
             Camera.main.orthographic = false;
 

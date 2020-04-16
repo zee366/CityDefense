@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class Destructible : MonoBehaviour
 {
     [Header("Tooltip Settings")]
@@ -30,8 +31,11 @@ public class Destructible : MonoBehaviour
     [Tooltip("The final particle effect group to play during the death animation")]
     public GameObject DeathFX;
 
+
     // Current health of the object
     private float _currentHealth;
+    private Coroutine _sinkingCoro;
+
     // The starting level of destruction (1 = not damaged)
     private float _destructionLevel = 1f;
     // The interval separating various levels of destruction
@@ -40,6 +44,10 @@ public class Destructible : MonoBehaviour
     // Indices into DamagedFX array
     private int _prevParticleSystem = -1;
     private int _nextParticleSystem = 0;
+
+    public bool IsDead {
+        get { return _currentHealth <= 0; }
+    }
 
     private void Awake() {
         _currentHealth = health;
@@ -85,7 +93,7 @@ public class Destructible : MonoBehaviour
         _currentHealth -= damage;
         CheckParticleFX();
 
-        if(_currentHealth <= 0f)
+        if(IsDead)
             Die();
     }
 
@@ -118,6 +126,13 @@ public class Destructible : MonoBehaviour
 
     // Called when health drops to 0 or less
     private void Die() {
-        StartCoroutine(Sink());
+        if(_sinkingCoro != null) return;
+
+        _sinkingCoro = StartCoroutine(Sink());
+    }
+
+    public float GetCurrentHealth()
+    {
+        return _currentHealth; 
     }
 }
