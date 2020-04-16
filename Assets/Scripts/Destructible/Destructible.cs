@@ -4,9 +4,21 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Destructible : MonoBehaviour
 {
+    [Header("Tooltip Settings")]
+    [Tooltip("Descriptive name of this object")]
+    public string objectName;
+
     [Tooltip("Maximum health of the object")]
     public float health;
 
+    [Tooltip("Dollar value of this object")]
+    public float objectValue;
+
+    [Tooltip("The anchor point of this object's tooltip")]
+    public Transform anchorPoint;
+
+    [Header("Destruction Settings")]
+    [Space(10f)]
     [Tooltip("Time for which the death animation will play after reaching 0 health")]
     public float destructionTime;
 
@@ -72,6 +84,10 @@ public class Destructible : MonoBehaviour
         }
     }
 
+    public float GetCurrentHealth() {
+        return _currentHealth;
+    }
+
     // Deal damage to the object, verify if we need to play the next special effect, die if health is 0 or less
     public void TakeDamage(float damage) {
         _currentHealth -= damage;
@@ -94,9 +110,9 @@ public class Destructible : MonoBehaviour
             ps.Play();
 
         while(true) {
+            // move the object down, but move the special FX up to keep it in view
             Vector3 movement = Vector3.down * sinkSpeed * Time.deltaTime;
             transform.position += movement;
-
             DeathFX.transform.position -= movement;
 
             destructionTime -= Time.deltaTime;
@@ -113,10 +129,5 @@ public class Destructible : MonoBehaviour
         if(_sinkingCoro != null) return;
 
         _sinkingCoro = StartCoroutine(Sink());
-    }
-
-    public float GetCurrentHealth()
-    {
-        return _currentHealth; 
     }
 }

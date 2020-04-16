@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1025204181113795585}
   - component: {fileID: 1025204181114894017}
   - component: {fileID: 6239385970898426351}
-  - component: {fileID: -6154100274184463682}
+  - component: {fileID: 3645115059734028776}
   m_Layer: 9
   m_Name: house18
   m_TagString: Untagged
@@ -35,6 +35,7 @@ Transform:
   - {fileID: 6006672985194247588}
   - {fileID: 6975732046177263920}
   - {fileID: 8023068153323359737}
+  - {fileID: 2654363936693008083}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,7 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Large Office Building
   health: 100
+  objectValue: 1200000
+  anchorPoint: {fileID: 2654363936693008083}
   destructionTime: 14
   sinkSpeed: 4
   DamagedFX:
@@ -114,7 +118,7 @@ MonoBehaviour:
   - {fileID: 8822065897274263068}
   - {fileID: 5330991087124910728}
   DeathFX: {fileID: 6484834699053663398}
---- !u!65 &-6154100274184463682
+--- !u!65 &3645115059734028776
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,11 +126,41 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025204181117151233}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 19.89687, y: 27.794601, z: 17.680038}
   m_Center: {x: -0.29578924, y: -3.4351144, z: -9.031921}
+--- !u!1 &3973115733220775905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2654363936693008083}
+  m_Layer: 9
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2654363936693008083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973115733220775905}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.02, y: 17.21, z: -9.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1025204181117187105}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2730932256581280982
 PrefabInstance:
   m_ObjectHideFlags: 0

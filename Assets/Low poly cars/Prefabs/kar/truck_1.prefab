@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1969276471201837351}
   - component: {fileID: 1969276471202837479}
   - component: {fileID: 118713455060229543}
-  - component: {fileID: -6739842837444708694}
+  - component: {fileID: 240449163155730461}
   m_Layer: 0
   m_Name: truck_1
   m_TagString: Untagged
@@ -39,6 +39,7 @@ Transform:
   - {fileID: 740682173111139454}
   - {fileID: 8544491172201554243}
   - {fileID: 5945372289063616300}
+  - {fileID: 2823962640346007788}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,7 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Yellow Delivery Truck
   health: 50
+  objectValue: 50000
+  anchorPoint: {fileID: 2823962640346007788}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -116,7 +120,7 @@ MonoBehaviour:
   - {fileID: 2554339180468375494}
   - {fileID: 6890958243433419515}
   DeathFX: {fileID: 8914752217076501652}
---- !u!65 &-6739842837444708694
+--- !u!65 &240449163155730461
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +128,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969276471205096743}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6908122, y: 1.7604619, z: 5.7583733}
@@ -449,6 +453,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6371714731374133584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2823962640346007788}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2823962640346007788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371714731374133584}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.01, y: 2.54, z: -3.28}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 1969276471204737287}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1884398026742714585
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1546978046310496802}
   - component: {fileID: 1546978046311626978}
   - component: {fileID: 7295463293283030438}
-  - component: {fileID: -6019916388160791987}
+  - component: {fileID: 4573661124816117515}
   m_Layer: 0
   m_Name: vintage car1_2
   m_TagString: Untagged
@@ -39,6 +39,7 @@ Transform:
   - {fileID: 3772879019100739366}
   - {fileID: 8369262093653235283}
   - {fileID: 8450050982503675046}
+  - {fileID: 6108060439910197455}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,7 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Red El Camino
   health: 50
+  objectValue: 35000
+  anchorPoint: {fileID: 6108060439910197455}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -116,7 +120,7 @@ MonoBehaviour:
   - {fileID: 2120718279770694814}
   - {fileID: 6705909290029884907}
   DeathFX: {fileID: 6661149206855321374}
---- !u!65 &-6019916388160791987
+--- !u!65 &4573661124816117515
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +128,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546978046309426722}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6908122, y: 1.1972858, z: 5.079439}
@@ -449,6 +453,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &5217717975636805892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6108060439910197455}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6108060439910197455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5217717975636805892}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 1.9036635, z: -3.19}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 1546978046309726722}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2307919242111427110
 PrefabInstance:
   m_ObjectHideFlags: 0

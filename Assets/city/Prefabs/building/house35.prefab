@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2602848638330702644}
   - component: {fileID: 2602848638331701748}
   - component: {fileID: 8801489891315079247}
-  - component: {fileID: 7790256492926306397}
+  - component: {fileID: 4773693508748630912}
   m_Layer: 9
   m_Name: house35
   m_TagString: Untagged
@@ -35,6 +35,7 @@ Transform:
   - {fileID: 4289197700898928748}
   - {fileID: 3240706087021531305}
   - {fileID: 7624510773862181487}
+  - {fileID: 6941855394232432577}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,7 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Fire Station
   health: 50
+  objectValue: 600000
+  anchorPoint: {fileID: 6941855394232432577}
   destructionTime: 14
   sinkSpeed: 4
   DamagedFX:
@@ -114,7 +118,7 @@ MonoBehaviour:
   - {fileID: 1347686679664544724}
   - {fileID: 417979844693041937}
   DeathFX: {fileID: 4405338445774330229}
---- !u!65 &7790256492926306397
+--- !u!65 &4773693508748630912
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,11 +126,41 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2602848638333638452}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 21.12307, y: 10.9699955, z: 14.003669}
   m_Center: {x: -7.9156284, y: -3.7374232, z: -2.757627}
+--- !u!1 &3970453779659775025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6941855394232432577}
+  m_Layer: 9
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6941855394232432577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970453779659775025}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.33, y: 7.81, z: -2.31}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2602848638333602580}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2097051655706663959
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &316496461591413117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4681140402436246591}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4681140402436246591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316496461591413117}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 3.66, z: -3.73}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 6613732480332127694}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6613732480332546528
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +362,7 @@ GameObject:
   - component: {fileID: 6613732480331324910}
   - component: {fileID: 6613732480330358574}
   - component: {fileID: 3353250049827558583}
-  - component: {fileID: 4698660028971777568}
+  - component: {fileID: 5362355871496289720}
   m_Layer: 0
   m_Name: fire engine_1
   m_TagString: Untagged
@@ -359,6 +389,7 @@ Transform:
   - {fileID: 8812206137744115471}
   - {fileID: 6154020113357984983}
   - {fileID: 2078856309126348785}
+  - {fileID: 4681140402436246591}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -428,7 +459,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Fire Truck
   health: 50
+  objectValue: 60000
+  anchorPoint: {fileID: 4681140402436246591}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -436,7 +470,7 @@ MonoBehaviour:
   - {fileID: 6016393192225617079}
   - {fileID: 8958437839958255471}
   DeathFX: {fileID: 3885533066787081289}
---- !u!65 &4698660028971777568
+--- !u!65 &5362355871496289720
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,7 +478,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6613732480332546542}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.841302, y: 2.1947513, z: 5.0451016}

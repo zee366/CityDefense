@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4598556233823116169}
   - component: {fileID: 4598556233824082249}
   - component: {fileID: 5928153305165893498}
-  - component: {fileID: 918969722026294510}
+  - component: {fileID: 8750748686685190298}
   m_Layer: 9
   m_Name: house33
   m_TagString: Untagged
@@ -35,6 +35,7 @@ Transform:
   - {fileID: 6843243242762373057}
   - {fileID: 3444776491693761330}
   - {fileID: 1297508305424086566}
+  - {fileID: 4206374218959108847}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,7 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Restaurant
   health: 50
+  objectValue: 350000
+  anchorPoint: {fileID: 4206374218959108847}
   destructionTime: 14
   sinkSpeed: 4
   DamagedFX:
@@ -114,7 +118,7 @@ MonoBehaviour:
   - {fileID: 8632747412271625337}
   - {fileID: 503266845922103434}
   DeathFX: {fileID: 5110740272541222204}
---- !u!65 &918969722026294510
+--- !u!65 &8750748686685190298
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,11 +126,41 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4598556233821882249}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 11.474292, y: 8.955227, z: 11.498266}
   m_Center: {x: 1.7358618, y: 4.1815186, z: 0.52435184}
+--- !u!1 &4665556079718162765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4206374218959108847}
+  m_Layer: 9
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4206374218959108847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4665556079718162765}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.14, y: 14.06, z: 0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4598556233821789097}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1759977231475092610
 PrefabInstance:
   m_ObjectHideFlags: 0

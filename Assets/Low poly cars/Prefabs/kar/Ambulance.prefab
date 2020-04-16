@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 2287463915584313842}
   - component: {fileID: 2287463915585280818}
   - component: {fileID: 3521764384958145218}
-  - component: {fileID: -344214786268209338}
+  - component: {fileID: 6176374611894725382}
   m_Layer: 0
   m_Name: Ambulance
   m_TagString: Untagged
@@ -119,6 +119,7 @@ Transform:
   - {fileID: 1628709252445819953}
   - {fileID: 4300990461360380466}
   - {fileID: 134837076918924891}
+  - {fileID: 1373801508758061454}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -191,7 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Ambulance
   health: 50
+  objectValue: 50000
+  anchorPoint: {fileID: 1373801508758061454}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -199,7 +203,7 @@ MonoBehaviour:
   - {fileID: 4589147266840930185}
   - {fileID: 1334626216725211530}
   DeathFX: {fileID: 2948365628658091491}
---- !u!65 &-344214786268209338
+--- !u!65 &6176374611894725382
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,7 +211,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2287463915583342066}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6908122, y: 1.8971945, z: 5.4861774}
@@ -452,6 +456,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &8128705971617471989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1373801508758061454}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1373801508758061454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128705971617471989}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.08, y: 3.34, z: -3.34}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 2287463915582986706}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &57841879231682296
 PrefabInstance:
   m_ObjectHideFlags: 0

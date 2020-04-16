@@ -411,7 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2332823170835148942}
   - component: {fileID: 7429901149563180213}
-  - component: {fileID: -4203941925618142728}
+  - component: {fileID: 3385759929886122116}
   m_Layer: 0
   m_Name: kar_11
   m_TagString: Untagged
@@ -439,6 +439,7 @@ Transform:
   - {fileID: 7618486601975760443}
   - {fileID: 8575466065555705378}
   - {fileID: 2683520033777320980}
+  - {fileID: 5043457140531738783}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -454,7 +455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Purple Sedan
   health: 50
+  objectValue: 30000
+  anchorPoint: {fileID: 5043457140531738783}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -462,7 +466,7 @@ MonoBehaviour:
   - {fileID: 4652207709074519427}
   - {fileID: 6789061555548044698}
   DeathFX: {fileID: 867079477570566060}
---- !u!65 &-4203941925618142728
+--- !u!65 &3385759929886122116
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -470,11 +474,41 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2332823170834918574}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.504875, y: 2.2877347, z: 2.1309643}
+  m_Center: {x: 0.050390244, y: 0.9574021, z: -0.16236591}
+--- !u!1 &5189535156425315300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5043457140531738783}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5043457140531738783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189535156425315300}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.48, y: 4.13, z: -18.420002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2332823170835148942}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3558215789085470996
 PrefabInstance:
   m_ObjectHideFlags: 0

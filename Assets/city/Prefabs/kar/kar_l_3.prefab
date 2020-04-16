@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2737943894239104224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8221986222477356824}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8221986222477356824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737943894239104224}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.12, y: 4.24, z: -0.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5975942013641363193}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5975942013641200337
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5975942013641363193}
   - component: {fileID: 716529924018002636}
-  - component: {fileID: 5099181577661800124}
+  - component: {fileID: 6759921364970867719}
   m_Layer: 0
   m_Name: kar_l_3
   m_TagString: Untagged
@@ -360,6 +390,7 @@ Transform:
   - {fileID: 8086486087320250418}
   - {fileID: 8110847672182523447}
   - {fileID: 1331900453804512692}
+  - {fileID: 8221986222477356824}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -375,7 +406,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Yellow Station Wagon
   health: 50
+  objectValue: 35000
+  anchorPoint: {fileID: 8221986222477356824}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -383,7 +417,7 @@ MonoBehaviour:
   - {fileID: 6416858921800194954}
   - {fileID: 6465550087514797455}
   DeathFX: {fileID: 4273466447409047052}
---- !u!65 &5099181577661800124
+--- !u!65 &6759921364970867719
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,11 +425,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5975942013641200345}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.3640556, y: 2.256575, z: 2.029007}
+  m_Center: {x: -0.0494709, y: 0.9745867, z: -0.1879921}
 --- !u!1 &5975942013641200347
 GameObject:
   m_ObjectHideFlags: 0

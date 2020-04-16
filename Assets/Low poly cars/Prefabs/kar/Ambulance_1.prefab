@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 1068727197571706763}
   - component: {fileID: 1068727197572672843}
   - component: {fileID: 2921549497445062009}
-  - component: {fileID: 4472947179641928138}
+  - component: {fileID: 1666681353697758251}
   m_Layer: 0
   m_Name: Ambulance_1
   m_TagString: Untagged
@@ -199,6 +199,7 @@ Transform:
   - {fileID: 8387423064863597546}
   - {fileID: 8339716965267405244}
   - {fileID: 2036562272188796895}
+  - {fileID: 7347528974353989485}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -271,7 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Ambulance
   health: 50
+  objectValue: 50000
+  anchorPoint: {fileID: 7347528974353989485}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -279,7 +283,7 @@ MonoBehaviour:
   - {fileID: 6724903002927403090}
   - {fileID: 6523775310324894212}
   DeathFX: {fileID: 3852523717270207591}
---- !u!65 &4472947179641928138
+--- !u!65 &1666681353697758251
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,7 +291,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068727197574673291}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6908122, y: 1.8971945, z: 5.4861774}
@@ -452,6 +456,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &3315052846439114713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7347528974353989485}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7347528974353989485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315052846439114713}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 3.32, z: -3.74}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 1068727197574573995}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &585406037366389471
 PrefabInstance:
   m_ObjectHideFlags: 0
