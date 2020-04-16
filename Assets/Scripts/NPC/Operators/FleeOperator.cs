@@ -21,7 +21,9 @@ namespace Rioters.Operators {
 
 
         public TaskStatus Update(IContext ctx) {
+            Debug.Log("in fleeing op1");
             if ( ctx is NpcHtnContext c ) {
+                Debug.Log("in fleeing op2");
                 // Update new flee position at interval
                 _timeSinceLastFleePosUpdate += Time.deltaTime;
                 if ( _timeSinceLastFleePosUpdate > _fleeingTargetUpdateInterval ) {
@@ -30,6 +32,7 @@ namespace Rioters.Operators {
                     // Compute new flee position
                     try {
                         _targetPos = GetPosFromType(c, _fleeType);
+                        Debug.Log("fleeing");
                         return Move(c);
                     }
                     catch ( Exception e ) {

@@ -67,6 +67,7 @@ namespace Rioters {
 
             // Change world state
             _context.SetState(NpcWorldState.HasDestructiblesInRange, _context.destructiblesInRange.Count > 0, EffectType.Permanent);
+            _context.SetState(NpcWorldState.PoliceInRange, _context.policesInRange.Count > 0, EffectType.Permanent);
 
             _currentSensingTimer = 0;
         }

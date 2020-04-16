@@ -12,12 +12,12 @@ namespace Rioters {
                 .End()
                 .Select("Police close & enough stamina, flee!")
                     .HasState(NpcWorldState.PoliceInRange)
-                    .HasStateGreaterThan(NpcWorldState.StaminaLevel, 2)  // This is conceptual only for now. Would actively flee only if has enough energy.
+                    //.HasStateGreaterThan(NpcWorldState.StaminaLevel, 2)  // This is conceptual only for now. Would actively flee only if has enough energy.
                     .PrimitiveTask<FindPolice>("Find closest police").End()
                     .Flee(NpcType.Police)
-                        .SetState(NpcWorldState.PoliceInRange, false, EffectType.PlanAndExecute)
-                        .DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
-                    .End()
+                        //.SetState(NpcWorldState.PoliceInRange, false, EffectType.PlanAndExecute)
+                        //.DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
+                    //.End()
                 .End()
                 .Select("Towards closest destructible, or regroup")
                     .Sequence("To destructible")
@@ -36,7 +36,7 @@ namespace Rioters {
                     .End()
                     .Sequence("Regroup")
                         // TODO
-                        .Action("Regroup action").Do((ctx) => { Debug.Log("Would regroup"); return TaskStatus.Success; })
+                        .Action("Regroup action").Do((ctx) => { /*Debug.Log("Would regroup"); */return TaskStatus.Success; })
                         .End()
                         .IncrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
                     .End()
