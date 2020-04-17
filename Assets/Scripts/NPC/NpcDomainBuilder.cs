@@ -116,8 +116,6 @@ namespace Rioters {
             if ( Pointer is IPrimitiveTask task ) {
                 task.SetOperator(new FleeOperator(type, refreshInterval));
             }
-            SetState(NpcWorldState.PoliceInRange, EffectType.PlanAndExecute);
-            End();
             return this;
         }
 

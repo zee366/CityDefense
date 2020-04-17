@@ -11,17 +11,20 @@ namespace Rioters {
                 .Select("Receive Effect from police actions (Damage, Stun, wtv)")    // TODO
                 .End()
                 .Select("Police close & enough stamina, flee!")
-                    .HasState(NpcWorldState.PoliceInRange)
-                    //.HasStateGreaterThan(NpcWorldState.StaminaLevel, 2)  // This is conceptual only for now. Would actively flee only if has enough energy.
-                    .PrimitiveTask<FindPolice>("Find closest police").End()
-                    .Flee(NpcType.Police)
-                        //.SetState(NpcWorldState.PoliceInRange, false, EffectType.PlanAndExecute)
-                        //.DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
-                    //.End()
+                    .Sequence("To flee")
+                        .HasState(NpcWorldState.PoliceInRange)
+                        .Condition("Has potential targets", (ctx) => ctx.HasState(NpcWorldState.PoliceInRange))
+                        //.HasStateGreaterThan(NpcWorldState.StaminaLevel, 2)  // This is conceptual only for now. Would actively flee only if has enough energy.
+                        .PrimitiveTask<FindPolice>("Find closest police").End()
+                        .Flee(NpcType.Police)
+                            .SetState(NpcWorldState.PoliceInRange, false, EffectType.PlanAndExecute) //should the second param be true or removed?
+                            //.DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
+                        .End()
+                    .End()
                 .End()
                 .Select("Towards closest destructible, or regroup")
                     .Sequence("To destructible")
-                        .HasStateGreaterThan(NpcWorldState.StaminaLevel, 1) // Need at least a basic level of stamina
+                        //.HasStateGreaterThan(NpcWorldState.StaminaLevel, 1) // Need at least a basic level of stamina
                         .Condition("Has potential targets", (ctx) => ctx.HasState(NpcWorldState.HasDestructiblesInRange))
                         .PrimitiveTask<FindDestructible>("Find closest target").End()
                         .MoveToDestructible()    // Self contained Task
@@ -32,7 +35,7 @@ namespace Rioters {
                                         ctx.SetState(NpcWorldState.TargetInAttackRange, false, type);
                                     })
                         .End()
-                        .DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
+                        //.DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
                     .End()
                     .Sequence("Regroup")
                         // TODO
