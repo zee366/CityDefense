@@ -655,7 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e564efc938edcbb4195e94eab0f7bf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mediaSceneRadius: 0.5
+  listOfRiotersAndPolice: []
+  mediaSceneRadius: 22
 --- !u!1 &165934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,7 +2199,7 @@ SphereCollider:
   m_GameObject: {fileID: 3375962529342679226}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

@@ -105,14 +105,15 @@ public class PoliceAbilities : MonoBehaviour
     public void Arrest()
     {
         //reporter present logic
-        //if(reporter's physics overlap returns a PoliceAbilities object)
-        //reporterPresentPRAmplifier = 3;
+        //if reporter's physics overlap returns this PoliceAbilities object
+        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            reporterPresentPRAmplifier = 3;
 
         //show appropriate arresting image based on success/fail
         if (rioterTarget && rioterTarget.health <= 25.0f)
         {
             //logic for less points deducted from PR
-            publicRelations.ImprovePR(arrestPR);
+            publicRelations.ImprovePR(arrestPR * reporterPresentPRAmplifier);
 
             infoBubble.SetFramingImage(arrestImg);
             infoBubble.Open();
@@ -125,19 +126,20 @@ public class PoliceAbilities : MonoBehaviour
             infoBubble.Open();
             infoBubble.Close();
         }
+        reporterPresentPRAmplifier = 1;
     }
     
     public void AggressiveArrest()
     {
         //reporter present logic
-        //if(reporter's physics overlap returns a PoliceAbilities object)
-        //reporterPresentPRAmplifier = 3;
+        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            reporterPresentPRAmplifier = 3;
 
         //show appropriate aggressive arresting image based on success/fail
         if (rioterTarget)
         {
             //logic for more points deducted from PR
-            publicRelations.WorsenPR(aggressiveArrestPR);
+            publicRelations.WorsenPR(aggressiveArrestPR * reporterPresentPRAmplifier);
 
             infoBubble.SetFramingImage(aggressiveArrestImg);
             infoBubble.Open();
@@ -150,6 +152,7 @@ public class PoliceAbilities : MonoBehaviour
             infoBubble.Open();
             infoBubble.Close();
         }
+        reporterPresentPRAmplifier = 1;
     }
 
     public void FireBullets()
@@ -158,15 +161,14 @@ public class PoliceAbilities : MonoBehaviour
         publicRelations.CostOfAction(costForFireBullets);
 
         //reporter present logic
-        //if(reporter's physics overlap returns a PoliceAbilities object)
-        //reporterPresentPRAmplifier = ?;
-        //will have to put this in conditional statements below
+        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            reporterPresentPRAmplifier = 2;
 
         //logic for PR system cost
         if (bulletSetType == bulletTypes[0])
-            publicRelations.WorsenPR(firingRubberBulletsPR);
+            publicRelations.WorsenPR(firingRubberBulletsPR * reporterPresentPRAmplifier);
         else
-            publicRelations.WorsenPR(firingLethalBulletsPR);
+            publicRelations.WorsenPR(firingLethalBulletsPR * reporterPresentPRAmplifier);
 
         //logic for firing bullets
         if (rioterTarget)
@@ -198,6 +200,7 @@ public class PoliceAbilities : MonoBehaviour
                 }
             }
         }
+        reporterPresentPRAmplifier = 1;
     }
 
     public void UseRubberBullets()
@@ -218,15 +221,17 @@ public class PoliceAbilities : MonoBehaviour
         publicRelations.CostOfAction(costForSmokeGrenade);
 
         //reporter present logic
-        //if(reporter's physics overlap returns a PoliceAbilities object)
-        //reporterPresentPRAmplifier = 3;
+        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            reporterPresentPRAmplifier = 2;
 
         //logic for more points deducted from PR
-        publicRelations.WorsenPR(smokeGrenadePR);
+        publicRelations.WorsenPR(smokeGrenadePR * reporterPresentPRAmplifier);
 
         //logic for throwing grenade at an arch
         GameObject sG = Instantiate(smokeGrenade, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
         sG.GetComponent<Rigidbody>().AddForce(transform.forward * launchForce, ForceMode.Impulse);
+
+        reporterPresentPRAmplifier = 1;
     }
 
     public void UseWaterCannon()
@@ -235,14 +240,14 @@ public class PoliceAbilities : MonoBehaviour
         publicRelations.CostOfAction(costForWaterCannon);
 
         //reporter present logic
-        //if(reporter's physics overlap returns a PoliceAbilities object)
-        //reporterPresentPRAmplifier = 2;
-
+        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            reporterPresentPRAmplifier = 2;
         //logic for PR system cost
-        publicRelations.ImprovePR(waterCannonPR);
+        publicRelations.ImprovePR(waterCannonPR * reporterPresentPRAmplifier);
 
         //logic for using water cannon
         Instantiate(waterCannon, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
+        reporterPresentPRAmplifier = 1;
     }
 
     public void UseLethalBullets()

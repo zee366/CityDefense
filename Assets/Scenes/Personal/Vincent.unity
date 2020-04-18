@@ -1100,6 +1100,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 162168, guid: 635b854ed5dc3b94ebd3bcef28fb1e7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 494844, guid: 635b854ed5dc3b94ebd3bcef28fb1e7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46.101055
@@ -1145,6 +1149,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 937502350340112950, guid: 635b854ed5dc3b94ebd3bcef28fb1e7c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 937502350340112950, guid: 635b854ed5dc3b94ebd3bcef28fb1e7c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492386850307940635, guid: 635b854ed5dc3b94ebd3bcef28fb1e7c,
         type: 3}
       propertyPath: m_Enabled
       value: 1

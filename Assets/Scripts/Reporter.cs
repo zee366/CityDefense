@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Reporter : MonoBehaviour
 {
-    private List<GameObject> listOfRiotersAndPolice;
+    public List<GameObject> listOfRiotersAndPolice;
     [SerializeField]
     private float mediaSceneRadius = 0;
 
@@ -19,20 +19,22 @@ public class Reporter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //listOfRiotersAndPolice = CheckIfNearPoliceAndRioters();
+        listOfRiotersAndPolice = CheckIfNearPoliceAndRioters();
     }
 
     public List<GameObject> CheckIfNearPoliceAndRioters()
     {
-        //Collider[] colliders = Physics.OverlapSphere(transform.position, mediaSceneRadius);
+        listOfRiotersAndPolice.Clear();
 
-        //foreach (Collider cd in colliders)
-        //{
-        //    if (cd.gameObject.GetComponent<PoliceAbilities>())
-        //        listOfRiotersAndPolice.Add(cd.gameObject);
-        //    else if (cd.gameObject.GetComponent<Rioters.RioterAgentBehavior>())
-        //        listOfRiotersAndPolice.Add(cd.gameObject);
-        //}
+        Collider[] colliders = Physics.OverlapSphere(transform.position, mediaSceneRadius);
+
+        foreach (Collider cd in colliders)
+        {
+            if (cd.gameObject.GetComponent<PoliceAbilities>())
+                listOfRiotersAndPolice.Add(cd.gameObject);
+            else if (cd.gameObject.GetComponent<Rioters.RioterAgentBehavior>())
+                listOfRiotersAndPolice.Add(cd.gameObject);
+        }
 
         return listOfRiotersAndPolice;
     }
