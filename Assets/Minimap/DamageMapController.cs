@@ -62,10 +62,10 @@ public class DamageMapController : MonoBehaviour
             if(d.GetCurrentHealth() >= 0.75f*d.health)
                 rect.GetComponent<MeshRenderer>().material = Green;
             else if(d.GetCurrentHealth() >= 0.50f*d.health)
-                rect.GetComponent<MeshRenderer>().material = Orange;
-            else if (d.GetCurrentHealth() >= 0.25f * d.health)
                 rect.GetComponent<MeshRenderer>().material = Yellow;
-            else if (d.GetCurrentHealth() >= 0f * d.health)
+            else if (d.GetCurrentHealth() >= 0.25f * d.health)
+                rect.GetComponent<MeshRenderer>().material = Orange;
+            else
                 rect.GetComponent<MeshRenderer>().material = Red;
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PublicRelations : MonoBehaviour
 {
-    private int _PRaccumulated = 0;
+    private int _funding = 0;
     private int _PRrate = 15;
     private int _PRlevel = 50; 
     public Text Level_text;
@@ -21,7 +21,7 @@ public class PublicRelations : MonoBehaviour
     void Update()
     {
         UpdateLevelRate();
-        Accumulated_text.text = "$"+_PRaccumulated.ToString();
+        Accumulated_text.text = "$"+_funding.ToString();
     }
 
     private void UpdateLevelRate()
@@ -65,6 +65,6 @@ public class PublicRelations : MonoBehaviour
 
     private void PRTick()
     {
-        _PRaccumulated += _PRrate;
+        _funding += _PRrate;
     }
 }
