@@ -51,6 +51,7 @@ namespace Rioters {
             if ( _currentSensingTimer < _sensingInterval ) return;
 
             _context.destructiblesInRange.Clear();
+            _context.policesInRange.Clear();
 
             // Sense
             int count = Physics.OverlapSphereNonAlloc(transform.position, _sensingRange, _sensedColliders);
@@ -62,11 +63,12 @@ namespace Rioters {
 
                 // Check for Police
                 if ( _sensedColliders[i].TryGetComponent(out PoliceAbilities p) )
-                    _context.policesInRange.Add(_sensedColliders[i].transform);
+                    _context.policesInRange.Add(p.transform);
             }
 
             // Change world state
             _context.SetState(NpcWorldState.HasDestructiblesInRange, _context.destructiblesInRange.Count > 0, EffectType.Permanent);
+            _context.SetState(NpcWorldState.PoliceInRange, _context.policesInRange.Count > 0, EffectType.Permanent);
 
             _currentSensingTimer = 0;
         }
