@@ -67,8 +67,10 @@ namespace Rioters.Operators {
 
 
         private TaskStatus Move(NpcHtnContext c) {
-            if ( c.NavAgent.SetDestination(_targetPos) ) {
+            if (c.policesInRange.Count > 0 && c.NavAgent.SetDestination(_targetPos) ) {
+            //if ( c.NavAgent.SetDestination(_targetPos) ) {
                 c.NavAgent.isStopped = false;
+                Debug.Log("fleeing to: " + _targetPos);
                 return TaskStatus.Continue;
             }
 

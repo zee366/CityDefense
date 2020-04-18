@@ -105,7 +105,8 @@ namespace Rioters {
                 task.SetOperator(new MoveToDestructibleOperator());
             }
 
-            SetState(NpcWorldState.TargetInAttackRange, EffectType.PlanAndExecute);
+            //SetState(NpcWorldState.TargetInAttackRange, false, EffectType.PlanOnly);
+            SetState(NpcWorldState.TargetInAttackRange, EffectType.PlanOnly);
             End();
             return this;
         }
@@ -116,6 +117,7 @@ namespace Rioters {
             if ( Pointer is IPrimitiveTask task ) {
                 task.SetOperator(new FleeOperator(type, refreshInterval));
             }
+
             return this;
         }
 

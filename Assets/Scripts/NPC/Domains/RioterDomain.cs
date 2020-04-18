@@ -12,14 +12,14 @@ namespace Rioters {
                 .End()
                 .Select("Police close & enough stamina, flee!")
                     .Sequence("To flee")
-                        .HasState(NpcWorldState.PoliceInRange)
-                        .Condition("Has potential targets", (ctx) => ctx.HasState(NpcWorldState.PoliceInRange))
+                        //.HasState(NpcWorldState.PoliceInRange)
+                        .Condition("Has police in range", (ctx) => ctx.HasState(NpcWorldState.PoliceInRange))
                         //.HasStateGreaterThan(NpcWorldState.StaminaLevel, 2)  // This is conceptual only for now. Would actively flee only if has enough energy.
                         .PrimitiveTask<FindPolice>("Find closest police").End()
-                        .Flee(NpcType.Police)
-                            .SetState(NpcWorldState.PoliceInRange, false, EffectType.PlanAndExecute) //should the second param be true or removed?
+                        .Flee(NpcType.Police) // Self contained task
+                            .SetState(NpcWorldState.PoliceInRange, false, EffectType.PlanOnly)
                             //.DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
-                        .End()
+                            .End()
                     .End()
                 .End()
                 .Select("Towards closest destructible, or regroup")
@@ -28,14 +28,16 @@ namespace Rioters {
                         .Condition("Has potential targets", (ctx) => ctx.HasState(NpcWorldState.HasDestructiblesInRange))
                         .PrimitiveTask<FindDestructible>("Find closest target").End()
                         .MoveToDestructible()    // Self contained Task
-                        .PrimitiveTask<DamageDestructible>("Deal damage to target")
-                            .Condition("At target", (ctx) => ctx.HasState(NpcWorldState.TargetInAttackRange))
-                            .Effect("Dealt damage", EffectType.PlanAndExecute,
-                                    (ctx, type) => {
-                                        ctx.SetState(NpcWorldState.TargetInAttackRange, false, type);
-                                    })
-                        .End()
-                        //.DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
+                        .PrimitiveTask<DamageDestructible>("Deal damage to target").End()
+                    //.PrimitiveTask<DamageDestructible>("Deal damage to target")
+                    //    .Condition("At target", (ctx) => ctx.HasState(NpcWorldState.TargetInAttackRange))
+                    //    .Effect("Dealt damage", EffectType.PlanAndExecute,
+                    //            (ctx, type) => {
+                    //                //ctx.SetState(NpcWorldState.TargetInAttackRange, false, type);
+                    //                ctx.SetState(NpcWorldState.TargetInAttackRange, true, type);
+                    //            })
+                    //    .End()
+                    //.DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
                     .End()
                     .Sequence("Regroup")
                         // TODO
