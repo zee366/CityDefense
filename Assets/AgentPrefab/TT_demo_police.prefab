@@ -1355,6 +1355,11 @@ MonoBehaviour:
     type: 3}
   failedAggressiveArrestImg: {fileID: 21300000, guid: 03139cd460789754b96d4a6962ecc258,
     type: 3}
+  costForFireRubberBullets: 1
+  costForFireLethalBullets: 3
+  costForSmokeGrenade: 15
+  costForWaterCannon: 10
+  costForReinforcement: 10
 --- !u!1 &3310545248559918447
 GameObject:
   m_ObjectHideFlags: 0

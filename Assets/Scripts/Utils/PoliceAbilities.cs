@@ -35,15 +35,53 @@ public class PoliceAbilities : MonoBehaviour
     public Sprite failedAggressiveArrestImg;
     ScreenSpaceTargetBubble infoBubble;
 
+    //PR logic
+    //PR object
+    private PublicRelations publicRelations;
+    //report object
+    //private GameObject reporter;
+    private Reporter reporter;
+    //report PR amplifier
+    private int reporterPresentPRAmplifier;
 
+    //various costs for police abilities
+    [SerializeField]
+    private int costForFireRubberBullets = 0;
+    [SerializeField]
+    private int costForFireLethalBullets = 0;
+    private int costForFireBullets;
+    [SerializeField]
+    private int costForSmokeGrenade = 0;
+    [SerializeField]
+    private int costForWaterCannon = 0;
+    [SerializeField]
+    private int costForReinforcement = 0;
 
+    //various points for changing PR rate
+    [SerializeField]
+    private int arrestPR = 0;
+    [SerializeField]
+    private int aggressiveArrestPR = 0;
+    [SerializeField]
+    private int firingRubberBulletsPR = 0;
+    [SerializeField]
+    private int firingLethalBulletsPR = 0;
+    [SerializeField]
+    private int smokeGrenadePR = 0;
+    [SerializeField]
+    private int waterCannonPR = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         infoBubble = FindObjectOfType<ScreenSpaceTargetBubble>();
+        publicRelations = FindObjectOfType<PublicRelations>();
+        //reporter = GameObject.FindGameObjectWithTag("Reporter");
+        reporter = FindObjectOfType<Reporter>();
+        reporterPresentPRAmplifier = 1;
         bulletSetType = bulletTypes[0];
         bulletDamage = 10.0f;
+        costForFireBullets = 0;
     }
 
     // Update is called once per frame
@@ -66,12 +104,16 @@ public class PoliceAbilities : MonoBehaviour
 
     public void Arrest()
     {
-        //logic for less points deducted from PR
-        //...
+        //reporter present logic
+        //if(reporter's physics overlap returns a PoliceAbilities object)
+        //reporterPresentPRAmplifier = 3;
 
         //show appropriate arresting image based on success/fail
         if (rioterTarget && rioterTarget.health <= 25.0f)
         {
+            //logic for less points deducted from PR
+            publicRelations.ImprovePR(arrestPR);
+
             infoBubble.SetFramingImage(arrestImg);
             infoBubble.Open();
             Destroy(rioterTarget.gameObject);
@@ -87,12 +129,16 @@ public class PoliceAbilities : MonoBehaviour
     
     public void AggressiveArrest()
     {
-        //logic for more points deducted from PR
-        //...
+        //reporter present logic
+        //if(reporter's physics overlap returns a PoliceAbilities object)
+        //reporterPresentPRAmplifier = 3;
 
-        //show appropriate arresting image based on success/fail
+        //show appropriate aggressive arresting image based on success/fail
         if (rioterTarget)
         {
+            //logic for more points deducted from PR
+            publicRelations.WorsenPR(aggressiveArrestPR);
+
             infoBubble.SetFramingImage(aggressiveArrestImg);
             infoBubble.Open();
             Destroy(rioterTarget.gameObject);
@@ -108,8 +154,19 @@ public class PoliceAbilities : MonoBehaviour
 
     public void FireBullets()
     {
+        //cost of action
+        publicRelations.CostOfAction(costForFireBullets);
+
+        //reporter present logic
+        //if(reporter's physics overlap returns a PoliceAbilities object)
+        //reporterPresentPRAmplifier = ?;
+        //will have to put this in conditional statements below
+
         //logic for PR system cost
-        //...
+        if (bulletSetType == bulletTypes[0])
+            publicRelations.WorsenPR(firingRubberBulletsPR);
+        else
+            publicRelations.WorsenPR(firingLethalBulletsPR);
 
         //logic for firing bullets
         if (rioterTarget)
@@ -145,8 +202,11 @@ public class PoliceAbilities : MonoBehaviour
 
     public void UseRubberBullets()
     {
-        //logic for PR system cost
-        //...
+        //change cost of firing bullets to be cost of firing rubber bullets
+        costForFireBullets = costForFireRubberBullets;
+
+        //logic for PR system cost?
+        //camera crew logic?
 
         bulletSetType = bulletTypes[0];
         bulletDamage = 10.0f;
@@ -154,6 +214,16 @@ public class PoliceAbilities : MonoBehaviour
 
     public void UseSmokeGrenade()
     {
+        //cost of action
+        publicRelations.CostOfAction(costForSmokeGrenade);
+
+        //reporter present logic
+        //if(reporter's physics overlap returns a PoliceAbilities object)
+        //reporterPresentPRAmplifier = 3;
+
+        //logic for more points deducted from PR
+        publicRelations.WorsenPR(smokeGrenadePR);
+
         //logic for throwing grenade at an arch
         GameObject sG = Instantiate(smokeGrenade, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
         sG.GetComponent<Rigidbody>().AddForce(transform.forward * launchForce, ForceMode.Impulse);
@@ -161,8 +231,15 @@ public class PoliceAbilities : MonoBehaviour
 
     public void UseWaterCannon()
     {
+        //cost of action
+        publicRelations.CostOfAction(costForWaterCannon);
+
+        //reporter present logic
+        //if(reporter's physics overlap returns a PoliceAbilities object)
+        //reporterPresentPRAmplifier = 2;
+
         //logic for PR system cost
-        //...
+        publicRelations.ImprovePR(waterCannonPR);
 
         //logic for using water cannon
         Instantiate(waterCannon, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
@@ -170,8 +247,11 @@ public class PoliceAbilities : MonoBehaviour
 
     public void UseLethalBullets()
     {
-        //logic for PR system cost
-        //...
+        //change cost of firing bullets to be cost of firing rubber bullets
+        costForFireBullets = costForFireLethalBullets;
+
+        //logic for PR system cost?
+        //camera crew logic
 
         bulletSetType = bulletTypes[1];
         bulletDamage = 30.0f;
@@ -179,8 +259,11 @@ public class PoliceAbilities : MonoBehaviour
 
     public void ReinforceSquad()
     {
+        //cost of action
+        publicRelations.CostOfAction(costForReinforcement);
+
         //logic for PR system cost
-        //...
+        //camera crew logic
 
         //logic for summoning a police squad member
         //spawn point is at donut shop

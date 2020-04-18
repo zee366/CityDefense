@@ -63,6 +63,11 @@ public class PublicRelations : MonoBehaviour
         _PRlevel = Mathf.Clamp(_PRlevel - removed, -25, 125);
     }
 
+    public void CostOfAction(int cost)
+    {
+        _PRaccumulated -= cost;
+    }
+
     private void PRTick()
     {
         _PRaccumulated += _PRrate;
