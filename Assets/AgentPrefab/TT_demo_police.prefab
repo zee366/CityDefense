@@ -1360,6 +1360,12 @@ MonoBehaviour:
   costForSmokeGrenade: 15
   costForWaterCannon: 10
   costForReinforcement: 10
+  arrestPR: 5
+  aggressiveArrestPR: 5
+  firingRubberBulletsPR: 1
+  firingLethalBulletsPR: 3
+  smokeGrenadePR: 10
+  waterCannonPR: 10
 --- !u!1 &3310545248559918447
 GameObject:
   m_ObjectHideFlags: 0
