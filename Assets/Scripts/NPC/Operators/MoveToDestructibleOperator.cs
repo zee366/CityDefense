@@ -31,6 +31,7 @@ namespace Rioters.Operators {
 
             Vector3 closestTargetBound = c.CurrentTarget.GetComponent<Collider>().ClosestPointOnBounds(c.Position);
             if ( c.NavAgent.SetDestination(closestTargetBound) ) {
+                c.anim.SetBool("IsRunning",true);
                 c.NavAgent.isStopped = false;
                 return TaskStatus.Continue;
             }
@@ -44,6 +45,7 @@ namespace Rioters.Operators {
             c.NavAgent.SetDestination(closestTargetBound);
             if ( !c.NavAgent.pathPending && c.NavAgent.remainingDistance <= c.NavAgent.radius ) {
                 c.NavAgent.isStopped = true;
+                c.anim.SetBool("IsRunning",false);
                 return TaskStatus.Success;
             }
 

@@ -13,6 +13,8 @@ namespace Rioters {
         public MonoBehaviour Agent    { get; }
         public NavMeshAgent  NavAgent { get; set; }
 
+        public Animator anim {get; set;}
+
         public Vector3 Position {
             get { return Agent.transform.position; }
         }

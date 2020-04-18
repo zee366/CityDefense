@@ -30,8 +30,8 @@ namespace Rioters {
             _currentSensingTimer = _sensingInterval;
             _planner             = new Planner<NpcHtnContext>();
             _domain              = _domainDefinition.Create();
-
             _context                    = new NpcHtnContext(this);
+            _context.anim               = GetComponent<Animator>();
             _context.NavAgent           = GetComponent<NavMeshAgent>();
             _context.NavAgent.isStopped = true;
             _context.DPS                = _damagePerSecond;
