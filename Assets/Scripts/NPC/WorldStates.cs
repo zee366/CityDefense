@@ -5,7 +5,6 @@ namespace Rioters {
         StaminaLevel,
         PoliceInRange,
         HasDestructiblesInRange,
-        TargetInAttackRange
 
     }
 

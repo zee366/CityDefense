@@ -416,7 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _domainDefinition: {fileID: 11400000, guid: c060ca0827f1ab84daae60f2f9b0fc87, type: 2}
   _sensingInterval: 2
-  _sensingRange: 20
+  _sensingRange: 30
   _damagePerSecond: 2
   logPlan: 0
 --- !u!1 &8404170989388721961

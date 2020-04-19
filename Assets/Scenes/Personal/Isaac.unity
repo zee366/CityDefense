@@ -508,7 +508,7 @@ MonoBehaviour:
     probability: 100
   spawnParent: {fileID: 1758348309}
   spawnPerSecond: 0.2
-  maxNumberOfEntities: 300
+  maxNumberOfEntities: 100
 --- !u!4 &930912095
 Transform:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ MonoBehaviour:
     probability: 100
   spawnParent: {fileID: 1758348309}
   spawnPerSecond: 0.2
-  maxNumberOfEntities: 300
+  maxNumberOfEntities: 100
 --- !u!4 &1538279708
 Transform:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
     probability: 100
   spawnParent: {fileID: 1758348309}
   spawnPerSecond: 0.2
-  maxNumberOfEntities: 300
+  maxNumberOfEntities: 100
 --- !u!4 &2085352684
 Transform:
   m_ObjectHideFlags: 0
