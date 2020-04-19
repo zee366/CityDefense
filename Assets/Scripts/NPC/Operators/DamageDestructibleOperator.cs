@@ -18,6 +18,7 @@ namespace Rioters.Operators {
                 // Check if totally destroyed
                 if ( c.CurrentTarget.IsDead || _attackTime >= c.MaxAttackActionLength ) {
                     c.anim.SetBool("IsAttacking", false);
+                    _attackTime = 0;    // Need to reset internal state since it's kept in memory for next planning
                     return TaskStatus.Success;
                 }
 
@@ -32,6 +33,7 @@ namespace Rioters.Operators {
             if(ctx is NpcHtnContext c)
                 c.anim.SetBool("IsAttacking", false);
         }
+
 
     }
 }

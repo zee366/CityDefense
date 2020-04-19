@@ -29,15 +29,12 @@ namespace Rioters {
                         .PrimitiveTask<FindDestructible>("Find closest target").End()
                         .MoveToDestructible()    // Self contained Task
                         .PrimitiveTask<DamageDestructible>("Deal damage to target")
-                            .SetState(NpcWorldState.TargetInAttackRange, true, EffectType.PlanAndExecute)
+                            // .HasState(NpcWorldState.TargetInAttackRange)
+                            .DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
                         .End()
-                        .DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
                     .End()
-                    .Sequence("Regroup")
-                        // Twice for cleaner regrouping from approximation and looks better.
-                        .Regroup()
-                        .Regroup()
-                        // .IncrementState(NpcWorldState.StaminaLevel, 5, EffectType.PlanAndExecute)
+                    .Regroup()
+                        .IncrementState(NpcWorldState.StaminaLevel, 2, EffectType.PlanAndExecute)
                     .End()
                 .End()
                 .Build();

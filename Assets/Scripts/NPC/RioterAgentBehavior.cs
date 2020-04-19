@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using FluidHTN;
 using UnityEditor;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace Rioters {
 
         [SerializeField]
         [Tooltip("Time interval between each surroundings sensing procedure.")]
-        private float _sensingInterval = 1f;
+        private float _sensingInterval = 0.2f;
 
         [SerializeField]
         private float _sensingRange = 10f;
@@ -50,6 +51,14 @@ namespace Rioters {
             }
 
             _context.Init();
+
+
+            _planner.OnNewPlan += OnNewPlanTest;
+        }
+
+
+        private void OnNewPlanTest(Queue<ITask> obj) {
+            Debug.Log("New Plan created");
         }
 
 
@@ -58,7 +67,6 @@ namespace Rioters {
 
             _planner.Tick(_domain, _context);
         }
-
 
         private void SenseSurroundings() {
             _currentSensingTimer += Time.deltaTime;

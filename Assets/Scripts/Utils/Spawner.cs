@@ -9,13 +9,14 @@ namespace Utils {
     /// </summary>
     public class Spawner : MonoBehaviour {
 
-        public  List<Spawnable> spawnables;
-        public  Transform       spawnParent;
+        public List<Spawnable>             spawnables;
+        public DynamicClustersApproximator spawnParent;
 
-        public float spawnPerSecond = 1f;
-        public int maxNumberOfEntities = 250;
+        public float spawnPerSecond      = 1f;
+        public int   maxNumberOfEntities = 250;
 
         List<Vector2> probabilitiesOfSpawnableObjects = new List<Vector2>();
+
 
         /// <summary>
         /// Run spawn lotery to spawn one of the spawnable
@@ -28,13 +29,15 @@ namespace Utils {
             int i = 0;
             foreach ( Vector2 prob in probabilitiesOfSpawnableObjects ) {
                 if ( RandomProbability >= prob.x && RandomProbability <= prob.y ) {
-                    Instantiate(spawnables[i].prefab, transform.position, Quaternion.identity, spawnParent);
+                    var go = Instantiate(spawnables[i].prefab, transform.position, Quaternion.identity, spawnParent.transform);
+                    spawnParent.RegisterTransform(go.transform);
                     break;
                 }
 
                 i++;
             }
         }
+
 
         private void Start() {
             // Initialize the list of probabilities with the ranges of probabilities 
@@ -51,7 +54,7 @@ namespace Utils {
 
         private IEnumerator SpawnUntilFull() {
             while ( true ) {
-                if(spawnParent.childCount < maxNumberOfEntities)
+                if ( spawnParent.transform.childCount < maxNumberOfEntities )
                     SpawnOne();
 
                 yield return new WaitForSeconds(spawnPerSecond);

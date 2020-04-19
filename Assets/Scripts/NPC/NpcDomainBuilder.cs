@@ -5,6 +5,7 @@ using FluidHTN.PrimitiveTasks;
 using Rioters.Conditions;
 using Rioters.Effects;
 using Rioters.Operators;
+using UnityEngine;
 
 namespace Rioters {
     public class NpcDomainBuilder : BaseDomainBuilder<NpcDomainBuilder, NpcHtnContext> {
@@ -122,6 +123,7 @@ namespace Rioters {
         }
 
 
+        // Task that needs to be closed with END()
         public NpcDomainBuilder Regroup() {
             Action("Finding nearest cluster.");
             if ( Pointer is IPrimitiveTask task )
@@ -131,7 +133,7 @@ namespace Rioters {
             Action("Regrouping to found cluster.");
             if ( Pointer is IPrimitiveTask task2 )
                 task2.SetOperator(new MoveToTargetOperator(5f));
-            End();
+
 
             return this;
         }

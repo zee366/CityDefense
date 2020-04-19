@@ -512,7 +512,7 @@ MonoBehaviour:
   - prefab: {fileID: 8404170989388720849, guid: 677115c4cffed6c488dc31104cb0f990,
       type: 3}
     probability: 100
-  spawnParent: {fileID: 1758348310}
+  spawnParent: {fileID: 1758348309}
   spawnPerSecond: 1
   maxNumberOfEntities: 1
 --- !u!4 &930912095
@@ -812,7 +812,7 @@ MonoBehaviour:
   - prefab: {fileID: 8404170989388720849, guid: 677115c4cffed6c488dc31104cb0f990,
       type: 3}
     probability: 100
-  spawnParent: {fileID: 1758348310}
+  spawnParent: {fileID: 1758348309}
   spawnPerSecond: 1
   maxNumberOfEntities: 1
 --- !u!4 &1538279708
@@ -906,9 +906,9 @@ MonoBehaviour:
   - prefab: {fileID: 8404170989388720849, guid: 677115c4cffed6c488dc31104cb0f990,
       type: 3}
     probability: 100
-  spawnParent: {fileID: 1758348310}
+  spawnParent: {fileID: 1758348309}
   spawnPerSecond: 1
-  maxNumberOfEntities: 1
+  maxNumberOfEntities: 5
 --- !u!4 &2085352684
 Transform:
   m_ObjectHideFlags: 0

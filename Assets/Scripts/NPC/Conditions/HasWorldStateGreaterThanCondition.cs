@@ -1,6 +1,7 @@
 ﻿using System;
 using FluidHTN;
 using FluidHTN.Conditions;
+using UnityEngine;
 
 namespace Rioters.Conditions {
     public class HasWorldStateGreaterThanCondition : ICondition {
