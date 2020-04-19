@@ -1,4 +1,5 @@
 using FluidHTN;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,11 +31,24 @@ namespace Rioters {
             _currentSensingTimer = _sensingInterval;
             _planner             = new Planner<NpcHtnContext>();
             _domain              = _domainDefinition.Create();
-            _context                    = new NpcHtnContext(this);
-            _context.anim               = GetComponent<Animator>();
-            _context.NavAgent           = GetComponent<NavMeshAgent>();
-            _context.NavAgent.isStopped = true;
-            _context.DPS                = _damagePerSecond;
+
+            // Constructing initial context
+            _context                      = new NpcHtnContext(this);
+            _context.anim                 = GetComponent<Animator>();
+            _context.NavAgent             = GetComponent<NavMeshAgent>();
+            _context.NavAgent.isStopped   = true;
+            _context.DPS                  = _damagePerSecond;
+            _context.SetState(NpcWorldState.StaminaLevel, 2, EffectType.Permanent);
+
+            if ( transform.parent != null && transform.parent.TryGetComponent(out DynamicClustersApproximator clusterManager) ) {
+                _context.ClustersApproximator = clusterManager;
+            } else {
+                Debug.LogError("Rioter NPC needs to be spawned as a child of a DynamicClustersApproximator container.");
+                #if UNITY_EDITOR
+                EditorApplication.isPlaying = false;
+                #endif
+            }
+
             _context.Init();
         }
 
@@ -68,7 +82,7 @@ namespace Rioters {
 
             // Change world state
             _context.SetState(NpcWorldState.HasDestructiblesInRange, _context.destructiblesInRange.Count > 0, EffectType.Permanent);
-            _context.SetState(NpcWorldState.PoliceInRange, _context.policesInRange.Count > 0, EffectType.Permanent);
+            _context.SetState(NpcWorldState.PoliceInRange,           _context.policesInRange.Count > 0,       EffectType.Permanent);
 
             _currentSensingTimer = 0;
         }

@@ -35,10 +35,10 @@ namespace Rioters.Operators {
                     catch ( Exception e ) {
                         return TaskStatus.Failure;
                     }
-                } else {
-                    // Continue
-                    return CheckForSuccess(c);
                 }
+
+                // Continue
+                return CheckForSuccess(c);
             }
 
             return TaskStatus.Failure;
@@ -67,10 +67,9 @@ namespace Rioters.Operators {
 
 
         private TaskStatus Move(NpcHtnContext c) {
-            if (c.policesInRange.Count > 0 && c.NavAgent.SetDestination(_targetPos) ) {
-            //if ( c.NavAgent.SetDestination(_targetPos) ) {
+            // if (c.policesInRange.Count > 0 && c.NavAgent.SetDestination(_targetPos) ) {
+            if ( c.NavAgent.SetDestination(_targetPos) ) {
                 c.NavAgent.isStopped = false;
-                Debug.Log("fleeing to: " + _targetPos);
                 return TaskStatus.Continue;
             }
 

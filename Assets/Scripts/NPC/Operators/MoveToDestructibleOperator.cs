@@ -6,7 +6,7 @@ namespace Rioters.Operators {
     public class MoveToDestructibleOperator : IOperator {
 
         public TaskStatus Update(IContext ctx) {
-            if ( ctx is NpcHtnContext c ) {
+            if ( ctx is NpcHtnContext c && c.CurrentTarget != null ) {
                 if ( c.NavAgent.isStopped ) {
                     return StartMove(c);
                 } else {

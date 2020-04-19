@@ -13,19 +13,23 @@ namespace Rioters {
         public MonoBehaviour Agent    { get; }
         public NavMeshAgent  NavAgent { get; set; }
 
-        public Animator anim {get; set;}
+        public Animator anim { get; set; }
 
         public Vector3 Position {
             get { return Agent.transform.position; }
         }
 
+        public Vector3 MoveToTarget { get; set; }
+
         public float DPS { get; set; }
 
         public List<Transform> policesInRange = new List<Transform>();
-        public Transform ClosestPolice { get; set; }
+        public Transform       ClosestPolice { get; set; }
 
         public List<Destructible> destructiblesInRange = new List<Destructible>();
         public Destructible       CurrentTarget { get; set; }
+
+        public DynamicClustersApproximator ClustersApproximator { get; set; }
 
         public override IFactory                          Factory          { get; set; } = new DefaultFactory();
         public override List<string>                      MTRDebug         { get; set; } = null;

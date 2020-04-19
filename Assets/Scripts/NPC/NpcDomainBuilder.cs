@@ -121,5 +121,20 @@ namespace Rioters {
             return this;
         }
 
+
+        public NpcDomainBuilder Regroup() {
+            Action("Finding nearest cluster.");
+            if ( Pointer is IPrimitiveTask task )
+                task.SetOperator(new FindNearestClusterOperator());
+            End();
+
+            Action("Regrouping to found cluster.");
+            if ( Pointer is IPrimitiveTask task2 )
+                task2.SetOperator(new MoveToTargetOperator());
+            End();
+
+            return this;
+        }
+
     }
 }
