@@ -27,7 +27,6 @@ public class Flock : MonoBehaviour
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
     Vector3 centre;
-
     float avgDistance;
     float squareMaxSpeed;
     float squareNeighborRadius;
@@ -260,4 +259,5 @@ public class Flock : MonoBehaviour
         Gizmos.DrawWireSphere(centre, startingCount*2f);
     }
 
+    
 }
