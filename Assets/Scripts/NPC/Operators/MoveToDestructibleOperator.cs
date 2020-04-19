@@ -1,6 +1,7 @@
 using FluidHTN;
 using FluidHTN.Operators;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Rioters.Operators {
     public class MoveToDestructibleOperator : IOperator {
@@ -22,14 +23,19 @@ namespace Rioters.Operators {
             if ( c.CurrentTarget == null )
                 return TaskStatus.Failure;
 
-            Vector3 closestTargetBound = c.CurrentTarget.GetComponent<Collider>().ClosestPointOnBounds(c.Position);
+            // To get random position AROUND the target object
+            Bounds bounds = c.CurrentTarget.GetComponent<Collider>().bounds;
+            Vector3 randomizePosition = bounds.center + new Vector3(bounds.extents.x*Random.Range(-1f, 1f), 0, bounds.extents.z*Random.Range(-1f, 1f));
 
-            if(c.Verbose)
-                Debug.Log("Would ask a new path");
+            // MaxDistance = 1000 simply because we don't want to be really limited by scale of objects
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomizePosition, out hit, 1000f, NavMesh.AllAreas)){
+                if ( c.NavAgent.SetDestination(hit.position) ) {
+                    c.NavAgent.isStopped = false;
+                    return TaskStatus.Continue;
+                }
 
-            if ( c.NavAgent.SetDestination(closestTargetBound) ) {
-                c.NavAgent.isStopped = false;
-                return TaskStatus.Continue;
+                return TaskStatus.Failure;
             }
 
             return TaskStatus.Failure;
@@ -37,9 +43,6 @@ namespace Rioters.Operators {
 
 
         private TaskStatus UpdateMove(NpcHtnContext c) {
-            if(c.Verbose)
-                Debug.Log("MoveToDestr pendingState : "+ c.NavAgent.pathPending);
-
             if(!c.NavAgent.pathPending)
                 c.anim.SetBool("IsRunning", true);
 
