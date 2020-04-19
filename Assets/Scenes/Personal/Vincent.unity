@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &37033126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9064882620103423356, guid: 18119bcc09a754e4b9c244d014e5415d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9064882621815731703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &115631412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1020,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357514728}
   m_CullTransparentMesh: 0
+--- !u!114 &1446976061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9064882621096278430, guid: 18119bcc09a754e4b9c244d014e5415d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9064882621815731703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1473754749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1109,24 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
+--- !u!1 &1596585117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9064882621574339228, guid: 18119bcc09a754e4b9c244d014e5415d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9064882621815731703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1596585119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9064882621574339226, guid: 18119bcc09a754e4b9c244d014e5415d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9064882621815731703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596585117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1687334097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1392,6 +1434,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1975246281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9064882620769141680, guid: 18119bcc09a754e4b9c244d014e5415d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9064882621815731703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2049301085
@@ -1782,6 +1836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0ef1c3efb4c0241919fae7ec5fa397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _PRaccumulated: 0
   Level_text: {fileID: 1473754752}
   Accumulated_text: {fileID: 557938914}
 --- !u!4 &2114436347
@@ -2059,17 +2114,62 @@ PrefabInstance:
         type: 3}
       propertyPath: smokeGButton
       value: 
-      objectReference: {fileID: 1846558860}
+      objectReference: {fileID: 37033126}
     - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
         type: 3}
       propertyPath: waterCButton
       value: 
-      objectReference: {fileID: 721292394}
+      objectReference: {fileID: 1446976061}
     - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
         type: 3}
       propertyPath: reinforceButton
       value: 
       objectReference: {fileID: 1182709320}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: enableFireBulletButton
+      value: 
+      objectReference: {fileID: 1596585117}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: enableSmokeGButton
+      value: 
+      objectReference: {fileID: 37033126}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: enableWaterCButton
+      value: 
+      objectReference: {fileID: 1446976061}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: enableReinforcementButton
+      value: 
+      objectReference: {fileID: 1975246281}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: smokeGButtonImg
+      value: 
+      objectReference: {fileID: 1846558860}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: waterCButtonImg
+      value: 
+      objectReference: {fileID: 721292394}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: reinforceButtonImg
+      value: 
+      objectReference: {fileID: 1182709320}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: fireBulletButton
+      value: 
+      objectReference: {fileID: 1596585119}
+    - target: {fileID: 8235276100551548925, guid: d2b931fa4b874714ea1f7ae3926f3d58,
+        type: 3}
+      propertyPath: reinforcementButton
+      value: 
+      objectReference: {fileID: 1975246281}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b931fa4b874714ea1f7ae3926f3d58, type: 3}
 --- !u!1001 &9064882621815731703
@@ -2119,6 +2219,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 333642879}
+    - target: {fileID: 9064882620103423356, guid: 18119bcc09a754e4b9c244d014e5415d,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9064882620103423357, guid: 18119bcc09a754e4b9c244d014e5415d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2224,6 +2329,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 333642879}
+    - target: {fileID: 9064882620769141680, guid: 18119bcc09a754e4b9c244d014e5415d,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9064882620769141681, guid: 18119bcc09a754e4b9c244d014e5415d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2369,6 +2479,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 333642879}
+    - target: {fileID: 9064882621096278430, guid: 18119bcc09a754e4b9c244d014e5415d,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9064882621096278431, guid: 18119bcc09a754e4b9c244d014e5415d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2439,6 +2554,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 333642879}
+    - target: {fileID: 9064882621574339226, guid: 18119bcc09a754e4b9c244d014e5415d,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9064882621574339227, guid: 18119bcc09a754e4b9c244d014e5415d,
         type: 3}
       propertyPath: m_AnchorMin.y

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PublicRelations : MonoBehaviour
 {
-    private int _PRaccumulated = 0;
+    public int _PRaccumulated = 0;
     private int _PRrate = 15;
     private int _PRlevel = 50; 
     public Text Level_text;

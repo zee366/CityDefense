@@ -49,7 +49,6 @@ public class PoliceAbilities : MonoBehaviour
     private int costForFireRubberBullets = 0;
     [SerializeField]
     private int costForFireLethalBullets = 0;
-    private int costForFireBullets;
     [SerializeField]
     private int costForSmokeGrenade = 0;
     [SerializeField]
@@ -71,6 +70,12 @@ public class PoliceAbilities : MonoBehaviour
     [SerializeField]
     private int waterCannonPR = 0;
 
+    //Accessors and mutators for certain properties
+    public int CostForFireBullets { get; set; }
+    public int CostForSmokeGrenade { get => costForSmokeGrenade; set => costForSmokeGrenade = value; }
+    public int CostForWaterCannon { get => costForWaterCannon; set => costForWaterCannon = value; }
+    public int CostForReinforcement { get => costForReinforcement; set => costForReinforcement = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +86,7 @@ public class PoliceAbilities : MonoBehaviour
         reporterPresentPRAmplifier = 1;
         bulletSetType = bulletTypes[0];
         bulletDamage = 10.0f;
-        costForFireBullets = 0;
+        CostForFireBullets = costForFireRubberBullets; //by default rubber bullet cost
     }
 
     // Update is called once per frame
@@ -158,7 +163,7 @@ public class PoliceAbilities : MonoBehaviour
     public void FireBullets()
     {
         //cost of action
-        publicRelations.CostOfAction(costForFireBullets);
+        publicRelations.CostOfAction(CostForFireBullets);
 
         //reporter present logic
         if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
@@ -206,10 +211,7 @@ public class PoliceAbilities : MonoBehaviour
     public void UseRubberBullets()
     {
         //change cost of firing bullets to be cost of firing rubber bullets
-        costForFireBullets = costForFireRubberBullets;
-
-        //logic for PR system cost?
-        //camera crew logic?
+        CostForFireBullets = costForFireRubberBullets;
 
         bulletSetType = bulletTypes[0];
         bulletDamage = 10.0f;
@@ -242,6 +244,7 @@ public class PoliceAbilities : MonoBehaviour
         //reporter present logic
         if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
             reporterPresentPRAmplifier = 2;
+        Debug.Log("water cannon PR rate: " + waterCannonPR * reporterPresentPRAmplifier);
         //logic for PR system cost
         publicRelations.ImprovePR(waterCannonPR * reporterPresentPRAmplifier);
 
@@ -253,10 +256,7 @@ public class PoliceAbilities : MonoBehaviour
     public void UseLethalBullets()
     {
         //change cost of firing bullets to be cost of firing rubber bullets
-        costForFireBullets = costForFireLethalBullets;
-
-        //logic for PR system cost?
-        //camera crew logic
+        CostForFireBullets = costForFireLethalBullets;
 
         bulletSetType = bulletTypes[1];
         bulletDamage = 30.0f;
@@ -266,9 +266,6 @@ public class PoliceAbilities : MonoBehaviour
     {
         //cost of action
         publicRelations.CostOfAction(costForReinforcement);
-
-        //logic for PR system cost
-        //camera crew logic
 
         //logic for summoning a police squad member
         //spawn point is at donut shop
