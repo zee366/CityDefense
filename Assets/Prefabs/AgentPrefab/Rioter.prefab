@@ -402,7 +402,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!136 &8404170989388720855
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -412,7 +412,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8404170989388720849}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -432,6 +432,7 @@ MonoBehaviour:
   _domainDefinition: {fileID: 11400000, guid: c060ca0827f1ab84daae60f2f9b0fc87, type: 2}
   _sensingInterval: 2
   _sensingRange: 20
+  _damagePerSecond: 2
 --- !u!1 &8404170989388721961
 GameObject:
   m_ObjectHideFlags: 0

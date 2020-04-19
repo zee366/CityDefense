@@ -23,7 +23,6 @@ namespace Rioters.Operators {
 
 
         private TaskStatus Move(NpcHtnContext c) {
-            Debug.Log("Init move to cluster");
             if ( c.NavAgent.SetDestination(c.MoveToTarget) ) {
                 c.NavAgent.isStopped = false;
                 c.anim.SetBool("IsRunning", true);

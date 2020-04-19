@@ -27,6 +27,7 @@ namespace Rioters {
         private float                  _currentSensingTimer;
         private Collider[]             _sensedColliders = new Collider[128];
 
+        public bool logPlan = false;
 
         void Awake() {
             _currentSensingTimer = _sensingInterval;
@@ -58,7 +59,14 @@ namespace Rioters {
 
 
         private void OnNewPlanTest(Queue<ITask> obj) {
-            Debug.Log("New Plan created");
+            Debug.Log("====== New Plan created");
+
+            if ( logPlan ) {
+                foreach ( ITask task in obj ) {
+                    Debug.Log(task.Name);
+                }
+                Debug.Break();
+            }
         }
 
 

@@ -1,4 +1,5 @@
 using FluidHTN;
+using Rioters.Operators;
 using UnityEngine;
 
 namespace Rioters {
@@ -6,6 +7,17 @@ namespace Rioters {
     public class RioterDomain : AIDomainDefinition {
 
         public override Domain<NpcHtnContext> Create() {
+
+            // Defining Regrouping domain
+            var regroup = new NpcDomainBuilder("RegroupingDomain")
+                .Sequence("Regrouping")
+                    .Action("FindCluster").SetOperator(new FindNearestClusterOperator()).End()
+                    .Action("GoToCluster").SetOperator(new MoveToTargetOperator(2f))
+                        .IncrementState(NpcWorldState.StaminaLevel, 2, EffectType.PlanAndExecute)
+                    .End()
+                .End()
+                .Build();
+
             return new NpcDomainBuilder("Rioter")
                 // High priority first
                 .Select("Receive Effect from police actions (Damage, Stun, wtv)")
@@ -33,9 +45,7 @@ namespace Rioters {
                             .DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
                         .End()
                     .End()
-                    .Regroup()
-                        .IncrementState(NpcWorldState.StaminaLevel, 2, EffectType.PlanAndExecute)
-                    .End()
+                    .Splice(regroup)    // Regrouping subdomain defined above
                 .End()
                 .Build();
         }

@@ -106,8 +106,6 @@ namespace Rioters {
                 task.SetOperator(new MoveToDestructibleOperator());
             }
 
-            //SetState(NpcWorldState.TargetInAttackRange, false, EffectType.PlanOnly);
-            SetState(NpcWorldState.TargetInAttackRange, EffectType.PlanOnly);
             End();
             return this;
         }
@@ -118,22 +116,6 @@ namespace Rioters {
             if ( Pointer is IPrimitiveTask task ) {
                 task.SetOperator(new FleeOperator(type, refreshInterval));
             }
-
-            return this;
-        }
-
-
-        // Task that needs to be closed with END()
-        public NpcDomainBuilder Regroup() {
-            Action("Finding nearest cluster.");
-            if ( Pointer is IPrimitiveTask task )
-                task.SetOperator(new FindNearestClusterOperator());
-            End();
-
-            Action("Regrouping to found cluster.");
-            if ( Pointer is IPrimitiveTask task2 )
-                task2.SetOperator(new MoveToTargetOperator(5f));
-
 
             return this;
         }

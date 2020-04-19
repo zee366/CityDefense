@@ -18,22 +18,14 @@ namespace Rioters.Operators {
         }
 
 
-        public void Stop(IContext ctx) {
-            if ( ctx is NpcHtnContext c ) {
-                c.NavAgent.isStopped = true;
-                c.anim.SetBool("IsRunning", false);
-            }
-        }
-
-
         private TaskStatus StartMove(NpcHtnContext c) {
             if ( c.CurrentTarget == null )
                 return TaskStatus.Failure;
 
             Vector3 closestTargetBound = c.CurrentTarget.GetComponent<Collider>().ClosestPointOnBounds(c.Position);
             if ( c.NavAgent.SetDestination(closestTargetBound) ) {
-                c.anim.SetBool("IsRunning",true);
                 c.NavAgent.isStopped = false;
+                c.anim.SetBool("IsRunning",true);
                 return TaskStatus.Continue;
             }
 
@@ -51,6 +43,13 @@ namespace Rioters.Operators {
             }
 
             return TaskStatus.Continue;
+        }
+
+        public void Stop(IContext ctx) {
+            if ( ctx is NpcHtnContext c ) {
+                c.NavAgent.isStopped = true;
+                c.anim.SetBool("IsRunning", false);
+            }
         }
 
     }
