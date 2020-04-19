@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4928484580288701441}
   - component: {fileID: 4928484580287604417}
   - component: {fileID: 3692114344418560629}
-  - component: {fileID: -4203308007426443193}
+  - component: {fileID: 2682456376399734803}
   m_Layer: 0
   m_Name: SUV_2
   m_TagString: Untagged
@@ -39,6 +39,7 @@ Transform:
   - {fileID: 2812801423379414664}
   - {fileID: 1722338085867872474}
   - {fileID: 4771023031475033613}
+  - {fileID: 2793849353975960276}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,7 +108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: White SUV
   health: 50
+  objectValue: 45000
+  anchorPoint: {fileID: 2793849353975960276}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -115,7 +119,7 @@ MonoBehaviour:
   - {fileID: 1025880140897373488}
   - {fileID: 4527034813544731490}
   DeathFX: {fileID: 7711199793072580021}
---- !u!65 &-4203308007426443193
+--- !u!65 &2682456376399734803
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +127,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4928484580289869825}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6908122, y: 1.137276, z: 3.6919472}
@@ -448,6 +452,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &5467726414023782001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2793849353975960276}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2793849353975960276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467726414023782001}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.12, y: 2.030745, z: -2.9}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 4928484580290028577}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &268646380922656218
 PrefabInstance:
   m_ObjectHideFlags: 0

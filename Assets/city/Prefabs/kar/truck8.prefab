@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5397080662116610177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6129243926952930890}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6129243926952930890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397080662116610177}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.67, y: 4.84, z: -0.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8231002691838168825}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8231002691838137041
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8231002691838168825}
   - component: {fileID: 18834300458095637}
-  - component: {fileID: 5672684201671436706}
+  - component: {fileID: 5872037748396377207}
   m_Layer: 0
   m_Name: truck8
   m_TagString: Untagged
@@ -354,6 +384,7 @@ Transform:
   - {fileID: 1810391731206408835}
   - {fileID: 999158248349943831}
   - {fileID: 5102982571665277825}
+  - {fileID: 6129243926952930890}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -369,7 +400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Ambulance
   health: 50
+  objectValue: 45000
+  anchorPoint: {fileID: 6129243926952930890}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -377,7 +411,7 @@ MonoBehaviour:
   - {fileID: 3470717031705360699}
   - {fileID: 2659378133171583919}
   DeathFX: {fileID: 8062803346524778553}
---- !u!65 &5672684201671436706
+--- !u!65 &5872037748396377207
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -385,11 +419,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8231002691838137049}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.1645126, y: 2.9647143, z: 2.1418839}
+  m_Center: {x: 0.28547096, y: 1.2846185, z: -0.16792297}
 --- !u!1 &8231002691838137051
 GameObject:
   m_ObjectHideFlags: 0

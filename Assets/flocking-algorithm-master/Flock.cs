@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using LightType = UnityEngine.LightType;
 using Random = UnityEngine.Random;
 
 
@@ -34,12 +34,20 @@ public class Flock : MonoBehaviour
     float squareAvoidanceRadius;
     public GameObject spawnPoint;
     public GameObject donutSpawnPoint;
-
+    [Header("Light")] 
+    [Range(20, 100)] public int range = 70;
+    [Range(0, 179)] public int spotAngle = 179;
+    [Range(0, 20000)] public int intensity = 2;
+    [Range(0, 40)] public int height = 19;
+    public Color color = new Color(55,55,55);
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
+    private Light _spotLight;
     // Start is called before the first frame update
     void Start()
     {
+        InitLight();
+
         squareMaxSpeed = maxSpeed * maxSpeed;
         squareNeighborRadius = neighborRadius * neighborRadius;
         squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
@@ -59,9 +67,36 @@ public class Flock : MonoBehaviour
         }
     }
 
+
+    private void InitLight() {
+        Light newLight = new GameObject().AddComponent<Light>();
+        newLight.transform.parent        = transform;
+        newLight.name = "Spot Light";
+        newLight.bounceIntensity = 0;
+        newLight.type                    = LightType.Spot;
+        newLight.range                   = range;
+        newLight.spotAngle               = spotAngle;
+        newLight.intensity               = intensity;
+        newLight.transform.localPosition = new Vector3(0, height, 0);
+        newLight.color = color;
+        newLight.transform.rotation      = Quaternion.Euler(new Vector3(90, 0, 0));
+        _spotLight = newLight;
+    }
+
+
+    private void UpdateParentPositionOfLight(Transform newOwner) {
+        _spotLight.transform.parent = newOwner;
+        _spotLight.transform.localPosition = new Vector3(0, 19, 0);
+    }
+
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
+        // This update the "owner" of the light
+        // Not sure what is the best solution? Right now it sets the position of the light with Agent 0
+        // It could be with the avg position but then it creates weird behaviour when a squad splits in two
+        if ( agents.Count != 0 ) {
+            UpdateParentPositionOfLight(agents[0].transform);
+        }
         
         foreach (FlockAgent agent in agents)
         {

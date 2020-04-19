@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6765773463700139425}
   - component: {fileID: 2575463383384141197}
-  - component: {fileID: -1041029442102095}
+  - component: {fileID: 5295654938335673749}
   m_Layer: 0
   m_Name: kar_l_2
   m_TagString: Untagged
@@ -38,6 +38,7 @@ Transform:
   - {fileID: 8990134055406914535}
   - {fileID: 1842598785815905003}
   - {fileID: 1785720352189341097}
+  - {fileID: 4853608215246717407}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -53,7 +54,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Red Station Wagon
   health: 50
+  objectValue: 35000
+  anchorPoint: {fileID: 4853608215246717407}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -61,7 +65,7 @@ MonoBehaviour:
   - {fileID: 6194389278538414175}
   - {fileID: 3505914480790958419}
   DeathFX: {fileID: 3602207086798220817}
---- !u!65 &-1041029442102095
+--- !u!65 &5295654938335673749
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,11 +73,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6765773463700107649}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.532255, y: 2.2466793, z: 2.058689}
+  m_Center: {x: -0.054419518, y: 0.9597454, z: -0.19293785}
 --- !u!1 &6765773463700107651
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +479,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &7355952051744973159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4853608215246717407}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4853608215246717407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355952051744973159}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.14, y: 4.45, z: -0.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6765773463700139425}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &906545250456004777
 PrefabInstance:
   m_ObjectHideFlags: 0

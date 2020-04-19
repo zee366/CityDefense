@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 320468116825273355}
   - component: {fileID: 320468116824143563}
   - component: {fileID: 1641952245620281837}
-  - component: {fileID: 1538297206427273049}
+  - component: {fileID: 3025017252978777639}
   m_Layer: 0
   m_Name: SUV
   m_TagString: Untagged
@@ -359,6 +359,7 @@ Transform:
   - {fileID: 7872728244905398836}
   - {fileID: 8660630669401646788}
   - {fileID: 7441303823106377438}
+  - {fileID: 4976158493716539433}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -427,7 +428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Blue SUV
   health: 50
+  objectValue: 45000
+  anchorPoint: {fileID: 4976158493716539433}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -435,7 +439,7 @@ MonoBehaviour:
   - {fileID: 4932628862508704140}
   - {fileID: 5838079936491361660}
   DeathFX: {fileID: 5652414553329104230}
---- !u!65 &1538297206427273049
+--- !u!65 &3025017252978777639
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -443,11 +447,41 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320468116822206475}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6908122, y: 1.137276, z: 3.6919472}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1016728601488084003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4976158493716539433}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4976158493716539433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016728601488084003}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.12, y: 2.0281122, z: -2.31}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 320468116821849131}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7199416514458295432
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 1886837797913276678}
   - component: {fileID: 1886837797914407878}
   - component: {fileID: 4113711001487375422}
-  - component: {fileID: 2744932276112596640}
+  - component: {fileID: 585630878444021515}
   m_Layer: 0
   m_Name: catafalque
   m_TagString: Untagged
@@ -279,6 +279,7 @@ Transform:
   - {fileID: 8214891625707725503}
   - {fileID: 4860628147529309712}
   - {fileID: 8038479861642077466}
+  - {fileID: 1827678564106015847}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -349,7 +350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Blue Hearse
   health: 50
+  objectValue: 35000
+  anchorPoint: {fileID: 1827678564106015847}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -357,7 +361,7 @@ MonoBehaviour:
   - {fileID: 6572039490327351559}
   - {fileID: 7656630623377894824}
   DeathFX: {fileID: 5096897924044969634}
---- !u!65 &2744932276112596640
+--- !u!65 &585630878444021515
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,7 +369,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886837797912145158}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6908122, y: 1.1289825, z: 5.1256795}
@@ -450,6 +454,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &9026150579257233544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827678564106015847}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1827678564106015847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9026150579257233544}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 2.89, z: -2.95}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 1886837797911982374}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &272479009454949935
 PrefabInstance:
   m_ObjectHideFlags: 0

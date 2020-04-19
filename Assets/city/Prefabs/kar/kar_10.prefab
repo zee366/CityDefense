@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2712542241101211731}
   - component: {fileID: 557902000192710734}
-  - component: {fileID: 6686553542045685171}
+  - component: {fileID: 7576953368563866639}
   m_Layer: 0
   m_Name: kar_10
   m_TagString: Untagged
@@ -123,6 +123,7 @@ Transform:
   - {fileID: 8981369796151310037}
   - {fileID: 9180347003947457436}
   - {fileID: 760005330170484254}
+  - {fileID: 406242517846855598}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -138,7 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Green Sedan
   health: 50
+  objectValue: 30000
+  anchorPoint: {fileID: 406242517846855598}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -146,7 +150,7 @@ MonoBehaviour:
   - {fileID: 6165858137890588013}
   - {fileID: 6220209431103334436}
   DeathFX: {fileID: 2574281773686580646}
---- !u!65 &6686553542045685171
+--- !u!65 &7576953368563866639
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,11 +158,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2712542241101182067}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.6135683, y: 2.2389355, z: 2.1930504}
+  m_Center: {x: -0.017206669, y: 0.9617729, z: -0.17207527}
 --- !u!1 &2712542241101182073
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +479,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &8195701639647398523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 406242517846855598}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &406242517846855598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8195701639647398523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.02, y: 3.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2712542241101211731}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2220417530833806110
 PrefabInstance:
   m_ObjectHideFlags: 0

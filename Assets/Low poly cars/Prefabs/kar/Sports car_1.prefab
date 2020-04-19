@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3059573071519489896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6743914352312237227}
+  m_Layer: 0
+  m_Name: AnchorPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6743914352312237227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059573071519489896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.041, y: 2.0645413, z: -2.9020689}
+  m_LocalScale: {x: 0.6896551, y: 0.6896551, z: 0.6896551}
+  m_Children: []
+  m_Father: {fileID: 9001397854013266492}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9001397854013163024
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +362,7 @@ GameObject:
   - component: {fileID: 9001397854011972124}
   - component: {fileID: 9001397854010972380}
   - component: {fileID: 4727800286425670864}
-  - component: {fileID: 3178565049385208658}
+  - component: {fileID: 2954149701808005206}
   m_Layer: 0
   m_Name: Sports car_1
   m_TagString: Untagged
@@ -359,6 +389,7 @@ Transform:
   - {fileID: 1295775288499913718}
   - {fileID: 4842794175499663342}
   - {fileID: 676730132245081543}
+  - {fileID: 6743914352312237227}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -427,7 +458,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5263dfa036c645b57a871a410bdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Red Sports Car
   health: 50
+  objectValue: 55000
+  anchorPoint: {fileID: 6743914352312237227}
   destructionTime: 10
   sinkSpeed: 0.25
   DamagedFX:
@@ -435,7 +469,7 @@ MonoBehaviour:
   - {fileID: 4093279145460150350}
   - {fileID: 7638303793105470550}
   DeathFX: {fileID: 2328784354243485311}
---- !u!65 &3178565049385208658
+--- !u!65 &2954149701808005206
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -443,7 +477,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9001397854013163036}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6908122, y: 1.1001931, z: 4.76619}
