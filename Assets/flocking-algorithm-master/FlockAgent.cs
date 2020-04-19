@@ -14,7 +14,8 @@ public class FlockAgent : MonoBehaviour
     MeshRenderer[] meshs;
     SkinnedMeshRenderer[] skinmeshes;
     bool isdestroyable=false;
-    float timetodestroy = 30.0f;
+    float lifecycle = 30.0f;
+    float timetodestroy = 0.2f;
     float fadeSpeed=0.05f;  
     MaterialPropertyBlock _propBlock; 
     float opacity;
@@ -43,7 +44,7 @@ public class FlockAgent : MonoBehaviour
     void Update(){
         //print((gameObject.transform.position-closestHit.position).magnitude);
         //print(this.GetComponent<Rigidbody>().velocity.magnitude);
-        timetodestroy-=Time.deltaTime;
+        lifecycle-=Time.deltaTime;
         //if reinforcement && time is expired 
             //--> navigate back to donut shop
             //--> destroy agent after a certain time
@@ -76,13 +77,14 @@ public class FlockAgent : MonoBehaviour
                 navMeshAgent.destination=hit.point;
             }
         }
+        
     }
 
     private void DissolveandDestroy()
     {
         navMeshAgent.SetDestination(new Vector3(106.9f,4.16f,-157.41f));
         mutexlock=false;
-        opacity -= 0.2f*Time.deltaTime;
+        opacity -= timetodestroy*Time.deltaTime;
         if(opacity<=0){
             //remove from flock
             agentFlock.RemoveAgent(this);
