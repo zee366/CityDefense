@@ -21,6 +21,7 @@ namespace Rioters.Operators {
         public void Stop(IContext ctx) {
             if ( ctx is NpcHtnContext c ) {
                 c.NavAgent.isStopped = true;
+                c.anim.SetBool("IsRunning", false);
             }
         }
 

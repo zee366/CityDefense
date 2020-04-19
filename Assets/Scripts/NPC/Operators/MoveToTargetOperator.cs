@@ -5,10 +5,14 @@ using UnityEngine;
 namespace Rioters.Operators {
     public class MoveToTargetOperator : IOperator {
 
+        private float _satisfactoryRadius;
+
+        public MoveToTargetOperator(float satisfactoryRadius = 0f) { _satisfactoryRadius = satisfactoryRadius; }
+
+
         public TaskStatus Update(IContext ctx) {
             if ( ctx is NpcHtnContext c ) {
-
-                if(c.NavAgent.isStopped)
+                if ( c.NavAgent.isStopped )
                     return Move(c);
 
                 return CheckForSuccess(c);
@@ -22,6 +26,8 @@ namespace Rioters.Operators {
             Debug.Log("Init move to cluster");
             if ( c.NavAgent.SetDestination(c.MoveToTarget) ) {
                 c.NavAgent.isStopped = false;
+                c.anim.SetBool("IsRunning", true);
+
                 return TaskStatus.Continue;
             }
 
@@ -32,13 +38,15 @@ namespace Rioters.Operators {
         public void Stop(IContext ctx) {
             if ( ctx is NpcHtnContext c ) {
                 c.NavAgent.isStopped = true;
+                c.anim.SetBool("IsRunning", false);
             }
         }
 
 
         private TaskStatus CheckForSuccess(NpcHtnContext c) {
-            if ( !c.NavAgent.pathPending && c.NavAgent.remainingDistance <= c.NavAgent.radius ) {
+            if ( !c.NavAgent.pathPending && c.NavAgent.remainingDistance <= c.NavAgent.radius + _satisfactoryRadius ) {
                 c.NavAgent.isStopped = true;
+                c.anim.SetBool("IsRunning", false);
                 return TaskStatus.Success;
             }
 

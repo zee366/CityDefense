@@ -21,6 +21,7 @@ namespace Rioters {
 
         public Vector3 MoveToTarget { get; set; }
 
+        public float MaxAttackActionLength { get; set; } = 2f;
         public float DPS { get; set; }
 
         public List<Transform> policesInRange = new List<Transform>();

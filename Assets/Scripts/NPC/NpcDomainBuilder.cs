@@ -52,7 +52,7 @@ namespace Rioters {
 
         public NpcDomainBuilder DecrementState(NpcWorldState state, byte value, EffectType type) {
             if ( Pointer is IPrimitiveTask task ) {
-                var effect = new IncrementWorldStateEffect(state, (byte)-value, type);
+                var effect = new DecrementWorldStateEffect(state, value, type);
                 task.AddEffect(effect);
             }
 
@@ -130,7 +130,7 @@ namespace Rioters {
 
             Action("Regrouping to found cluster.");
             if ( Pointer is IPrimitiveTask task2 )
-                task2.SetOperator(new MoveToTargetOperator());
+                task2.SetOperator(new MoveToTargetOperator(5f));
             End();
 
             return this;

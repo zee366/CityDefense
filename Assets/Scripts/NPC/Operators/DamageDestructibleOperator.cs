@@ -5,15 +5,19 @@ using UnityEngine;
 namespace Rioters.Operators {
     public class DamageDestructibleOperator : IOperator {
 
+        private float _attackTime = 0f;
+
         public TaskStatus Update(IContext ctx) {
             if ( ctx is NpcHtnContext c ) {
-                //Setting animation
+                _attackTime += Time.deltaTime;
+
+                // Setting animation
                 c.anim.SetBool("IsAttacking",true);
                 c.CurrentTarget.TakeDamage(Time.deltaTime * c.DPS);
 
                 // Check if totally destroyed
-                if ( c.CurrentTarget.IsDead ) {
-                    c.anim.SetBool("IsAttacking",false);
+                if ( c.CurrentTarget.IsDead || _attackTime >= c.MaxAttackActionLength ) {
+                    c.anim.SetBool("IsAttacking", false);
                     return TaskStatus.Success;
                 }
 
@@ -23,7 +27,11 @@ namespace Rioters.Operators {
             return TaskStatus.Failure;
         }
 
-        public void Stop(IContext ctx) { }
+
+        public void Stop(IContext ctx) {
+            if(ctx is NpcHtnContext c)
+                c.anim.SetBool("IsAttacking", false);
+        }
 
     }
 }

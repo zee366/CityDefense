@@ -37,7 +37,7 @@ namespace Rioters {
                         // Twice for cleaner regrouping from approximation and looks better.
                         .Regroup()
                         .Regroup()
-                        .IncrementState(NpcWorldState.StaminaLevel, 5, EffectType.PlanAndExecute)
+                        // .IncrementState(NpcWorldState.StaminaLevel, 5, EffectType.PlanAndExecute)
                     .End()
                 .End()
                 .Build();

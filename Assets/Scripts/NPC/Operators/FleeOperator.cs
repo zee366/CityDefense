@@ -62,6 +62,7 @@ namespace Rioters.Operators {
         public void Stop(IContext ctx) {
             if ( ctx is NpcHtnContext c ) {
                 c.NavAgent.isStopped = true;
+                c.anim.SetBool("IsRunning", false);
             }
         }
 
@@ -70,6 +71,7 @@ namespace Rioters.Operators {
             // if (c.policesInRange.Count > 0 && c.NavAgent.SetDestination(_targetPos) ) {
             if ( c.NavAgent.SetDestination(_targetPos) ) {
                 c.NavAgent.isStopped = false;
+                c.anim.SetBool("IsRunning", true);
                 return TaskStatus.Continue;
             }
 
@@ -80,6 +82,7 @@ namespace Rioters.Operators {
         private TaskStatus CheckForSuccess(NpcHtnContext c) {
             if ( !c.NavAgent.pathPending && c.NavAgent.remainingDistance <= c.NavAgent.radius ) {
                 c.NavAgent.isStopped = true;
+                c.anim.SetBool("IsRunning", false);
                 return TaskStatus.Success;
             }
 
