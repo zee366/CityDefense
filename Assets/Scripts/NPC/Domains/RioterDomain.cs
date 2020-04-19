@@ -8,6 +8,11 @@ namespace Rioters {
 
         public override Domain<NpcHtnContext> Create() {
 
+            // TODO: Define receiving effects/damage/etc here
+            var affectedDomain = new NpcDomainBuilder("affectedDomain")
+                // Here
+                .Build();
+
             // Defining Regrouping domain
             var regroup = new NpcDomainBuilder("RegroupingDomain")
                 .Sequence("Regrouping")
@@ -20,22 +25,22 @@ namespace Rioters {
                 .End()
                 .Build();
 
+            // Total domain
             return new NpcDomainBuilder("Rioter")
                 // High priority first
                 .Select("Receive Effect from police actions (Damage, Stun, wtv)")
-                // TODO
+                    .Splice(affectedDomain)
                 .End()
-                .Select("Police close & enough stamina, flee!")
-                    .Sequence("To flee")
-                        .HasState(NpcWorldState.PoliceInRange)
+                .Sequence("To flee")
+                    .PrimitiveTask<FindPolice>("Find closest police")
                         .HasStateGreaterThan(NpcWorldState.StaminaLevel, 2)
-                        .PrimitiveTask<FindPolice>("Find closest police").End()
-                        .Flee(NpcType.Police) // Self contained task
-                            .DecrementState(NpcWorldState.StaminaLevel, EffectType.PlanAndExecute)
-                        .End()
+                        .HasState(NpcWorldState.PoliceInRange)
+                    .End()
+                    .Flee(NpcType.Police) // Self contained task
+                        .DecrementState(NpcWorldState.StaminaLevel, 2, EffectType.PlanAndExecute)
                     .End()
                 .End()
-                .Select("Towards closest destructible, or regroup")
+                .Select("Towards closest known destructible, or regroup")
                     .Sequence("To destructible")
                         .HasStateGreaterThan(NpcWorldState.StaminaLevel, 1) // Need at least a basic level of stamina
                         .HasState(NpcWorldState.HasDestructiblesInRange)
@@ -47,7 +52,7 @@ namespace Rioters {
                     .End()
                     .Sequence("Enough stamina, but no destructible in sight.")
                         .Action("FindCluster").SetOperator(new FindNearestClusterOperator(103))
-                            .HasStateGreaterThan(NpcWorldState.StaminaLevel, 6)
+                            .HasStateGreaterThan(NpcWorldState.StaminaLevel, 6)    // Stop receiving stamina if more than 6 currently.
                         .End()
                         .Action("GoToCluster").SetOperator(new MoveToTargetOperator(3f)).End()
                         .Action("Randomize position to spot closest building").SetOperator(new WanderOperator(20f, 3, 0.8f)).End()
