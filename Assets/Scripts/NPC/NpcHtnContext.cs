@@ -10,6 +10,8 @@ using UnityEngine.AI;
 namespace Rioters {
     public class NpcHtnContext : BaseContext {
 
+        public bool Verbose { get; set; }
+
         public MonoBehaviour Agent    { get; }
         public NavMeshAgent  NavAgent { get; set; }
 

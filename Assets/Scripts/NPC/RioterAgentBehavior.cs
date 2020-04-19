@@ -59,9 +59,8 @@ namespace Rioters {
 
 
         private void OnNewPlanTest(Queue<ITask> obj) {
-            Debug.Log("====== New Plan created");
-
             if ( logPlan ) {
+                Debug.Log("====== New Plan created");
                 foreach ( ITask task in obj ) {
                     Debug.Log(task.Name);
                 }
@@ -73,6 +72,7 @@ namespace Rioters {
         void Update() {
             SenseSurroundings();
 
+            _context.Verbose = logPlan;
             _planner.Tick(_domain, _context);
         }
 

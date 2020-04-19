@@ -23,6 +23,9 @@ namespace Rioters.Operators {
 
 
         private TaskStatus Move(NpcHtnContext c) {
+            if(c.Verbose)
+                Debug.Log("Would ask a new path");
+
             if ( c.NavAgent.SetDestination(c.MoveToTarget) ) {
                 c.NavAgent.isStopped = false;
                 c.anim.SetBool("IsRunning", true);

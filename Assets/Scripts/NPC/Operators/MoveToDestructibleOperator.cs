@@ -23,6 +23,10 @@ namespace Rioters.Operators {
                 return TaskStatus.Failure;
 
             Vector3 closestTargetBound = c.CurrentTarget.GetComponent<Collider>().ClosestPointOnBounds(c.Position);
+
+            if(c.Verbose)
+                Debug.Log("Would ask a new path");
+
             if ( c.NavAgent.SetDestination(closestTargetBound) ) {
                 c.NavAgent.isStopped = false;
                 return TaskStatus.Continue;
@@ -33,6 +37,9 @@ namespace Rioters.Operators {
 
 
         private TaskStatus UpdateMove(NpcHtnContext c) {
+            if(c.Verbose)
+                Debug.Log("MoveToDestr pendingState : "+ c.NavAgent.pathPending);
+
             if(!c.NavAgent.pathPending)
                 c.anim.SetBool("IsRunning", true);
 

@@ -15,6 +15,7 @@ namespace Rioters {
                     .Action("GoToCluster").SetOperator(new MoveToTargetOperator(2f))
                         .IncrementState(NpcWorldState.StaminaLevel, 2, EffectType.PlanAndExecute)
                     .End()
+                    // TODO: Add a couple seconds wonder here maybe
                 .End()
                 .Build();
 
