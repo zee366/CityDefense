@@ -167,7 +167,7 @@ public class Flock : MonoBehaviour
                     newAgents[i].navMeshAgent.destination = AveragePositionOfFlock();
                     newAgents[i].navMeshAgent.speed = 40f;
 
-                    if ((newAgents[i].transform.position - newAgents[i].navMeshAgent.destination).magnitude <= 1.0f)
+                    if ((newAgents[i].transform.position - newAgents[i].navMeshAgent.destination).magnitude <= 10.0f)
                     {
                         agents.Add(newAgents[i]);
                         newAgents[i].Initialize(this);
@@ -239,9 +239,14 @@ public class Flock : MonoBehaviour
                 transform
                 );
         newAgent.name = "Agent " + agents.Count;
+        newAgent.set_isdestroyable(true);
         newAgents.Add(newAgent);
         //agents.Add(newAgent);
 
+    }
+
+    public void RemoveAgent(FlockAgent agent){
+        agents.Remove(agent);
     }
 
     private Vector3 AveragePositionOfFlock()
