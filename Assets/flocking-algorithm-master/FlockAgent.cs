@@ -116,6 +116,9 @@ public class FlockAgent : MonoBehaviour
             if(Input.GetKey(KeyCode.C)){
                 FormCircle();
             }
+            if(Input.GetKeyUp(KeyCode.C)){
+                navMeshAgent.destination=transform.position;
+            }
 
         }
         
@@ -125,7 +128,7 @@ public class FlockAgent : MonoBehaviour
     private void FormCircle()
     {
         Vector3 leaderposition = agentFlock.agents[0].transform.position;
-        int radius = agentFlock.agents.Count;
+        int radius = agentFlock.agents.Count/2;
         int halfcount = radius/2;
          for (int i = 0; i < agentFlock.agents.Count; i++)
         {
@@ -153,10 +156,10 @@ public class FlockAgent : MonoBehaviour
         for (int i = 0; i < agentFlock.agents.Count; i++)
         {
             if(i<halfcount){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-5.0f*i,0,0));
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-3.0f*i,0,0));
             }
             else{
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(5.0f*(i-halfcount+1),0,0));
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(3.0f*(i-halfcount+1),0,0));
             }
               if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
                 agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
@@ -172,10 +175,10 @@ public class FlockAgent : MonoBehaviour
         for (int i = 0; i < agentFlock.agents.Count; i++)
         {
             if(i<halfcount){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-5.0f*i,0,0));
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-3.0f*i,0,0));
             }
             else{
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(5.0f*(i-halfcount+1),0,0));
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(3.0f*(i-halfcount+1),0,0));
             }
               if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
                 agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
@@ -191,10 +194,10 @@ public class FlockAgent : MonoBehaviour
         for (int i = 0; i < agentFlock.agents.Count; i++)
         {
             if(i<halfcount){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-5.0f*i));
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-3.0f*i));
             }
             else{
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,5.0f*(i-halfcount+1)));
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,3.0f*(i-halfcount+1)));
             }
               if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
                 agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
@@ -209,10 +212,10 @@ public class FlockAgent : MonoBehaviour
         for (int i = 0; i < agentFlock.agents.Count; i++)
         {
             if(i<halfcount){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-5.0f*i));
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-3.0f*i));
             }
             else{
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,5.0f*(i-halfcount+1)));
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,3.0f*(i-halfcount+1)));
             }
             if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
                 agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
