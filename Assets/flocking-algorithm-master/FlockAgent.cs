@@ -110,6 +110,18 @@ public class FlockAgent : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.LeftShift)){
                 navMeshAgent.destination=transform.position;
             }
+            if(Input.GetKey(KeyCode.LeftArrow)){
+                FaceLeft();
+            }
+            if(Input.GetKey(KeyCode.RightArrow)){
+                FaceRight();
+            }
+            if(Input.GetKey(KeyCode.UpArrow)){
+                FaceForward();
+            }
+            if(Input.GetKey(KeyCode.DownArrow)){
+                FaceBackward();
+            }
             ////////////////////////////////////////////
            /////////////CIRCLE FORMATION////////////////
           ///////////////////////////////////////////// 
@@ -123,6 +135,42 @@ public class FlockAgent : MonoBehaviour
         }
         
         
+    }
+
+    private void FaceBackward()
+    {
+        Quaternion rotation = Quaternion.Euler(0,180,0);
+        for (int i = 0; i < agentFlock.agents.Count; i++)
+        {
+            agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
+        }
+    }
+
+    private void FaceForward()
+    {
+        Quaternion rotation = Quaternion.Euler(0,0,0);
+        for (int i = 0; i < agentFlock.agents.Count; i++)
+        {
+            agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
+        }
+    }
+
+    private void FaceRight()
+    {
+        Quaternion rotation = Quaternion.Euler(0,90,0);
+        for (int i = 0; i < agentFlock.agents.Count; i++)
+        {
+            agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
+        }
+    }
+
+    private void FaceLeft()
+    {
+        Quaternion rotation = Quaternion.Euler(0,-90,0);
+        for (int i = 0; i < agentFlock.agents.Count; i++)
+        {
+            agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
+        }
     }
 
     private void FormCircle()
