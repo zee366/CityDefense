@@ -273,6 +273,7 @@ public class FlockAgent : MonoBehaviour
 
     private void DissolveandDestroy()
     {
+        //Temp fallback position is set to donut shop
         navMeshAgent.SetDestination(new Vector3(106.9f,4.16f,-157.41f));
         mutexlock=false;
         opacity -= timetodestroy*Time.deltaTime;
