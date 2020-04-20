@@ -81,7 +81,7 @@ public class FlockAgent : MonoBehaviour
             ////////////////////////////////////////////
            /////////////LINE FORMATION//////////////////
           ///////////////////////////////////////////// 
-            if(Input.GetKey(KeyCode.LeftShift)){
+            if(Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)){
                 if(Input.GetKey(KeyCode.LeftArrow)){
                     //Line formation facing left
                     //print("Face left and form line");
@@ -107,7 +107,10 @@ public class FlockAgent : MonoBehaviour
                     FormLineFacingBackwards();
                 }
             }
-            if(Input.GetKeyUp(KeyCode.LeftShift)){
+            ////////////////////////////////////////////
+           /////////////SIMPLE ROTATION////////////////
+          ///////////////////////////////////////////// 
+            if(Input.GetKeyUp(KeyCode.LeftShift)||Input.GetKeyUp(KeyCode.RightShift)){
                 navMeshAgent.destination=transform.position;
             }
             if(Input.GetKey(KeyCode.LeftArrow)){
