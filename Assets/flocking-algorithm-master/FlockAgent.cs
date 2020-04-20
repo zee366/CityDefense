@@ -77,37 +77,72 @@ public class FlockAgent : MonoBehaviour
                 navMeshAgent.destination=hit.point;
             }
         }
+        if(partOfFlock){
+            ////////////////////////////////////////////
+           /////////////LINE FORMATION//////////////////
+          ///////////////////////////////////////////// 
+            if(Input.GetKey(KeyCode.LeftShift)){
+                if(Input.GetKey(KeyCode.LeftArrow)){
+                    //Line formation facing left
+                    //print("Face left and form line");
+                    //
+                    FormLineFacingLeft();
+                }
+                if(Input.GetKey(KeyCode.RightArrow)){
+                    //Line formation facing right
+                // print("Face right and form line");
+                    //
+                    FormLineFacingRight();
+                }
+                if(Input.GetKey(KeyCode.UpArrow)){
+                    //Line formation facing left
+                    //print("Face forward and form line");
+                    //
+                    FormLineFacingForward();
+                }
+                if(Input.GetKey(KeyCode.DownArrow)){
+                    //Line formation facing right
+                    //print("Face backward and form line");
+                    //
+                    FormLineFacingBackwards();
+                }
+            }
+            if(Input.GetKeyUp(KeyCode.LeftShift)){
+                navMeshAgent.destination=transform.position;
+            }
+            ////////////////////////////////////////////
+           /////////////CIRCLE FORMATION////////////////
+          ///////////////////////////////////////////// 
+            if(Input.GetKey(KeyCode.C)){
+                FormCircle();
+            }
 
-        if(Input.GetKey(KeyCode.LeftShift)){
-            if(Input.GetKey(KeyCode.LeftArrow)){
-                //Line formation facing left
-                //print("Face left and form line");
-                //
-                FormLineFacingLeft();
-            }
-            if(Input.GetKey(KeyCode.RightArrow)){
-                //Line formation facing right
-               // print("Face right and form line");
-                //
-                FormLineFacingRight();
-            }
-            if(Input.GetKey(KeyCode.UpArrow)){
-                //Line formation facing left
-                //print("Face forward and form line");
-                //
-                FormLineFacingForward();
-            }
-            if(Input.GetKey(KeyCode.DownArrow)){
-                //Line formation facing right
-                //print("Face backward and form line");
-                //
-                FormLineFacingBackwards();
-            }
-        }
-        if(Input.GetKeyUp(KeyCode.LeftShift)){
-            navMeshAgent.destination=transform.position;
         }
         
+        
+    }
+
+    private void FormCircle()
+    {
+        Vector3 leaderposition = agentFlock.agents[0].transform.position;
+        int radius = agentFlock.agents.Count;
+        int halfcount = radius/2;
+         for (int i = 0; i < agentFlock.agents.Count; i++)
+        {
+            float angle = i * Mathf.PI*2f / 8;
+            if(i==0){
+                agentFlock.agents[i].navMeshAgent.destination=leaderposition;
+            }
+            else{
+                agentFlock.agents[i].navMeshAgent.destination= (new Vector3(Mathf.Cos(angle)*radius, transform.position.y, Mathf.Sin(angle)*radius)+leaderposition);
+                
+            
+                if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
+                    agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, Quaternion.LookRotation(agentFlock.agents[i].transform.position - leaderposition),Time.deltaTime * 0.7f);
+                }
+            }
+            
+        }
     }
 
     private void FormLineFacingBackwards()
