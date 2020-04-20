@@ -48,7 +48,7 @@ public class FlockAgent : MonoBehaviour
         //if reinforcement && time is expired 
             //--> navigate back to donut shop
             //--> destroy agent after a certain time
-        if(isdestroyable&&timetodestroy<0){
+        if(isdestroyable&&lifecycle<0){
             partOfFlock=false;
             DissolveandDestroy();
         }
