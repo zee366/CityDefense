@@ -1,0 +1,9 @@
+{
+    "name": "hnsw.net",
+    "displayName": "HNSW-Net",
+    "version": "0.1.0",
+    "unity": "2019.1",
+    "author": "Microsoft",
+    "description": "C# library for approximate nearest neighbors search using Hierarchical Navigable Small World graphs",
+    "dependencies": {}
+}
