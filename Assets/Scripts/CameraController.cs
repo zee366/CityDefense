@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour
 
     private Vector3 _cameraOffset;
     private GameObject target;
+    private Quaternion squadViewOrientation = Quaternion.Euler(60, 0, 0);
+    private Quaternion strategicViewOrientation = Quaternion.Euler(90, 0, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -94,9 +96,6 @@ public class CameraController : MonoBehaviour
 
     public void UpdateByView()
     {
-        Quaternion squadViewOrientation = Quaternion.Euler(60, 0, 0);
-        Quaternion strategicViewOrientation = Quaternion.Euler(90, 0, 0);
-
         // Strategic view
         if (Camera.main.transform.position.y >= maxHeight)
         {
