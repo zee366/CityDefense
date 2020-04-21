@@ -278,6 +278,7 @@ public class Flock : MonoBehaviour
         int halfcount = radius/2;
          for (int i = 0; i < agents.Count; i++)
         {
+            agents[i].navMeshAgent.isStopped=false;
             float angle = i * Mathf.PI*2f / 8;
             if(i==0){
                 agents[i].navMeshAgent.destination=leaderposition;
@@ -296,6 +297,7 @@ public class Flock : MonoBehaviour
         int halfcount = (agents.Count/2);
         for (int i = 0; i < agents.Count; i++)
         {
+            agents[i].navMeshAgent.isStopped=false;
             if(i<halfcount){
                 agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-3.0f*i,0,0));
             }
@@ -312,6 +314,7 @@ public class Flock : MonoBehaviour
         int halfcount = (agents.Count/2);
         for (int i = 0; i < agents.Count; i++)
         {
+            agents[i].navMeshAgent.isStopped=false;
             if(i<halfcount){
                 agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-3.0f*i));
             }

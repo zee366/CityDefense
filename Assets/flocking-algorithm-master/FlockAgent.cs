@@ -86,8 +86,6 @@ public class FlockAgent : MonoBehaviour
           ///////////////////////////////////////////// 
           if(gameObject.name=="Agent 0"){
             if(Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)){
-                
-                navMeshAgent.isStopped=false;
                 if(Input.GetKeyDown(KeyCode.LeftArrow)){
                     //Line formation facing left
                     //print("Face left and form line");
@@ -122,9 +120,10 @@ public class FlockAgent : MonoBehaviour
            /////////////CIRCLE FORMATION////////////////
           ///////////////////////////////////////////// 
                 if(Input.GetKeyDown(KeyCode.C)){
+                    StopCoroutine("Rotate");
                     navMeshAgent.isStopped=false;
                     agentFlock.FormCircle();
-                    FaceAway();
+                    //FaceAway();
                 }
           }
             ////////////////////////////////////////////
@@ -177,7 +176,7 @@ public class FlockAgent : MonoBehaviour
     }
 
     public void FaceAway(){
-        Quaternion rotation = Quaternion.LookRotation(gameObject.transform.position-agentFlock.agents[0].transform.position);
+        Quaternion rotation = Quaternion.LookRotation(this.gameObject.transform.position-agentFlock.agents[0].transform.position);
         StartCoroutine(Rotate(rotation));
     } 
 
