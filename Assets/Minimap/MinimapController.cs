@@ -6,7 +6,6 @@ public class MinimapController : MonoBehaviour
 {
 
     public Camera Cam;
-    public GameObject Damage_Map; 
 
     // Start is called before the first frame update
     void Start()
@@ -14,8 +13,9 @@ public class MinimapController : MonoBehaviour
         InvokeRepeating("UpdateRender", 0.0f, 1.0f);
     }
 
-    void UpdateRender()
+    IEnumerator UpdateRender()
     {
         Cam.Render();
+        yield return null;
     }
 }
