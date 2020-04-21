@@ -1,36 +1,52 @@
-﻿using System.Collections;
+﻿// Code adapted from: https://www.youtube.com/watch?v=xcn7hz7J7sI
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Vector3 OrthoOffset = new Vector3(0f,0f,0f);
+    public Vector3 OrthoOffset = new Vector3(0f, 0f, 0f);
     public float minHeight = 15f;
     public float maxHeight = 100f;
     public float maxHeight_epsilon = 3f;
     public float orthoSize = 250f;
     public float scrollStep = 30f;
+    public float RotationSpeed = 5.0f;
+    public bool LookAtPlayer = false;
+    public bool RotateAroundPlayer = true;
 
     private Vector3 _cameraOffset;
-
-    public bool LookAtPlayer = false;
-
-    GameObject target; 
+    private GameObject target;
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         GameObject policeFlock = GameObject.Find("PoliceFlock");
-        if(policeFlock == null)
+        if (policeFlock == null)
             Debug.LogError("Could not find GameObject by name 'PoliceFlock'. Required for this CameraController.");
 
         target = GetChildWithName(policeFlock, "Agent 0");
 
         if (target != null)
         {
-            float playerCamOffset = 50f; 
+            float playerCamOffset = 50f;
             transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - playerCamOffset);
             _cameraOffset = transform.position - target.transform.position;
         }
+    }
+
+    void LateUpdate()
+    {
+
+        if (target != null)
+        {
+            ScrollToZoom();
+            OrbitDrag();
+            UpdateByView();
+        }
+        else
+            Start();
+
     }
 
     private void DisableMinimap(bool disable)
@@ -39,20 +55,17 @@ public class CameraController : MonoBehaviour
         GameObject target = GetChildWithName(canvas, "Minimap Component");
         if (disable)
         {
-            if(target)
-            target.SetActive(false);
+            if (target)
+                target.SetActive(false);
             return;
         }
-        if(target)
-        target.SetActive(true);
+        if (target)
+            target.SetActive(true);
 
     }
 
-    void Update()
+    public void ScrollToZoom()
     {
-
-        if (target != null)
-        {
         float scrollwheel_delta = Input.GetAxis("Mouse ScrollWheel");
 
         if (scrollwheel_delta != 0)     // If scrolling...
@@ -76,7 +89,21 @@ public class CameraController : MonoBehaviour
             if (scrollwheel_delta < 0 || CamY + dY > minHeight)
                 Camera.main.transform.position = new Vector3(CamX + dX, CamY + dY, CamZ + dZ);
         }
+    }
 
+    public void OrbitDrag()
+    {
+        if (RotateAroundPlayer && Input.GetMouseButton(2))
+        {
+
+            Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * RotationSpeed, Vector3.up);
+            _cameraOffset = camTurnAngle * _cameraOffset;
+
+        }
+    }
+
+    public void UpdateByView()
+    {
         Quaternion squadViewOrientation = Quaternion.Euler(60, 0, 0);
         Quaternion strategicViewOrientation = Quaternion.Euler(90, 0, 0);
 
@@ -103,14 +130,8 @@ public class CameraController : MonoBehaviour
 
             transform.position = Vector3.Slerp(transform.position, newPos, 1.0f);
 
-            if (LookAtPlayer)
+            if (LookAtPlayer || RotateAroundPlayer)
                 transform.LookAt(target.transform);
-        }
-
-        }
-        else
-        {
-            Start();
         }
     }
 
