@@ -42,7 +42,7 @@ public class FlockAgent : MonoBehaviour
         mutexlock=true;
     }
 
-    void FixedUpdate(){
+    void Update(){
         //print((gameObject.transform.position-closestHit.position).magnitude);
         //print(this.GetComponent<Rigidbody>().velocity.magnitude);
         lifecycle-=Time.deltaTime;
@@ -73,6 +73,7 @@ public class FlockAgent : MonoBehaviour
             }
         }
         if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && partOfFlock) {
+                navMeshAgent.isStopped=false;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray,out hit)) {
                     StopCoroutine("Rotate");
@@ -85,28 +86,34 @@ public class FlockAgent : MonoBehaviour
           ///////////////////////////////////////////// 
           if(gameObject.name=="Agent 0"){
             if(Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)){
+                
+                navMeshAgent.isStopped=false;
                 if(Input.GetKeyDown(KeyCode.LeftArrow)){
                     //Line formation facing left
                     //print("Face left and form line");
                     //
+                    StopCoroutine("Rotate");
                     agentFlock.FormVerticalLine();
                 }
                 if(Input.GetKeyDown(KeyCode.RightArrow)){
                     //Line formation facing right
                     // print("Face right and form line");
                     //
+                    StopCoroutine("Rotate");
                     agentFlock.FormVerticalLine();
                 }
                 if(Input.GetKeyDown(KeyCode.UpArrow)){
                     //Line formation facing left
                     //print("Face forward and form line");
                     //
+                    StopCoroutine("Rotate");
                     agentFlock.FormHorizontalLine();
                 }
                 if(Input.GetKeyDown(KeyCode.DownArrow)){
                     //Line formation facing right
                     //print("Face backward and form line");
                     //
+                    StopCoroutine("Rotate");
                     agentFlock.FormHorizontalLine();
                 }
 
@@ -115,13 +122,15 @@ public class FlockAgent : MonoBehaviour
            /////////////CIRCLE FORMATION////////////////
           ///////////////////////////////////////////// 
                 if(Input.GetKeyDown(KeyCode.C)){
+                    navMeshAgent.isStopped=false;
                     agentFlock.FormCircle();
+                    FaceAway();
                 }
           }
             ////////////////////////////////////////////
            /////////////SIMPLE ROTATION////////////////
           ///////////////////////////////////////////// 
-
+        if(Input.GetKey(KeyCode.LeftShift)==false){
             if(Input.GetKeyDown(KeyCode.LeftArrow)){
                 StopCoroutine("Rotate");
                 FaceLeft();
@@ -138,11 +147,9 @@ public class FlockAgent : MonoBehaviour
                 StopCoroutine("Rotate");
                 FaceBackward();
             }
-            
-
         }
-        
-        
+            
+        }  
     }
     
     public void FaceBackward()
@@ -169,15 +176,22 @@ public class FlockAgent : MonoBehaviour
         StartCoroutine(Rotate(rotation));
     }
 
+    public void FaceAway(){
+        Quaternion rotation = Quaternion.LookRotation(gameObject.transform.position-agentFlock.agents[0].transform.position);
+        StartCoroutine(Rotate(rotation));
+    } 
+
    IEnumerator Rotate(Quaternion rotation) {
+       navMeshAgent.isStopped=true;
        float lerp = 0;
        float lerpspeed= Time.deltaTime/lerp;
-            while(gameObject.transform.rotation != rotation) {
+            while(Quaternion.Angle(gameObject.transform.rotation, rotation) > 5f) {
                 lerp+=Time.deltaTime;
                 lerpspeed= lerp/1f;
                 gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, rotation, lerpspeed);
                 yield return new WaitForFixedUpdate();
             }
+        //navMeshAgent.destination=gameObject.transform.position;
         yield return null;
     }
 
