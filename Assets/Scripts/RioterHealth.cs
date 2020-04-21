@@ -25,4 +25,9 @@ public class RioterHealth : MonoBehaviour
         else
             health -= amount;
     }
+
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
 }
