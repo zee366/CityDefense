@@ -18,17 +18,5 @@ public class WaterCannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (waterCannonActivated)
-        {
-            waterCDeathTimer -= Time.deltaTime;
-            if (waterCDeathTimer <= 0)
-            {
-                Destroy(gameObject);
-                waterCDeathTimer = waterCMaxDeathTimer;
-                waterCannonActivated = false;
-            }
-        }
-        */
     }
 }

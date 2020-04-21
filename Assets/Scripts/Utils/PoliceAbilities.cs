@@ -12,7 +12,7 @@ public class PoliceAbilities : MonoBehaviour
 
     //rioters
     //specify class
-    public TesterRioter rioterTarget;
+    public RioterHealth rioterTarget;
     public float targetRadius;
 
     //Grenade prefab
@@ -53,9 +53,9 @@ public class PoliceAbilities : MonoBehaviour
 
         foreach (Collider c in col)
         {
-            if (c.gameObject.GetComponent<TesterRioter>())
+            if (c.gameObject.GetComponent<RioterHealth>())
             {
-                rioterTarget = c.gameObject.GetComponent<TesterRioter>();
+                rioterTarget = c.gameObject.GetComponent<RioterHealth>();
                 break;
             }
             rioterTarget = null;

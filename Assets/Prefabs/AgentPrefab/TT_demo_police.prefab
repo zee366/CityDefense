@@ -1248,7 +1248,7 @@ MonoBehaviour:
   targetRadius: 10
   smokeGrenade: {fileID: 1339690406208628, guid: 16d37ac307b43584892cb41bc081c64f,
     type: 3}
-  launchForce: 4
+  launchForce: 20
   bulletTypes:
   - {fileID: 8478801755559832920, guid: fb43438f9a0eecd479f125cbdf4d1733, type: 3}
   - {fileID: 8230775745890380023, guid: c169cd226ce54354d8a11a2dcb6d5657, type: 3}
