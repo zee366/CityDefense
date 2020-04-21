@@ -39,11 +39,7 @@ public class CameraController : MonoBehaviour
     {
 
         if (target != null)
-        {
-            ScrollToZoom();
-            OrbitDrag();
             UpdateByView();
-        }
         else
             Start();
 
@@ -64,12 +60,8 @@ public class CameraController : MonoBehaviour
 
     }
 
-    public void ScrollToZoom()
+    public void ScrollToZoom(float scrollwheel_delta)
     {
-        float scrollwheel_delta = Input.GetAxis("Mouse ScrollWheel");
-
-        if (scrollwheel_delta != 0)     // If scrolling...
-        {
             float radius = scrollwheel_delta * scrollStep;        //The radius from the camera
 
             float PosX = (Camera.main.transform.eulerAngles.x + 90) / 180 * Mathf.PI;
@@ -88,15 +80,13 @@ public class CameraController : MonoBehaviour
             // Update camera position only when it is above min height or if zooming out
             if (scrollwheel_delta < 0 || CamY + dY > minHeight)
                 Camera.main.transform.position = new Vector3(CamX + dX, CamY + dY, CamZ + dZ);
-        }
     }
 
-    public void OrbitDrag()
+    public void OrbitDrag(float angle)
     {
-        if (RotateAroundPlayer && Input.GetMouseButton(2))
+        if (RotateAroundPlayer)
         {
-
-            Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * RotationSpeed, Vector3.up);
+            Quaternion camTurnAngle = Quaternion.AngleAxis(angle * RotationSpeed, Vector3.up);
             _cameraOffset = camTurnAngle * _cameraOffset;
 
         }

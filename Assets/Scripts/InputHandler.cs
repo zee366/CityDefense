@@ -86,7 +86,11 @@ public class InputHandler : MonoBehaviour
             // FaceDown()
         }
         if(Input.GetKey(KeyCode.Mouse2)) {
-            // cameraController.orbitfunction(mouse_dx, mouse_dy)
+            cameraController.OrbitDrag(Input.GetAxis("Mouse X"));
+        }
+        if(Input.GetAxis("Mouse ScrollWheel") != 0)
+        {
+            cameraController.ScrollToZoom(Input.GetAxis("Mouse ScrollWheel"));
         }
     }
 }
