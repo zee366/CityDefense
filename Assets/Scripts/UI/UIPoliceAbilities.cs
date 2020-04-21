@@ -51,6 +51,7 @@ public class UIPoliceAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Only needed if rioters use Flock too...
         //if ( policeSquadLeader == null ) {
         //    GameObject go = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
         //    if(go != null)

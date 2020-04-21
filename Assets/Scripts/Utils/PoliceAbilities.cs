@@ -81,7 +81,8 @@ public class PoliceAbilities : MonoBehaviour
     {
         infoBubble = FindObjectOfType<ScreenSpaceTargetBubble>();
         publicRelations = FindObjectOfType<PublicRelations>();
-        //reporter = GameObject.FindGameObjectWithTag("Reporter");
+        Debug.Log("info bubble loc:" + infoBubble.gameObject.transform.position);
+        Debug.Log("info bubble loc:" + infoBubble.gameObject.name);
         reporter = FindObjectOfType<Reporter>();
         reporterPresentPRAmplifier = 1;
         bulletSetType = bulletTypes[0];
@@ -196,12 +197,7 @@ public class PoliceAbilities : MonoBehaviour
             {
                 if (!Physics.Raycast(start, direction.normalized, out hit, distance, layerMask))
                 {
-                    //GameObject bullet = Instantiate(bulletSetType, transform.position, bulletSetType.transform.rotation); //TODO fix so spawn point isn't animation spawn point/prefab spawn point
-                    //if(bulletSetType == bulletTypes[0])
-                    //    bullet.GetComponent<Animator>().Play("RubberBulletsAnimation");     //TODO so that animation is from transform.position
-                    //else
-                    //    bullet.GetComponent<Animator>().Play("LethalBulletsAnimation");     //TODO so that animation is from transform.position
-                    rioterTarget.TakeDamage(bulletDamage);
+                   rioterTarget.TakeDamage(bulletDamage);
                 }
             }
         }
@@ -270,8 +266,6 @@ public class PoliceAbilities : MonoBehaviour
         //logic for summoning a police squad member
         //spawn point is at donut shop
         //joins calling flock once they select a position
-        //make sure they're not an Agent 0...
-        //TODO? make sure they avoid rioters on way to calling flock?
         Flock f = FindObjectOfType<Flock>();
         f.AddAgent();
     }
