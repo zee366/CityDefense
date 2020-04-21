@@ -120,6 +120,16 @@ namespace Rioters {
             return this;
         }
 
+        public NpcDomainBuilder TakingDamageOrDying()
+        {
+            Action("Taking damage or dying from police");
+            if (Pointer is IPrimitiveTask task)
+            {
+                task.SetOperator(new TakeDamageOperator());
+            }
 
+            End();
+            return this;
+        }
     }
 }

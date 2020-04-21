@@ -17,6 +17,8 @@ namespace Rioters {
 
         public Animator anim { get; set; }
 
+        public RioterHealth rioterHealth { get; set; }
+
         public Vector3 Position {
             get { return Agent.transform.position; }
         }

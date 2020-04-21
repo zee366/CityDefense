@@ -8,8 +8,7 @@ public class RioterHealth : MonoBehaviour
 
     public bool IsDead { get; set; }
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         IsDead = false;
         health = 100.0f;
