@@ -5,27 +5,24 @@ using UnityEngine;
 public class RioterHealth : MonoBehaviour
 {
     public float health;
-    private bool isDead;
+
+    public bool IsDead { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        IsDead = false;
         health = 100.0f;
     }
 
     public void TakeDamage(float amount)
     {
-        health -= amount;
-        CheckDead();
-    }
-
-    public void CheckDead()
-    {
-        if (health <= 0)
+        if (health <= 0.0f)
         {
-            Debug.Log("I'm dying");
-            //play a death animation clip?
-            Destroy(gameObject);
+            health = 0.0f;
+            IsDead = true;
         }
+        else
+            health -= amount;
     }
 }
