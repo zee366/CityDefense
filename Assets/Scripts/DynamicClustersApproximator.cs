@@ -14,7 +14,7 @@ using UnityEngine;
 /// </summary>
 public class DynamicClustersApproximator : MonoBehaviour {
 
-    private const int N_CLOSEST_FOR_CLUSTER = 31; // Value for the KNN-search. Finding N closest to have a cluster approximation.
+    private const int N_CLOSEST_FOR_CLUSTER = 17; // Value for the KNN-search. Finding N closest to have a cluster approximation.
 
     [SerializeField]
     private bool _verbose;
@@ -36,12 +36,13 @@ public class DynamicClustersApproximator : MonoBehaviour {
     }
 
 
+
     /// <summary>
-    /// Entry point to get estimated closest cluster position. Computed from N_CLOSEST_FOR_CLUSTER
+    /// Entry point to get estimated closest cluster position. Computed from N_CLOSEST_FOR_CLUSTER by default
     /// </summary>
     /// <param name="from"></param>
     /// <returns></returns>
-    public Vector3 GetClosestApproximatedClusterPosition(Vector3 from) {
+    public Vector3 GetClosestApproximatedClusterPosition(Vector3 from, int k = N_CLOSEST_FOR_CLUSTER) {
         // Can't query if not built yet
         if ( _graph == null ) return from;
 
@@ -49,7 +50,7 @@ public class DynamicClustersApproximator : MonoBehaviour {
 
         IList<SmallWorld<float[], float>.KNNSearchResult> k_closest;
         lock ( _lock ) {
-            k_closest = _graph.KNNSearch(queryPos, N_CLOSEST_FOR_CLUSTER);
+            k_closest = _graph.KNNSearch(queryPos, k);
         }
 
         // Averaging results positions
