@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-//using SplineMesh;
 
 namespace Utils {
     /// <summary>
@@ -9,11 +9,14 @@ namespace Utils {
     /// </summary>
     public class Spawner : MonoBehaviour {
 
-        public  List<Spawnable> spawnables;
-        public  Transform       spawnParent;
-        //private SplineNode      _firstNode;
+        public List<Spawnable>             spawnables;
+        public DynamicClustersApproximator spawnParent;
+
+        public float spawnPerSecond      = 1f;
+        public int   maxNumberOfEntities = 250;
 
         List<Vector2> probabilitiesOfSpawnableObjects = new List<Vector2>();
+
 
         /// <summary>
         /// Run spawn lotery to spawn one of the spawnable
@@ -26,7 +29,8 @@ namespace Utils {
             int i = 0;
             foreach ( Vector2 prob in probabilitiesOfSpawnableObjects ) {
                 if ( RandomProbability >= prob.x && RandomProbability <= prob.y ) {
-                    Instantiate(spawnables[i].prefab, new Vector3(0.0f, -100.0f, 0.0f), Quaternion.identity, spawnParent);
+                    var go = Instantiate(spawnables[i].prefab, transform.position, Quaternion.identity, spawnParent.transform);
+                    spawnParent.RegisterTransform(go.transform);
                     break;
                 }
 
@@ -34,13 +38,6 @@ namespace Utils {
             }
         }
 
-        /// <summary>
-        /// Instantiate Boss
-        /// </summary>
-        
-        //public void SpawnBoss() {
-        //    Instantiate(spawnables[spawnables.Count - 1].prefab, _firstNode.Position, Quaternion.identity, spawnParent);
-        //}
 
         private void Start() {
             // Initialize the list of probabilities with the ranges of probabilities 
@@ -51,7 +48,17 @@ namespace Utils {
                 startingProb += s.probability;
             }
 
-            //_firstNode = spawnParent.GetComponent<Spline>().nodes[0];
+            StartCoroutine(SpawnUntilFull());
+        }
+
+
+        private IEnumerator SpawnUntilFull() {
+            while ( true ) {
+                if ( spawnParent.transform.childCount < maxNumberOfEntities )
+                    SpawnOne();
+
+                yield return new WaitForSeconds(spawnPerSecond);
+            }
         }
 
     }

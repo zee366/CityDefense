@@ -73,11 +73,11 @@ public class FlockAgent : MonoBehaviour
             }
         }
         if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && partOfFlock) {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray,out hit)) {
-                    StopCoroutine("Rotate");
-                    navMeshAgent.destination=hit.point;
-                }
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray,out hit)) {
+                StopCoroutine("Rotate");
+                navMeshAgent.destination=hit.point;
+            }
         }
         if(partOfFlock){
             ////////////////////////////////////////////
