@@ -89,7 +89,7 @@ public class DynamicClustersApproximator : MonoBehaviour {
             List<float[]> posAsVectors = new List<float[]>(_dataSources.Count);
             lock ( _lock ) {
                 foreach (Transform t in _dataSources)
-                {   //check needed for when smoke grenades can kill them at spawn points
+                {   //null check needed for when smoke grenades can kill them at spawn points
                     if (t)
                         posAsVectors.Add(new[] { t.position.x, t.position.y, t.position.z });
                 }
