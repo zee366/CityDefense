@@ -42,11 +42,14 @@ public class Flock : MonoBehaviour
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
     private Light _spotLight;
+    private bool isrotating=false;
+
+    private float lerpspeed = 2.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         InitLight();
-
         squareMaxSpeed = maxSpeed * maxSpeed;
         squareNeighborRadius = neighborRadius * neighborRadius;
         squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
@@ -259,5 +262,56 @@ public class Flock : MonoBehaviour
         Gizmos.DrawWireSphere(centre, startingCount*2f);
     }
 
+
+    public void FormCircle()
+    {
+        Vector3 leaderposition = agents[0].transform.position;
+        int radius = agents.Count/2;
+        int halfcount = radius/2;
+         for (int i = 0; i < agents.Count; i++)
+        {
+            float angle = i * Mathf.PI*2f / 8;
+            if(i==0){
+                agents[i].navMeshAgent.destination=leaderposition;
+            }
+            else{
+                agents[i].navMeshAgent.destination= (new Vector3(Mathf.Cos(angle)*radius, transform.position.y, Mathf.Sin(angle)*radius)+leaderposition);
+            }
+            
+        }
+    }
+
+    public void FormHorizontalLine()
+    {
+        Quaternion rotation = Quaternion.Euler(0,0,0);
+        Vector3 leaderposition = agents[0].transform.position;
+        int halfcount = (agents.Count/2);
+        for (int i = 0; i < agents.Count; i++)
+        {
+            if(i<halfcount){
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-3.0f*i,0,0));
+            }
+            else{
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(3.0f*(i-halfcount+1),0,0));
+            }
+        }
+    }
+
+    public void FormVerticalLine()
+    {
+        Quaternion rotation = Quaternion.Euler(0,-90,0);
+        Vector3 leaderposition = agents[0].transform.position;
+        int halfcount = (agents.Count/2);
+        for (int i = 0; i < agents.Count; i++)
+        {
+            if(i<halfcount){
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-3.0f*i));
+            }
+            else{
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,3.0f*(i-halfcount+1)));
+            }
+ 
+        }
+    }
     
 }

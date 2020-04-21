@@ -22,6 +22,7 @@ public class FlockAgent : MonoBehaviour
     NavMeshHit closestHit;
     float agentspeed;
     private bool mutexlock;
+    private IEnumerator coroutine;
     public bool partOfFlock;
     public NavMeshAgent navMeshAgent;
     public RaycastHit hit;
@@ -41,7 +42,7 @@ public class FlockAgent : MonoBehaviour
         mutexlock=true;
     }
 
-    void Update(){
+    void FixedUpdate(){
         //print((gameObject.transform.position-closestHit.position).magnitude);
         //print(this.GetComponent<Rigidbody>().velocity.magnitude);
         lifecycle-=Time.deltaTime;
@@ -74,6 +75,7 @@ public class FlockAgent : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && partOfFlock) {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray,out hit)) {
+                    StopCoroutine("Rotate");
                     navMeshAgent.destination=hit.point;
                 }
         }
@@ -81,197 +83,102 @@ public class FlockAgent : MonoBehaviour
             ////////////////////////////////////////////
            /////////////LINE FORMATION//////////////////
           ///////////////////////////////////////////// 
+          if(gameObject.name=="Agent 0"){
             if(Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)){
-                if(Input.GetKey(KeyCode.LeftArrow)){
+                if(Input.GetKeyDown(KeyCode.LeftArrow)){
                     //Line formation facing left
                     //print("Face left and form line");
                     //
-                    FormLineFacingLeft();
+                    agentFlock.FormVerticalLine();
                 }
-                if(Input.GetKey(KeyCode.RightArrow)){
+                if(Input.GetKeyDown(KeyCode.RightArrow)){
                     //Line formation facing right
-                // print("Face right and form line");
+                    // print("Face right and form line");
                     //
-                    FormLineFacingRight();
+                    agentFlock.FormVerticalLine();
                 }
-                if(Input.GetKey(KeyCode.UpArrow)){
+                if(Input.GetKeyDown(KeyCode.UpArrow)){
                     //Line formation facing left
                     //print("Face forward and form line");
                     //
-                    FormLineFacingForward();
+                    agentFlock.FormHorizontalLine();
                 }
-                if(Input.GetKey(KeyCode.DownArrow)){
+                if(Input.GetKeyDown(KeyCode.DownArrow)){
                     //Line formation facing right
                     //print("Face backward and form line");
                     //
-                    FormLineFacingBackwards();
+                    agentFlock.FormHorizontalLine();
                 }
-            }
-            ////////////////////////////////////////////
-           /////////////SIMPLE ROTATION////////////////
-          ///////////////////////////////////////////// 
-            if(Input.GetKeyUp(KeyCode.LeftShift)||Input.GetKeyUp(KeyCode.RightShift)){
-                navMeshAgent.destination=transform.position;
-            }
-            if(Input.GetKey(KeyCode.LeftArrow)){
-                FaceLeft();
-            }
-            if(Input.GetKey(KeyCode.RightArrow)){
-                FaceRight();
-            }
-            if(Input.GetKey(KeyCode.UpArrow)){
-                FaceForward();
-            }
-            if(Input.GetKey(KeyCode.DownArrow)){
-                FaceBackward();
+
             }
             ////////////////////////////////////////////
            /////////////CIRCLE FORMATION////////////////
           ///////////////////////////////////////////// 
-            if(Input.GetKey(KeyCode.C)){
-                FormCircle();
-            }
-            if(Input.GetKeyUp(KeyCode.C)){
-                navMeshAgent.destination=transform.position;
-            }
-
-        }
-        
-        
-    }
-
-    private void FaceBackward()
-    {
-        Quaternion rotation = Quaternion.Euler(0,180,0);
-        for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
-        }
-    }
-
-    private void FaceForward()
-    {
-        Quaternion rotation = Quaternion.Euler(0,0,0);
-        for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
-        }
-    }
-
-    private void FaceRight()
-    {
-        Quaternion rotation = Quaternion.Euler(0,90,0);
-        for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
-        }
-    }
-
-    private void FaceLeft()
-    {
-        Quaternion rotation = Quaternion.Euler(0,-90,0);
-        for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
-        }
-    }
-
-    private void FormCircle()
-    {
-        Vector3 leaderposition = agentFlock.agents[0].transform.position;
-        int radius = agentFlock.agents.Count/2;
-        int halfcount = radius/2;
-         for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            float angle = i * Mathf.PI*2f / 8;
-            if(i==0){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition;
-            }
-            else{
-                agentFlock.agents[i].navMeshAgent.destination= (new Vector3(Mathf.Cos(angle)*radius, transform.position.y, Mathf.Sin(angle)*radius)+leaderposition);
-                
-            
-                if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
-                    agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, Quaternion.LookRotation(agentFlock.agents[i].transform.position - leaderposition),Time.deltaTime * 0.7f);
+                if(Input.GetKeyDown(KeyCode.C)){
+                    agentFlock.FormCircle();
                 }
+          }
+            ////////////////////////////////////////////
+           /////////////SIMPLE ROTATION////////////////
+          ///////////////////////////////////////////// 
+
+            if(Input.GetKeyDown(KeyCode.LeftArrow)){
+                StopCoroutine("Rotate");
+                FaceLeft();
+            }
+            if(Input.GetKeyDown(KeyCode.RightArrow)){
+                StopCoroutine("Rotate");
+                FaceRight();
+            }
+            if(Input.GetKeyDown(KeyCode.UpArrow)){
+                StopCoroutine("Rotate");
+                FaceForward();
+            }
+            if(Input.GetKeyDown(KeyCode.DownArrow)){
+                StopCoroutine("Rotate");
+                FaceBackward();
             }
             
-        }
-    }
 
-    private void FormLineFacingBackwards()
+        }
+        
+        
+    }
+    
+    public void FaceBackward()
     {
         Quaternion rotation = Quaternion.Euler(0,180,0);
-        Vector3 leaderposition = agentFlock.agents[0].transform.position;
-        int halfcount = (agentFlock.agents.Count/2);
-        for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            if(i<halfcount){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-3.0f*i,0,0));
-            }
-            else{
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(3.0f*(i-halfcount+1),0,0));
-            }
-              if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
-                agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
-            }
-        }
+        StartCoroutine(Rotate(rotation));
     }
 
-    private void FormLineFacingForward()
+    public void FaceForward()
     {
         Quaternion rotation = Quaternion.Euler(0,0,0);
-        Vector3 leaderposition = agentFlock.agents[0].transform.position;
-        int halfcount = (agentFlock.agents.Count/2);
-        for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            if(i<halfcount){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-3.0f*i,0,0));
-            }
-            else{
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(3.0f*(i-halfcount+1),0,0));
-            }
-              if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
-                agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
-            }
-        }
+        StartCoroutine(Rotate(rotation));
     }
 
-    private void FormLineFacingLeft()
-    {
-        Quaternion rotation = Quaternion.Euler(0,-90,0);
-        Vector3 leaderposition = agentFlock.agents[0].transform.position;
-        int halfcount = (agentFlock.agents.Count/2);
-        for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            if(i<halfcount){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-3.0f*i));
-            }
-            else{
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,3.0f*(i-halfcount+1)));
-            }
-              if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
-                agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
-            }
-        }
-    }
-    private void FormLineFacingRight()
+    public void FaceRight()
     {
         Quaternion rotation = Quaternion.Euler(0,90,0);
-        Vector3 leaderposition = agentFlock.agents[0].transform.position;
-        int halfcount = (agentFlock.agents.Count/2);
-        for (int i = 0; i < agentFlock.agents.Count; i++)
-        {
-            if(i<halfcount){
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-3.0f*i));
+        StartCoroutine(Rotate(rotation));
+    }
+
+    public void FaceLeft()
+    {
+        Quaternion rotation = Quaternion.Euler(0,-90,0);
+        StartCoroutine(Rotate(rotation));
+    }
+
+   IEnumerator Rotate(Quaternion rotation) {
+       float lerp = 0;
+       float lerpspeed= Time.deltaTime/lerp;
+            while(gameObject.transform.rotation != rotation) {
+                lerp+=Time.deltaTime;
+                lerpspeed= lerp/1f;
+                gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, rotation, lerpspeed);
+                yield return new WaitForFixedUpdate();
             }
-            else{
-                agentFlock.agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,3.0f*(i-halfcount+1)));
-            }
-            if((agentFlock.agents[i].transform.position-agentFlock.agents[i].navMeshAgent.destination).magnitude<40){
-                agentFlock.agents[i].transform.rotation= Quaternion.Lerp(agentFlock.agents[i].transform.rotation, rotation,Time.deltaTime * 0.7f);
-            }
-        }
+        yield return null;
     }
 
     private void DissolveandDestroy()
