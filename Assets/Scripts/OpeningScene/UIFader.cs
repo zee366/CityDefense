@@ -6,16 +6,10 @@ public class UIFader : MonoBehaviour
 {
     private CanvasGroup canvasGroup;
     private float duration = 2f;
-    // Start is called before the first frame update
+
     void Start()
     {
         Invoke("StartFade", 5f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void StartFade() {
