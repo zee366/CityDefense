@@ -128,7 +128,8 @@ namespace Rioters {
             {
                 task.SetOperator(new TakeDamageOperator());
             }
-            SetState(NpcWorldState.HasTakenDamage, false, EffectType.PlanAndExecute);
+            //SetState(NpcWorldState.HasTakenDamage, false, EffectType.PlanAndExecute);
+            SetState(NpcWorldState.HasTakenDamage, false, EffectType.Permanent);
             End();
             return this;
         }
@@ -141,7 +142,6 @@ namespace Rioters {
             {
                 task.SetOperator(new DyingOperator());
             }
-            SetState(NpcWorldState.HasDied, false, EffectType.PlanAndExecute);
             End();
             return this;
         }

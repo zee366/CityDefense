@@ -43,7 +43,7 @@ public class SmokeGrenade : MonoBehaviour
             if (c.gameObject.GetComponent<RioterHealth>())
             {
                 c.gameObject.GetComponent<RioterHealth>().TakeDamage(damageGiven);
-                c.gameObject.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, transform.position, explosiveForceRadius);
+                //c.gameObject.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, transform.position, explosiveForceRadius);
             }
         }
     }

@@ -15,6 +15,10 @@ namespace Rioters.Operators
                 {
                     c.NavAgent.isStopped = true;
                     //c.anim.SetTrigger("Dying");
+                    //c.NavAgent.SetDestination(c.RioterHealth.gameObject.transform.position);
+                    c.anim.SetBool("IsRunning", false);
+                    c.anim.SetBool("IsAttacking", false);
+                    c.anim.SetBool("IsTakingDamage", false);
                     c.anim.SetBool("IsDying", true);
                     var clipInfo = c.anim.GetCurrentAnimatorClipInfo(0);
                     if (clipInfo.Length > 0)

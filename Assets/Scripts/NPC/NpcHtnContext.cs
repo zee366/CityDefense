@@ -38,6 +38,8 @@ namespace Rioters {
 
         public DynamicClustersApproximator ClustersApproximator { get; set; }
 
+        public bool Done { get; set; } = false;
+
         public override IFactory                          Factory          { get; set; } = new DefaultFactory();
         public override List<string>                      MTRDebug         { get; set; } = null;
         public override List<string>                      LastMTRDebug     { get; set; } = null;
