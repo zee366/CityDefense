@@ -43,7 +43,7 @@ public class PoliceAbilities : MonoBehaviour
     {
         infoBubble = FindObjectOfType<ScreenSpaceTargetBubble>();
         bulletSetType = bulletTypes[0];
-        bulletDamage = 10.0f;
+        bulletDamage = 5.0f;
     }
 
     // Update is called once per frame
@@ -149,7 +149,7 @@ public class PoliceAbilities : MonoBehaviour
         //...
 
         bulletSetType = bulletTypes[0];
-        bulletDamage = 10.0f;
+        bulletDamage = 5.0f;
     }
 
     public void UseSmokeGrenade()
@@ -174,7 +174,7 @@ public class PoliceAbilities : MonoBehaviour
         //...
 
         bulletSetType = bulletTypes[1];
-        bulletDamage = 30.0f;
+        bulletDamage = 20.0f;
     }
 
     public void ReinforceSquad()

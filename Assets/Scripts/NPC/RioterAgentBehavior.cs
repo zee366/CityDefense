@@ -40,8 +40,6 @@ namespace Rioters {
             _context.NavAgent             = GetComponent<NavMeshAgent>();
             _context.NavAgent.isStopped   = true;
             _context.DPS                  = _damagePerSecond;
-            //_context.rioterHealth         = GetComponent<RioterHealth>();
-            _context.Time                 = Time.time;
             _context.SetState(NpcWorldState.StaminaLevel, 2, EffectType.Permanent);
 
             if ( transform.parent != null && transform.parent.TryGetComponent(out DynamicClustersApproximator clusterManager) ) {
@@ -72,6 +70,7 @@ namespace Rioters {
 
 
         void Update() {
+            _context.Time = Time.time;
             SenseSurroundings();
 
             _context.Verbose = logPlan;
