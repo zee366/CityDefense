@@ -8,6 +8,7 @@ namespace Rioters.Operators {
 
         public TaskStatus Update(IContext ctx) {
             if ( ctx is NpcHtnContext c ) {
+
                 Destructible _closest = null;
                 float _closestDist = float.PositiveInfinity;
 
@@ -25,10 +26,11 @@ namespace Rioters.Operators {
                     }
                 }
 
-                if (_closest != null) {
-                    c.CurrentTarget = _closest;
+                c.CurrentTarget = _closest;
+
+                if (_closest != null)
                     return TaskStatus.Success;
-                }
+
                 return TaskStatus.Failure;
             }
 
