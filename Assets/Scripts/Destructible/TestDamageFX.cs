@@ -1,24 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestDamageFX : MonoBehaviour
 {
-    public GameObject prefab;
     public float damage;
-    private Destructible destructible;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        destructible = prefab.GetComponent<Destructible>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)) {
-            destructible.TakeDamage(damage);
+            if(!GameController.instance.gamePaused)
+                GameController.instance.DamageCity(damage);
         }
+
+        if(Input.GetKeyDown(KeyCode.Z))
+            GameController.instance.PauseGame();
     }
 }
