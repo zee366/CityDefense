@@ -14,8 +14,6 @@ namespace Rioters.Operators
                 if (c.GenericTimer <= 0f)
                 {
                     c.NavAgent.isStopped = true;
-                    //c.anim.SetTrigger("Dying");
-                    //c.NavAgent.SetDestination(c.RioterHealth.gameObject.transform.position);
                     c.anim.SetBool("IsRunning", false);
                     c.anim.SetBool("IsAttacking", false);
                     c.anim.SetBool("IsTakingDamage", false);

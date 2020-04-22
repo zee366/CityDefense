@@ -132,11 +132,6 @@ public class PoliceAbilities : MonoBehaviour
             {
                 if (!Physics.Raycast(start, direction.normalized, out hit, distance, layerMask))
                 {
-                    //GameObject bullet = Instantiate(bulletSetType, transform.position, bulletSetType.transform.rotation); //TODO fix so spawn point isn't animation spawn point/prefab spawn point
-                    //if(bulletSetType == bulletTypes[0])
-                    //    bullet.GetComponent<Animator>().Play("RubberBulletsAnimation");     //TODO so that animation is from transform.position
-                    //else
-                    //    bullet.GetComponent<Animator>().Play("LethalBulletsAnimation");     //TODO so that animation is from transform.position
                     rioterTarget.TakeDamage(bulletDamage);
                 }
             }

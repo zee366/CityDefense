@@ -494,7 +494,7 @@ MonoBehaviour:
       type: 3}
     probability: 100
   spawnParent: {fileID: 1538449303}
-  spawnPerSecond: 30
+  spawnPerSecond: 15
   maxNumberOfEntities: 1
 --- !u!4 &1010963599
 Transform:
