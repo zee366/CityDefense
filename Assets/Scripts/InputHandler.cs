@@ -5,14 +5,9 @@ public class InputHandler : MonoBehaviour
     public UIPoliceAbilities abilityBar;
     public CameraController cameraController;
 
-    private float lastMouseX;
-    private float lastMouseY;
-
     void Update()
     {
         CheckInput();
-        lastMouseX = Input.mousePosition.x;
-        lastMouseY = Input.mousePosition.y;
     }
 
     void CheckInput() {
