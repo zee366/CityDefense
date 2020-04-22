@@ -15,7 +15,7 @@ public class SplineFollower : MonoBehaviour {
     private bool _isOk = true;
 
 
-    private void Awake() {
+    private void Start() {
         _splineRef = transform.parent.GetComponent<Spline>();
 
         if(!_splineRef) {

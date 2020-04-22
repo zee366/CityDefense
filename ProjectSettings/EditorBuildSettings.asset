@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Personal/Omar.unity
-    guid: 842a479bb52c01641b239797238c5d90
+    path: Assets/Scenes/OpeningScene.unity
+    guid: 74c6a06594d889e4fba483b604cba745
+  - enabled: 1
+    path: Assets/Scenes/ClosingScene.unity
+    guid: 1a6c4d05a4d36ea4fb8cbef18fa695f3
   m_configObjects: {}
