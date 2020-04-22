@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Rioters.Operators
 {
-    public class TakeDamageOperator : IOperator
+    public class DyingOperator : IOperator
     {
         public TaskStatus Update(IContext ctx)
         {
@@ -15,7 +15,7 @@ namespace Rioters.Operators
                 {
                     //c.anim.SetTrigger("takeDamage");
                     c.NavAgent.isStopped = true; //needed?
-                    c.anim.SetBool("IsTakingDamage", true);
+                    c.anim.SetBool("IsDying", true);
                     var clipInfo = c.anim.GetCurrentAnimatorClipInfo(0);
                     if (clipInfo.Length > 0)
                     {
@@ -42,7 +42,7 @@ namespace Rioters.Operators
             if (ctx is NpcHtnContext c)
             {
                 c.NavAgent.isStopped = false; //needed?
-                c.anim.SetBool("IsTakingDamage", false);
+                c.anim.SetBool("IsDying", false);
                 c.GenericTimer = -1f;
             }
         }

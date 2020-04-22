@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using FluidHTN;
+using Rioters;
 using UnityEngine;
 
 public class RioterHealth : MonoBehaviour
@@ -8,10 +8,17 @@ public class RioterHealth : MonoBehaviour
 
     public bool IsDead { get; set; }
 
+    public NpcHtnContext Context { get; private set; }
+
     void Awake()
     {
         IsDead = false;
         health = 100.0f;
+    }
+
+    public void Init(NpcHtnContext context)
+    {
+        Context = context;
     }
 
     public void TakeDamage(float amount)
@@ -19,12 +26,17 @@ public class RioterHealth : MonoBehaviour
         if (health <= 0.0f)
         {
             health = 0.0f;
-            IsDead = true;
+            IsDead = true; 
+            Context.SetState(NpcWorldState.HasDied, true, EffectType.Permanent);
         }
         else
+        {
             health -= amount;
+            Context.SetState(NpcWorldState.HasTakenDamage, true, EffectType.Permanent);
+        }
     }
 
+    //Function used at end of death animation
     public void Death()
     {
         Destroy(gameObject);

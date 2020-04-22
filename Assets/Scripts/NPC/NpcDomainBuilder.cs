@@ -120,14 +120,28 @@ namespace Rioters {
             return this;
         }
 
-        public NpcDomainBuilder TakingDamageOrDying()
+        public NpcDomainBuilder TakingDamage()
         {
-            Action("Taking damage or dying from police");
+            Action("Taken damage from police");
+            HasState(NpcWorldState.HasTakenDamage);
             if (Pointer is IPrimitiveTask task)
             {
                 task.SetOperator(new TakeDamageOperator());
             }
-
+            SetState(NpcWorldState.HasTakenDamage, false, EffectType.PlanAndExecute);
+            End();
+            return this;
+        }
+        
+        public NpcDomainBuilder Dying()
+        {
+            Action("Dying from police damage");
+            HasState(NpcWorldState.HasDied);
+            if (Pointer is IPrimitiveTask task)
+            {
+                task.SetOperator(new DyingOperator());
+            }
+            SetState(NpcWorldState.HasDied, false, EffectType.PlanAndExecute);
             End();
             return this;
         }

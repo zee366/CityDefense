@@ -17,7 +17,9 @@ namespace Rioters {
 
         public Animator anim { get; set; }
 
-        public RioterHealth rioterHealth { get; set; }
+        public RioterHealth RioterHealth { get; set; }
+        public float Time { get; set; }
+        public float GenericTimer { get; set; }
 
         public Vector3 Position {
             get { return Agent.transform.position; }
@@ -46,7 +48,12 @@ namespace Rioters {
         private         byte[] _worldState = new byte[Enum.GetValues(typeof(NpcWorldState)).Length];
         public override byte[] WorldState => _worldState;
 
-        public NpcHtnContext(MonoBehaviour agent) { Agent = agent; }
+        public NpcHtnContext(MonoBehaviour agent) 
+        { 
+            Agent = agent; 
+            RioterHealth = agent.GetComponent<RioterHealth>();
+            RioterHealth.Init(this);
+        }
 
         #region context blackboard manipulation
 

@@ -10,8 +10,12 @@ namespace Rioters {
 
             // TODO: Define receiving effects/damage/etc here
             var affectedDomain = new NpcDomainBuilder("affectedDomain")
-                .Select("Taking damage or dying")
-                    .TakingDamageOrDying()  // Self contained task
+                .Select("Taking damage")
+                    .TakingDamage()  // Self contained task
+                .End()
+                .Select("Dying")
+                    .Dying() // Self contained task
+                .End()
                 .Build();
 
             // Defining Regrouping domain
