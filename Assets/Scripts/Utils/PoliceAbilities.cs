@@ -74,7 +74,7 @@ public class PoliceAbilities : MonoBehaviour
         {
             infoBubble.SetFramingImage(arrestImg);
             infoBubble.Open();
-            Destroy(rioterTarget.gameObject);
+            rioterTarget.TakeDamage(100.0f);
             infoBubble.Close();
         }
         else
@@ -95,7 +95,7 @@ public class PoliceAbilities : MonoBehaviour
         {
             infoBubble.SetFramingImage(aggressiveArrestImg);
             infoBubble.Open();
-            Destroy(rioterTarget.gameObject);
+            rioterTarget.TakeDamage(100.0f);
             infoBubble.Close();
         }
         else

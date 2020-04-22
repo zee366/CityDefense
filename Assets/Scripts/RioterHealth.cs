@@ -23,8 +23,9 @@ public class RioterHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (health <= 0.0f)
+        if (health <= 0.01f)
         {
+            //Debug.Log("Rioter health to set has died");
             health = 0.0f;
             IsDead = true; 
             Context.SetState(NpcWorldState.HasDied, true, EffectType.Permanent);
@@ -32,6 +33,7 @@ public class RioterHealth : MonoBehaviour
         else
         {
             health -= amount;
+            Debug.Log("in rioter taking damage");
             Context.SetState(NpcWorldState.HasTakenDamage, true, EffectType.Permanent);
         }
     }

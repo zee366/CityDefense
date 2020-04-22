@@ -13,9 +13,11 @@ namespace Rioters.Operators
             {
                 if (c.GenericTimer <= 0f)
                 {
+                    //Debug.Log("dying");
                     //c.anim.SetTrigger("takeDamage");
                     c.NavAgent.isStopped = true; //needed?
-                    c.anim.SetBool("IsDying", true);
+                    c.anim.SetTrigger("Dying");
+                    //c.anim.SetBool("IsDying", true);
                     var clipInfo = c.anim.GetCurrentAnimatorClipInfo(0);
                     if (clipInfo.Length > 0)
                     {
@@ -41,8 +43,8 @@ namespace Rioters.Operators
         {
             if (ctx is NpcHtnContext c)
             {
-                c.NavAgent.isStopped = false; //needed?
-                c.anim.SetBool("IsDying", false);
+                //c.NavAgent.isStopped = false; //needed?
+                //c.anim.SetBool("IsDying", false);
                 c.GenericTimer = -1f;
             }
         }

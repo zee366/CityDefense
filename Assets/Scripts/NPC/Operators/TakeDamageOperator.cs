@@ -9,13 +9,16 @@ namespace Rioters.Operators
     {
         public TaskStatus Update(IContext ctx)
         {
+            Debug.Log("in take damage");
             if (ctx is NpcHtnContext c)
             {
                 if (c.GenericTimer <= 0f)
                 {
+                    //Debug.Log("taking damage");
                     //c.anim.SetTrigger("takeDamage");
                     c.NavAgent.isStopped = true; //needed?
-                    c.anim.SetBool("IsTakingDamage", true);
+                    c.anim.SetTrigger("TakingDamage");
+                    //c.anim.SetBool("IsTakingDamage", true);
                     var clipInfo = c.anim.GetCurrentAnimatorClipInfo(0);
                     if (clipInfo.Length > 0)
                     {
@@ -41,8 +44,9 @@ namespace Rioters.Operators
         {
             if (ctx is NpcHtnContext c)
             {
+                //Debug.Log("in stop of take damage");
                 c.NavAgent.isStopped = false; //needed?
-                c.anim.SetBool("IsTakingDamage", false);
+                //c.anim.SetBool("IsTakingDamage", false);
                 c.GenericTimer = -1f;
             }
         }
