@@ -5,7 +5,8 @@ namespace Rioters {
         StaminaLevel,
         PoliceInRange,
         HasDestructiblesInRange,
-
+        HasTakenDamage,
+        HasDied
     }
 
     public enum NpcType : byte {

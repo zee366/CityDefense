@@ -11,7 +11,7 @@ public class SmokeGrenade : MonoBehaviour
     public float explosiveForce;
     public float explosiveForceRadius;
 
-    //Smoke smokePrefab;
+    //Smoke smokePrefab
     ParticleSystem smokeParticleSystem;
     Animator smokeAnimator;
 
@@ -40,10 +40,10 @@ public class SmokeGrenade : MonoBehaviour
         smokeAnimator.Play("Smoke Animation");
         foreach (Collider c in col)
         {
-            if (c.gameObject.GetComponent<TesterRioter>())
+            if (c.gameObject.GetComponent<RioterHealth>())
             {
-                c.gameObject.GetComponent<TesterRioter>().TakeDamage(damageGiven);
-                c.gameObject.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, transform.position, explosiveForceRadius);
+                c.gameObject.GetComponent<RioterHealth>().TakeDamage(damageGiven);
+                //c.gameObject.GetComponent<Rigidbody>().AddExplosionForce(explosiveForce, transform.position, explosiveForceRadius);
             }
         }
     }

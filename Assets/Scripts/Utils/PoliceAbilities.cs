@@ -12,7 +12,7 @@ public class PoliceAbilities : MonoBehaviour
 
     //rioters
     //specify class
-    public TesterRioter rioterTarget;
+    public RioterHealth rioterTarget;
     public float targetRadius;
 
     //Grenade prefab
@@ -84,7 +84,7 @@ public class PoliceAbilities : MonoBehaviour
         reporter = FindObjectOfType<Reporter>();
         reporterPresentPRAmplifier = 1;
         bulletSetType = bulletTypes[0];
-        bulletDamage = 10.0f;
+        bulletDamage = 5.0f;
         CostForFireBullets = costForFireRubberBullets; //by default rubber bullet cost
     }
 
@@ -95,9 +95,9 @@ public class PoliceAbilities : MonoBehaviour
 
         foreach (Collider c in col)
         {
-            if (c.gameObject.GetComponent<TesterRioter>())
+            if (c.gameObject.GetComponent<RioterHealth>())
             {
-                rioterTarget = c.gameObject.GetComponent<TesterRioter>();
+                rioterTarget = c.gameObject.GetComponent<RioterHealth>();
                 break;
             }
             rioterTarget = null;
@@ -121,7 +121,7 @@ public class PoliceAbilities : MonoBehaviour
 
             infoBubble.SetFramingImage(arrestImg);
             infoBubble.Open();
-            Destroy(rioterTarget.gameObject);
+            rioterTarget.TakeDamage(100.0f);
             infoBubble.Close();
         }
         else
@@ -147,7 +147,7 @@ public class PoliceAbilities : MonoBehaviour
 
             infoBubble.SetFramingImage(aggressiveArrestImg);
             infoBubble.Open();
-            Destroy(rioterTarget.gameObject);
+            rioterTarget.TakeDamage(100.0f);
             infoBubble.Close();
         }
         else
@@ -195,7 +195,7 @@ public class PoliceAbilities : MonoBehaviour
             {
                 if (!Physics.Raycast(start, direction.normalized, out hit, distance, layerMask))
                 {
-                   rioterTarget.TakeDamage(bulletDamage);
+                    rioterTarget.TakeDamage(bulletDamage);
                 }
             }
         }
@@ -208,7 +208,7 @@ public class PoliceAbilities : MonoBehaviour
         CostForFireBullets = costForFireRubberBullets;
 
         bulletSetType = bulletTypes[0];
-        bulletDamage = 10.0f;
+        bulletDamage = 5.0f;
     }
 
     public void UseSmokeGrenade()
@@ -253,7 +253,7 @@ public class PoliceAbilities : MonoBehaviour
         CostForFireBullets = costForFireLethalBullets;
 
         bulletSetType = bulletTypes[1];
-        bulletDamage = 30.0f;
+        bulletDamage = 20.0f;
     }
 
     public void ReinforceSquad()

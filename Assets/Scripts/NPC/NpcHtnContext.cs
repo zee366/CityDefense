@@ -17,6 +17,10 @@ namespace Rioters {
 
         public Animator anim { get; set; }
 
+        public RioterHealth RioterHealth { get; set; }
+        public float Time { get; set; }
+        public float GenericTimer { get; set; }
+
         public Vector3 Position {
             get { return Agent.transform.position; }
         }
@@ -34,6 +38,8 @@ namespace Rioters {
 
         public DynamicClustersApproximator ClustersApproximator { get; set; }
 
+        public bool Done { get; set; } = false;
+
         public override IFactory                          Factory          { get; set; } = new DefaultFactory();
         public override List<string>                      MTRDebug         { get; set; } = null;
         public override List<string>                      LastMTRDebug     { get; set; } = null;
@@ -44,7 +50,12 @@ namespace Rioters {
         private         byte[] _worldState = new byte[Enum.GetValues(typeof(NpcWorldState)).Length];
         public override byte[] WorldState => _worldState;
 
-        public NpcHtnContext(MonoBehaviour agent) { Agent = agent; }
+        public NpcHtnContext(MonoBehaviour agent) 
+        { 
+            Agent = agent; 
+            RioterHealth = agent.GetComponent<RioterHealth>();
+            RioterHealth.Init(this);
+        }
 
         #region context blackboard manipulation
 
