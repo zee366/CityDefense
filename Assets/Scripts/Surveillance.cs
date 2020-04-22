@@ -9,9 +9,8 @@ public class Surveillance : MonoBehaviour
     public Button surveillanceButton;
     private PublicRelations publicRelations;
     private Camera miniMapCam;
-    private enum SurveillanceLevel { Level_0, Level_1, Level_2, Level_3};
-    private Dictionary<SurveillanceLevel,int> costs;
-    private SurveillanceLevel current = SurveillanceLevel.Level_0;
+    public enum SurveillanceLevel { Level_0, Level_1, Level_2, Level_3};
+    public static SurveillanceLevel current = SurveillanceLevel.Level_0;
     public int Level1Cost = 200;
     public int Level2Cost = 400;
     public int Level3Cost = 800;
@@ -23,14 +22,6 @@ public class Surveillance : MonoBehaviour
     {
         miniMapCam = GameObject.Find("Minimap Camera").GetComponent<Camera>();
         publicRelations = FindObjectOfType<PublicRelations>();
-        costs = new Dictionary<SurveillanceLevel, int>
-        {
-            { SurveillanceLevel.Level_0, 0 },
-            { SurveillanceLevel.Level_1, Level1Cost },
-            { SurveillanceLevel.Level_2, Level2Cost },
-            { SurveillanceLevel.Level_3, Level3Cost }
-        };
-
     }
 
     void Update()
@@ -43,19 +34,19 @@ public class Surveillance : MonoBehaviour
         switch (current)
         {
             case SurveillanceLevel.Level_0:
-                if (costs[SurveillanceLevel.Level_1] > publicRelations._PRaccumulated)
+                if (Level1Cost > publicRelations._PRaccumulated)
                     surveillanceButton.interactable = false;
                 else
                     surveillanceButton.interactable = true;
                 break;
             case SurveillanceLevel.Level_1:
-                if (costs[SurveillanceLevel.Level_2] > publicRelations._PRaccumulated)
+                if (Level2Cost > publicRelations._PRaccumulated)
                     surveillanceButton.interactable = false;
                 else
                     surveillanceButton.interactable = true;
                 break;
             case SurveillanceLevel.Level_2:
-                if (costs[SurveillanceLevel.Level_3] > publicRelations._PRaccumulated)
+                if (Level3Cost > publicRelations._PRaccumulated)
                     surveillanceButton.interactable = false;
                 else
                     surveillanceButton.interactable = true;
@@ -75,18 +66,22 @@ public class Surveillance : MonoBehaviour
                 level_0.enabled = false;
                 level_1.enabled = true;
                 miniMapCam.cullingMask |= 1 << LayerMask.NameToLayer("Reporter");
+                publicRelations.CostOfAction(Level1Cost);
+
                 break;
             case SurveillanceLevel.Level_1:
                 current = SurveillanceLevel.Level_2;
                 level_1.enabled = false;
                 level_2.enabled = true;
                 miniMapCam.cullingMask |= 1 << LayerMask.NameToLayer("BuildingDmg");
+                publicRelations.CostOfAction(Level2Cost);
                 break;
             case SurveillanceLevel.Level_2:
                 current = SurveillanceLevel.Level_3;
                 level_2.enabled = false;
                 level_3.enabled = true;
                 miniMapCam.cullingMask |= 1 << LayerMask.NameToLayer("Rioters");
+                publicRelations.CostOfAction(Level3Cost);
                 break;
 
         }
