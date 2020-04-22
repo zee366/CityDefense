@@ -380,6 +380,7 @@ MonoBehaviour:
   cityHealthSlider: {fileID: 2102268579}
   cityHealthFillImage: {fileID: 1875611834}
   escapeMenu: {fileID: 1021339129}
+  gameTimer: 600
   gamePaused: 0
 --- !u!4 &297364452
 Transform:
@@ -909,8 +910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1000
-  cityHealthSlider: {fileID: 2102268579}
-  cityHealthFillImage: {fileID: 1875611834}
 --- !u!4 &1870908295
 Transform:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     private const float MAX_CITY_HEALTH = 12700f;
     private float currentCityDamage = 0f;
 
-    private float gameTimer = 600f;
+    public float gameTimer;
     private bool gameRunning = false;
 
     public bool gamePaused = false;
