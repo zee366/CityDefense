@@ -8,7 +8,7 @@ namespace Rioters.Operators {
         private float _attackTime = 0f;
 
         public TaskStatus Update(IContext ctx) {
-            if ( ctx is NpcHtnContext c ) {
+            if ( ctx is NpcHtnContext c && c.CurrentTarget != null ) {
                 _attackTime += Time.deltaTime;
 
                 // Setting animation

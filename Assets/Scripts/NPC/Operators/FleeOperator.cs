@@ -49,7 +49,7 @@ namespace Rioters.Operators {
             Vector3 posToFleeTo;
             switch ( fleeType ) {
                 case NpcType.Police:
-                    posToFleeTo = ctx.Position - (ctx.ClosestPolice.transform.position - ctx.Position) * 5;
+                    posToFleeTo = ctx.Position - (ctx.ClosestPolice.transform.position - ctx.Position).normalized * 20;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(fleeType), fleeType, null);

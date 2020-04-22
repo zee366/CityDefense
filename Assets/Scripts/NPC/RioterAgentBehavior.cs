@@ -81,7 +81,9 @@ namespace Rioters {
         private void SenseSurroundings() {
             _currentSensingTimer += Time.deltaTime;
             if ( _currentSensingTimer < _sensingInterval ) return;
-
+            
+            // Reset from previous sensing
+            _context.CurrentTarget = null;
             _context.destructiblesInRange.Clear();
             _context.policesInRange.Clear();
 
