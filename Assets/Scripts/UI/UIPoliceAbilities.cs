@@ -9,23 +9,34 @@ public class UIPoliceAbilities : MonoBehaviour
     public List<PoliceAbilities> policeSquad;
     Flock flock;
 
-    public Image smokeGButton;
+    public Image smokeGButtonImg;
     float smokeGTimer;
     bool smokeGrenadeCoolDown;
 
-    public Image waterCButton;
+    public Image waterCButtonImg;
     float waterCTimer;
     bool waterCannonCoolDown;
 
-    public Image reinforceButton;
+    public Image reinforceButtonImg;
     float reinforceTimer;
     bool reinforceCoolDown;
+
+    //PR object
+    private PublicRelations publicRelations;
+
+    //Disabling button UI system
+    public Button fireBulletButton;
+    public Button smokeGButton;
+    public Button waterCButton;
+    public Button reinforcementButton;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        publicRelations = FindObjectOfType<PublicRelations>();
+        
         flock = FindObjectOfType<Flock>();
         smokeGTimer = 5.5f;
         smokeGrenadeCoolDown = false;
@@ -35,12 +46,12 @@ public class UIPoliceAbilities : MonoBehaviour
 
         reinforceTimer = 2.0f;
         reinforceCoolDown = false;
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Only needed if rioters use Flock too...
         //if ( policeSquadLeader == null ) {
         //    GameObject go = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
         //    if(go != null)
@@ -57,32 +68,34 @@ public class UIPoliceAbilities : MonoBehaviour
             }
         }
 
+        CheckIfEnoughFundingForButtons(fireBulletButton, smokeGButton, waterCButton, reinforcementButton);
+
         if (smokeGrenadeCoolDown)
         {
-            smokeGButton.fillAmount -= 1 / smokeGTimer * Time.deltaTime;
-            if (smokeGButton.fillAmount <= 0)
+            smokeGButtonImg.fillAmount -= 1 / smokeGTimer * Time.deltaTime;
+            if (smokeGButtonImg.fillAmount <= 0)
             {
-                smokeGButton.fillAmount = 1;
+                smokeGButtonImg.fillAmount = 1;
                 smokeGrenadeCoolDown = false;
             }
         }
 
         if (waterCannonCoolDown)
         {
-            waterCButton.fillAmount -= 1 / waterCTimer * Time.deltaTime;
-            if (waterCButton.fillAmount <= 0)
+            waterCButtonImg.fillAmount -= 1 / waterCTimer * Time.deltaTime;
+            if (waterCButtonImg.fillAmount <= 0)
             {
-                waterCButton.fillAmount = 1;
+                waterCButtonImg.fillAmount = 1;
                 waterCannonCoolDown = false;
             }
         }
 
         if (reinforceCoolDown)
         {
-            reinforceButton.fillAmount -= 1 / reinforceTimer * Time.deltaTime;
-            if (reinforceButton.fillAmount <= 0)
+            reinforceButtonImg.fillAmount -= 1 / reinforceTimer * Time.deltaTime;
+            if (reinforceButtonImg.fillAmount <= 0)
             {
-                reinforceButton.fillAmount = 1;
+                reinforceButtonImg.fillAmount = 1;
                 reinforceCoolDown = false;
             }
         }
@@ -92,7 +105,6 @@ public class UIPoliceAbilities : MonoBehaviour
     public void OnArrestButtonClicked()
     {
         //Logic of arrest selected for police
-        //policeSquadLeader.Arrest();
         foreach (PoliceAbilities pA in policeSquad)
             pA.Arrest();
     }
@@ -100,7 +112,6 @@ public class UIPoliceAbilities : MonoBehaviour
     public void OnAggressiveArrestButtonClicked()
     {
         //Logic of aggressive arrest selected for police
-        //policeSquadLeader.AggressiveArrest();
         foreach (PoliceAbilities pA in policeSquad)
             pA.AggressiveArrest();
     }
@@ -108,7 +119,6 @@ public class UIPoliceAbilities : MonoBehaviour
     public void OnRubberBulletsButtonClicked()
     {
         //Logic of rubber bullets selected for police
-        //policeSquadLeader.UseRubberBullets();
         foreach (PoliceAbilities pA in policeSquad)
             pA.UseRubberBullets();
     }
@@ -116,7 +126,6 @@ public class UIPoliceAbilities : MonoBehaviour
     public void OnFireBulletsButtonClicked()
     {
         //Logic of rubber bullets selected for police
-        //policeSquadLeader.FireBullets();
         foreach (PoliceAbilities pA in policeSquad)
             pA.FireBullets();
     }
@@ -125,7 +134,6 @@ public class UIPoliceAbilities : MonoBehaviour
         //Logic of smoke grenade selected for police
         if (!smokeGrenadeCoolDown)
         {
-            //policeSquadLeader.UseSmokeGrenade();
             foreach (PoliceAbilities pA in policeSquad)
                 pA.UseSmokeGrenade();
             smokeGrenadeCoolDown = true;
@@ -136,7 +144,6 @@ public class UIPoliceAbilities : MonoBehaviour
         //Logic of water cannon selected for police
         if (!waterCannonCoolDown)
         {
-            //policeSquadLeader.UseWaterCannon();
             foreach (PoliceAbilities pA in policeSquad)
                 pA.UseWaterCannon();
             waterCannonCoolDown = true;
@@ -145,7 +152,6 @@ public class UIPoliceAbilities : MonoBehaviour
     public void OnLethalForceButtonClicked()
     {
         //Logic of lethal force selected for police
-        //policeSquadLeader.UseLethalBullets();
         foreach (PoliceAbilities pA in policeSquad)
             pA.UseLethalBullets();
     }
@@ -155,7 +161,6 @@ public class UIPoliceAbilities : MonoBehaviour
         //Logic of reinforce selected for police
         if (!reinforceCoolDown)
         {
-            //policeSquadLeader.ReinforceSquad();
             foreach (PoliceAbilities pA in policeSquad)
             {
                 pA.ReinforceSquad();
@@ -165,6 +170,43 @@ public class UIPoliceAbilities : MonoBehaviour
         }
     }
 
+    //Function checks whether the police squad has enough funding to use abilities with a cost
+    public void CheckIfEnoughFundingForButtons(Button type1, Button type2, Button type3, Button type4)
+    {
+        int totalFireBulletsCostAmongPoliceFlock = 0;
+        int totalSmokeGCostAmongPoliceFlock = 0;
+        int totalWaterCCostAmongPoliceFlock = 0;
+
+        foreach (PoliceAbilities pA in policeSquad)
+        {
+            totalFireBulletsCostAmongPoliceFlock += pA.CostForFireBullets;
+            totalSmokeGCostAmongPoliceFlock += pA.CostForSmokeGrenade;
+            totalWaterCCostAmongPoliceFlock += pA.CostForWaterCannon;
+        }
+
+        if (totalFireBulletsCostAmongPoliceFlock > publicRelations._PRaccumulated)
+            type1.interactable = false;
+        else
+            type1.interactable = true;
+        
+        if (totalSmokeGCostAmongPoliceFlock > publicRelations._PRaccumulated)
+            type2.interactable = false;
+        else
+            type2.interactable = true;
+        
+        if (totalWaterCCostAmongPoliceFlock > publicRelations._PRaccumulated)
+            type3.interactable = false;
+        else
+            type3.interactable = true;
+        
+        if (policeSquad[0].CostForReinforcement > publicRelations._PRaccumulated)
+            type4.interactable = false;
+        else
+            type4.interactable = true;
+
+    }
+
+    //Not used, but will keep for now in case of rioters flock interfering with police flock
     GameObject GetChildWithName(GameObject obj, string name)
     {
         // Source: http://answers.unity.com/answers/1355797/view.html
