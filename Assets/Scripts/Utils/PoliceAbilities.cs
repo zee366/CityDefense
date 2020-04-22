@@ -81,8 +81,6 @@ public class PoliceAbilities : MonoBehaviour
     {
         infoBubble = FindObjectOfType<ScreenSpaceTargetBubble>();
         publicRelations = FindObjectOfType<PublicRelations>();
-        Debug.Log("info bubble loc:" + infoBubble.gameObject.transform.position);
-        Debug.Log("info bubble loc:" + infoBubble.gameObject.name);
         reporter = FindObjectOfType<Reporter>();
         reporterPresentPRAmplifier = 1;
         bulletSetType = bulletTypes[0];
