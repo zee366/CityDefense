@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4472055748503882685}
   - component: {fileID: 7811847198212623652}
   - component: {fileID: 625592405286531825}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MapDot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 805560022793994702}
   - component: {fileID: 7490131417090602685}
   - component: {fileID: 36204470741455913}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}

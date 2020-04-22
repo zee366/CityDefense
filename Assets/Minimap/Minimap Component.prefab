@@ -287,4 +287,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 2841976254042198685}
-  Damage_Map: {fileID: 0}
