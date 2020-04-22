@@ -23,6 +23,7 @@ public class FlockAgent : MonoBehaviour
     float agentspeed;
     private bool mutexlock;
     private IEnumerator coroutine;
+    private float toggletime=0.5f;
     public bool partOfFlock;
     public NavMeshAgent navMeshAgent;
     public RaycastHit hit;
@@ -46,6 +47,7 @@ public class FlockAgent : MonoBehaviour
         //print((gameObject.transform.position-closestHit.position).magnitude);
         //print(this.GetComponent<Rigidbody>().velocity.magnitude);
         lifecycle-=Time.deltaTime;
+        toggletime-=Time.deltaTime;
         //if reinforcement && time is expired 
             //--> navigate back to donut shop
             //--> destroy agent after a certain time
@@ -93,21 +95,21 @@ public class FlockAgent : MonoBehaviour
                     StopCoroutine("Rotate");
                     agentFlock.FormVerticalLine();
                 }
-                if(Input.GetKeyDown(KeyCode.RightArrow)){
+                else if(Input.GetKeyDown(KeyCode.RightArrow)){
                     //Line formation facing right
                     // print("Face right and form line");
                     //
                     StopCoroutine("Rotate");
                     agentFlock.FormVerticalLine();
                 }
-                if(Input.GetKeyDown(KeyCode.UpArrow)){
+                else if(Input.GetKeyDown(KeyCode.UpArrow)){
                     //Line formation facing left
                     //print("Face forward and form line");
                     //
                     StopCoroutine("Rotate");
                     agentFlock.FormHorizontalLine();
                 }
-                if(Input.GetKeyDown(KeyCode.DownArrow)){
+                else if(Input.GetKeyDown(KeyCode.DownArrow)){
                     //Line formation facing right
                     //print("Face backward and form line");
                     //
@@ -130,19 +132,23 @@ public class FlockAgent : MonoBehaviour
            /////////////SIMPLE ROTATION////////////////
           ///////////////////////////////////////////// 
         if(Input.GetKey(KeyCode.LeftShift)==false){
-            if(Input.GetKeyDown(KeyCode.LeftArrow)){
+            if(Input.GetKeyDown(KeyCode.LeftArrow)&&toggletime<0){
+                toggletime=0.5f;
                 StopCoroutine("Rotate");
                 FaceLeft();
             }
-            if(Input.GetKeyDown(KeyCode.RightArrow)){
+            else if(Input.GetKeyDown(KeyCode.RightArrow)&&toggletime<0){
+                toggletime=0.5f;
                 StopCoroutine("Rotate");
                 FaceRight();
             }
-            if(Input.GetKeyDown(KeyCode.UpArrow)){
+            else if(Input.GetKeyDown(KeyCode.UpArrow)&&toggletime<0){
+                toggletime=0.5f;
                 StopCoroutine("Rotate");
                 FaceForward();
             }
-            if(Input.GetKeyDown(KeyCode.DownArrow)){
+            else if(Input.GetKeyDown(KeyCode.DownArrow)&&toggletime<0){
+                toggletime=0.5f;
                 StopCoroutine("Rotate");
                 FaceBackward();
             }
