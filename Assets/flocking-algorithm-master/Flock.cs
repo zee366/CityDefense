@@ -28,7 +28,6 @@ public class Flock : MonoBehaviour
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
     Vector3 centre;
-
     float avgDistance;
     float squareMaxSpeed;
     float squareNeighborRadius;
@@ -45,11 +44,14 @@ public class Flock : MonoBehaviour
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
     private Light _spotLight;
+    private bool isrotating=false;
+
+    private float lerpspeed = 2.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         InitLight();
-
         squareMaxSpeed = maxSpeed * maxSpeed;
         squareNeighborRadius = neighborRadius * neighborRadius;
         squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
@@ -167,7 +169,7 @@ public class Flock : MonoBehaviour
                     newAgents[i].navMeshAgent.destination = AveragePositionOfFlock();
                     newAgents[i].navMeshAgent.speed = 40f;
 
-                    if ((newAgents[i].transform.position - newAgents[i].navMeshAgent.destination).magnitude <= 1.0f)
+                    if ((newAgents[i].transform.position - newAgents[i].navMeshAgent.destination).magnitude <= 10.0f)
                     {
                         agents.Add(newAgents[i]);
                         newAgents[i].Initialize(this);
@@ -239,9 +241,14 @@ public class Flock : MonoBehaviour
                 transform
                 );
         newAgent.name = "Agent " + agents.Count;
+        newAgent.set_isdestroyable(true);
         newAgents.Add(newAgent);
         //agents.Add(newAgent);
 
+    }
+
+    public void RemoveAgent(FlockAgent agent){
+        agents.Remove(agent);
     }
 
     private Vector3 AveragePositionOfFlock()
@@ -263,4 +270,103 @@ public class Flock : MonoBehaviour
         Gizmos.DrawWireSphere(centre, startingCount*2f);
     }
 
+
+    public void FormCircle()
+    {   
+        StopCoroutines();
+        Vector3 leaderposition = agents[0].transform.position;
+        float radius = 1.5f;
+        int halfcount = agents.Count/2;
+         for (int i = 0; i < agents.Count; i++)
+        {
+            agents[i].navMeshAgent.isStopped=false;
+            float angle = i * Mathf.PI*2f / agents.Count;
+            if(i==0){
+                agents[i].navMeshAgent.destination=leaderposition;
+            }
+            else{
+                agents[i].navMeshAgent.destination= (new Vector3(Mathf.Cos(angle)*radius, agents[i].transform.position.y, Mathf.Sin(angle)*radius)+leaderposition);
+            }
+            
+        }
+        StartCoroutine(CircleRotate());
+    }
+
+
+    public void FormHorizontalLine(Quaternion rotation)
+    {
+        StopCoroutines();
+        Vector3 leaderposition = agents[0].transform.position;
+        int halfcount = (agents.Count/2);
+        for (int i = 0; i < agents.Count; i++)
+        {
+            agents[i].navMeshAgent.isStopped=false;
+            if(i<halfcount){
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-1.0f*i,0,0));
+            }
+            else{
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(1.0f*(i-halfcount+1),0,0));
+            }
+        }
+        StartCoroutine(LineRotate(rotation));
+    }
+
+    public void FormVerticalLine(Quaternion rotation)
+    {
+        StopCoroutines();
+        Vector3 leaderposition = agents[0].transform.position;
+        int halfcount = (agents.Count/2);
+        for (int i = 0; i < agents.Count; i++)
+        {
+            agents[i].navMeshAgent.isStopped=false;
+            if(i<halfcount){
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-1.0f*i));
+            }
+            else{
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,1.0f*(i-halfcount+1)));
+            }
+        }
+        StartCoroutine(LineRotate(rotation));
+    }
+
+    public IEnumerator LineRotate(Quaternion rotation) 
+    {
+        for (int i = 0; i < agents.Count; i++)
+        {
+            while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>1f&&agents[i].navMeshAgent.velocity.magnitude>1f){
+                yield return new WaitForFixedUpdate();
+             }
+             if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<2f){
+                StartCoroutine(agents[i].Rotate(rotation));
+            }
+        }
+        yield return null;  
+    }
+    public IEnumerator CircleRotate() 
+    {
+        for (int i = 0; i < agents.Count; i++)
+        {
+            if(i==0){
+                continue;
+            }
+            while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>1f&&agents[i].navMeshAgent.velocity.magnitude>1f){
+                yield return new WaitForFixedUpdate();
+             }
+            if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<2f){
+                print(agents[i].name+" is in position");
+                Quaternion rotation = Quaternion.LookRotation(agents[i].transform.position-agents[0].transform.position);
+                StartCoroutine(agents[i].Rotate(rotation));
+            }
+        }
+        yield return null;
+    }
+    
+    private void StopCoroutines()
+    {
+        StopCoroutine("LineRotate");
+        StopCoroutine("CircleRotate");
+
+    }
+
+    
 }
