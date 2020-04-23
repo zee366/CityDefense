@@ -336,7 +336,7 @@ public class Flock : MonoBehaviour
             while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>1f&&agents[i].navMeshAgent.velocity.magnitude>1f){
                 yield return new WaitForFixedUpdate();
              }
-             if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<1f){
+             if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<2f){
                 StartCoroutine(agents[i].Rotate(rotation));
             }
         }
@@ -352,7 +352,7 @@ public class Flock : MonoBehaviour
             while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>1f&&agents[i].navMeshAgent.velocity.magnitude>1f){
                 yield return new WaitForFixedUpdate();
              }
-            if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<1f){
+            if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<2f){
                 print(agents[i].name+" is in position");
                 Quaternion rotation = Quaternion.LookRotation(agents[i].transform.position-agents[0].transform.position);
                 StartCoroutine(agents[i].Rotate(rotation));
