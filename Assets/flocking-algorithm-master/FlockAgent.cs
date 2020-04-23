@@ -88,40 +88,49 @@ public class FlockAgent : MonoBehaviour
           ///////////////////////////////////////////// 
           if(gameObject.name=="Agent 0"){
             if(Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)){
-                if(Input.GetKeyDown(KeyCode.LeftArrow)){
+                if(Input.GetKeyDown(KeyCode.LeftArrow)&&toggletime<0){
                     //Line formation facing left
                     //print("Face left and form line");
                     //
+                    toggletime=0.5f;
+                    Quaternion rotation = Quaternion.Euler(0,-90,0);
                     StopCoroutine("Rotate");
-                    agentFlock.FormVerticalLine();
+                    agentFlock.FormVerticalLine(rotation);
                 }
-                else if(Input.GetKeyDown(KeyCode.RightArrow)){
+                else if(Input.GetKeyDown(KeyCode.RightArrow)&&toggletime<0){
                     //Line formation facing right
                     // print("Face right and form line");
                     //
+                    toggletime=0.5f;
+                    Quaternion rotation = Quaternion.Euler(0,90,0);
                     StopCoroutine("Rotate");
-                    agentFlock.FormVerticalLine();
+                    agentFlock.FormVerticalLine(rotation);
                 }
-                else if(Input.GetKeyDown(KeyCode.UpArrow)){
+                else if(Input.GetKeyDown(KeyCode.UpArrow)&&toggletime<0){
                     //Line formation facing left
                     //print("Face forward and form line");
                     //
+                    toggletime=0.5f;
+                    Quaternion rotation = Quaternion.Euler(0,0,0);
                     StopCoroutine("Rotate");
-                    agentFlock.FormHorizontalLine();
+                    agentFlock.FormHorizontalLine(rotation);
                 }
-                else if(Input.GetKeyDown(KeyCode.DownArrow)){
+                else if(Input.GetKeyDown(KeyCode.DownArrow)&&toggletime<0){
                     //Line formation facing right
                     //print("Face backward and form line");
                     //
+                    toggletime=0.5f;
+                    Quaternion rotation = Quaternion.Euler(0,180,0);
                     StopCoroutine("Rotate");
-                    agentFlock.FormHorizontalLine();
+                    agentFlock.FormHorizontalLine(rotation);
                 }
 
             }
             ////////////////////////////////////////////
            /////////////CIRCLE FORMATION////////////////
           ///////////////////////////////////////////// 
-                if(Input.GetKeyDown(KeyCode.C)){
+                if(Input.GetKeyDown(KeyCode.C)&&toggletime<0){
+                    toggletime=0.5f;
                     StopCoroutine("Rotate");
                     navMeshAgent.isStopped=false;
                     agentFlock.FormCircle();
@@ -185,8 +194,8 @@ public class FlockAgent : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(this.gameObject.transform.position-agentFlock.agents[0].transform.position);
         StartCoroutine(Rotate(rotation));
     } 
-
-   IEnumerator Rotate(Quaternion rotation) {
+     
+   public IEnumerator Rotate(Quaternion rotation) {
        navMeshAgent.isStopped=true;
        float lerp = 0;
        float lerpspeed= Time.deltaTime/lerp;

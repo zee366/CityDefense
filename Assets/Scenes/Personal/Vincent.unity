@@ -249,6 +249,11 @@ MonoBehaviour:
   avoidanceRadiusMultiplier: 0.5
   spawnPoint: {fileID: 1764219927}
   donutSpawnPoint: {fileID: 622914656}
+  range: 70
+  spotAngle: 179
+  intensity: 2
+  height: 19
+  color: {r: 55, g: 55, b: 55, a: 1}
 --- !u!4 &505115724
 Transform:
   m_ObjectHideFlags: 0
@@ -407,7 +412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &573655279
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -446,6 +451,7 @@ MonoBehaviour:
   _sensingInterval: 2
   _sensingRange: 20
   _damagePerSecond: 2
+  logPlan: 0
 --- !u!136 &573655281
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -582,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &745542190
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -621,6 +627,7 @@ MonoBehaviour:
   _sensingInterval: 2
   _sensingRange: 20
   _damagePerSecond: 2
+  logPlan: 0
 --- !u!136 &745542192
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1044,7 +1051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &2097870640
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1083,6 +1090,7 @@ MonoBehaviour:
   _sensingInterval: 2
   _sensingRange: 20
   _damagePerSecond: 2
+  logPlan: 0
 --- !u!136 &2097870642
 CapsuleCollider:
   m_ObjectHideFlags: 0
