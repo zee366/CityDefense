@@ -272,19 +272,20 @@ public class Flock : MonoBehaviour
 
 
     public void FormCircle()
-    {   StopCoroutines();
+    {   
+        StopCoroutines();
         Vector3 leaderposition = agents[0].transform.position;
-        int radius = agents.Count/2;
-        int halfcount = radius/2;
+        float radius = 1.5f;
+        int halfcount = agents.Count/2;
          for (int i = 0; i < agents.Count; i++)
         {
             agents[i].navMeshAgent.isStopped=false;
-            float angle = i * Mathf.PI*2f / 8;
+            float angle = i * Mathf.PI*2f / agents.Count;
             if(i==0){
                 agents[i].navMeshAgent.destination=leaderposition;
             }
             else{
-                agents[i].navMeshAgent.destination= (new Vector3(Mathf.Cos(angle)*radius, transform.position.y, Mathf.Sin(angle)*radius)+leaderposition);
+                agents[i].navMeshAgent.destination= (new Vector3(Mathf.Cos(angle)*radius, agents[i].transform.position.y, Mathf.Sin(angle)*radius)+leaderposition);
             }
             
         }
@@ -301,10 +302,10 @@ public class Flock : MonoBehaviour
         {
             agents[i].navMeshAgent.isStopped=false;
             if(i<halfcount){
-                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-3.0f*i,0,0));
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-1.0f*i,0,0));
             }
             else{
-                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(3.0f*(i-halfcount+1),0,0));
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(1.0f*(i-halfcount+1),0,0));
             }
         }
         StartCoroutine(LineRotate(rotation));
@@ -319,10 +320,10 @@ public class Flock : MonoBehaviour
         {
             agents[i].navMeshAgent.isStopped=false;
             if(i<halfcount){
-                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-3.0f*i));
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-1.0f*i));
             }
             else{
-                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,3.0f*(i-halfcount+1)));
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,1.0f*(i-halfcount+1)));
             }
         }
         StartCoroutine(LineRotate(rotation));
@@ -332,10 +333,10 @@ public class Flock : MonoBehaviour
     {
         for (int i = 0; i < agents.Count; i++)
         {
-            while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>3f&&agents[i].navMeshAgent.velocity.magnitude>1f){
+            while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>1f&&agents[i].navMeshAgent.velocity.magnitude>1f){
                 yield return new WaitForFixedUpdate();
              }
-             if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<3f){
+             if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<1f){
                 StartCoroutine(agents[i].Rotate(rotation));
             }
         }
@@ -348,10 +349,11 @@ public class Flock : MonoBehaviour
             if(i==0){
                 continue;
             }
-            while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>3f&&agents[i].navMeshAgent.velocity.magnitude>1f){
+            while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>1f&&agents[i].navMeshAgent.velocity.magnitude>1f){
                 yield return new WaitForFixedUpdate();
              }
-            if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<3f){
+            if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<1f){
+                print(agents[i].name+" is in position");
                 Quaternion rotation = Quaternion.LookRotation(agents[i].transform.position-agents[0].transform.position);
                 StartCoroutine(agents[i].Rotate(rotation));
             }

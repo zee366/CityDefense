@@ -77,7 +77,6 @@ public class FlockAgent : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray,out hit)) {
                     StopAllCoroutines();
-                    //StopCoroutine("Rotate");
                     navMeshAgent.destination=hit.point;
                 }
         }
@@ -131,7 +130,6 @@ public class FlockAgent : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.C)&&formationtoggletime<0){
                     formationtoggletime=2f;
                     StopCoroutine("Rotate");
-                    navMeshAgent.isStopped=false;
                     agentFlock.FormCircle();
                     //FaceAway();
                 }
@@ -186,11 +184,6 @@ public class FlockAgent : MonoBehaviour
     public void FaceLeft()
     {
         Quaternion rotation = Quaternion.Euler(0,-90,0);
-        StartCoroutine(Rotate(rotation));
-    }
-
-    public void FaceAway(){
-        Quaternion rotation = Quaternion.LookRotation(this.gameObject.transform.position-agentFlock.agents[0].transform.position);
         StartCoroutine(Rotate(rotation));
     } 
      
