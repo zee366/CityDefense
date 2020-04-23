@@ -13,6 +13,10 @@ public class InputHandler : MonoBehaviour
     }
 
     void CheckInput() {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            GameController.instance.PauseGame();
+            return;
+        }
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
             abilityBar.OnArrestButtonClicked();
             return;
