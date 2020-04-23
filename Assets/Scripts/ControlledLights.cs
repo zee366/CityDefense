@@ -5,7 +5,7 @@ using UnityEngine;
 public class ControlledLights : MonoBehaviour
 {
 
-    public Material light;
+    public Material lightMaterial;
     public MeshRenderer _meshRenderer;
     private Coroutine _coroutine;
 
@@ -14,7 +14,7 @@ public class ControlledLights : MonoBehaviour
     void Start()
     {
         _meshRenderer              = GetComponent<MeshRenderer>();
-        _meshRenderer.materials[0] = Instantiate(light);
+        _meshRenderer.materials[0] = Instantiate(lightMaterial);
         _meshRenderer.materials[0].DisableKeyword("_EMISSION");
         shouldTurnOn = Random.Range(0, 100) > 25;
         if(shouldTurnOn) turnOn();

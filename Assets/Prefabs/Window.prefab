@@ -91,5 +91,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b659075f13f2f264e933733c65c11cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 2100000, guid: 5ecb68c777cdf84499b8b80d3c4cff44, type: 2}
+  lightMaterial: {fileID: 2100000, guid: 5ecb68c777cdf84499b8b80d3c4cff44, type: 2}
   _meshRenderer: {fileID: 1032439409727185232}
