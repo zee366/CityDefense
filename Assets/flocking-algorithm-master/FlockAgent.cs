@@ -23,7 +23,8 @@ public class FlockAgent : MonoBehaviour
     float agentspeed;
     private bool mutexlock;
     private IEnumerator coroutine;
-    private float toggletime=0.5f;
+    private float toggletime=0f;
+    private float formationtoggletime=0f;
     public bool partOfFlock;
     public NavMeshAgent navMeshAgent;
     public RaycastHit hit;
@@ -44,13 +45,10 @@ public class FlockAgent : MonoBehaviour
     }
 
     void Update(){
-        //print((gameObject.transform.position-closestHit.position).magnitude);
-        //print(this.GetComponent<Rigidbody>().velocity.magnitude);
         lifecycle-=Time.deltaTime;
         toggletime-=Time.deltaTime;
-        //if reinforcement && time is expired 
-            //--> navigate back to donut shop
-            //--> destroy agent after a certain time
+        formationtoggletime-=Time.deltaTime;
+        
         if(isdestroyable&&lifecycle<0){
             partOfFlock=false;
             DissolveandDestroy();
@@ -78,7 +76,8 @@ public class FlockAgent : MonoBehaviour
                 navMeshAgent.isStopped=false;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray,out hit)) {
-                    StopCoroutine("Rotate");
+                    StopAllCoroutines();
+                    //StopCoroutine("Rotate");
                     navMeshAgent.destination=hit.point;
                 }
         }
@@ -88,38 +87,38 @@ public class FlockAgent : MonoBehaviour
           ///////////////////////////////////////////// 
           if(gameObject.name=="Agent 0"){
             if(Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)){
-                if(Input.GetKeyDown(KeyCode.LeftArrow)&&toggletime<0){
+                if(Input.GetKeyDown(KeyCode.LeftArrow)&&formationtoggletime<0){
                     //Line formation facing left
                     //print("Face left and form line");
                     //
-                    toggletime=0.5f;
+                    formationtoggletime=2f;
                     Quaternion rotation = Quaternion.Euler(0,-90,0);
                     StopCoroutine("Rotate");
                     agentFlock.FormVerticalLine(rotation);
                 }
-                else if(Input.GetKeyDown(KeyCode.RightArrow)&&toggletime<0){
+                else if(Input.GetKeyDown(KeyCode.RightArrow)&&formationtoggletime<0){
                     //Line formation facing right
                     // print("Face right and form line");
                     //
-                    toggletime=0.5f;
+                    formationtoggletime=2f;
                     Quaternion rotation = Quaternion.Euler(0,90,0);
                     StopCoroutine("Rotate");
                     agentFlock.FormVerticalLine(rotation);
                 }
-                else if(Input.GetKeyDown(KeyCode.UpArrow)&&toggletime<0){
+                else if(Input.GetKeyDown(KeyCode.UpArrow)&&formationtoggletime<0){
                     //Line formation facing left
                     //print("Face forward and form line");
                     //
-                    toggletime=0.5f;
+                    formationtoggletime=2f;
                     Quaternion rotation = Quaternion.Euler(0,0,0);
                     StopCoroutine("Rotate");
                     agentFlock.FormHorizontalLine(rotation);
                 }
-                else if(Input.GetKeyDown(KeyCode.DownArrow)&&toggletime<0){
+                else if(Input.GetKeyDown(KeyCode.DownArrow)&&formationtoggletime<0){
                     //Line formation facing right
                     //print("Face backward and form line");
                     //
-                    toggletime=0.5f;
+                    formationtoggletime=2f;
                     Quaternion rotation = Quaternion.Euler(0,180,0);
                     StopCoroutine("Rotate");
                     agentFlock.FormHorizontalLine(rotation);
@@ -129,8 +128,8 @@ public class FlockAgent : MonoBehaviour
             ////////////////////////////////////////////
            /////////////CIRCLE FORMATION////////////////
           ///////////////////////////////////////////// 
-                if(Input.GetKeyDown(KeyCode.C)&&toggletime<0){
-                    toggletime=0.5f;
+                if(Input.GetKeyDown(KeyCode.C)&&formationtoggletime<0){
+                    formationtoggletime=2f;
                     StopCoroutine("Rotate");
                     navMeshAgent.isStopped=false;
                     agentFlock.FormCircle();
