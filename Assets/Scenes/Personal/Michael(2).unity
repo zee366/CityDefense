@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56013a663458af46ad5d4326c32555c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityBar: {fileID: 0}
+  abilityBar: {fileID: 518170413}
   cameraController: {fileID: 515344341}
 --- !u!1 &1538279706
 GameObject:
@@ -1570,6 +1570,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinimapCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1774303185104672485, guid: 9cbceeb77b4b42d4aa415361556fdb0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1774303185104672486, guid: 9cbceeb77b4b42d4aa415361556fdb0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1673,6 +1678,11 @@ PrefabInstance:
     - target: {fileID: 1774303185104672486, guid: 9cbceeb77b4b42d4aa415361556fdb0e,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774303185309720378, guid: 9cbceeb77b4b42d4aa415361556fdb0e,
+        type: 3}
+      propertyPath: m_RendererOverrideOption
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1774303186082167712, guid: 9cbceeb77b4b42d4aa415361556fdb0e,
@@ -1828,11 +1838,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DamageMap
       objectReference: {fileID: 0}
+    - target: {fileID: 6309705260553219460, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6309705260553219461, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
         type: 3}
       propertyPath: Cam
       value: 
       objectReference: {fileID: 130538323}
+    - target: {fileID: 6309705260553219461, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1547ca56b45bb4a4aa218b82b8631ee6, type: 3}
 --- !u!114 &2018088630 stripped
