@@ -239,7 +239,7 @@ public class PoliceAbilities : MonoBehaviour
         //reporter present logic
         if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
             reporterPresentPRAmplifier = 2;
-        Debug.Log("water cannon PR rate: " + waterCannonPR * reporterPresentPRAmplifier);
+        //Debug.Log("water cannon PR rate: " + waterCannonPR * reporterPresentPRAmplifier);
         //logic for PR system cost
         publicRelations.ImprovePR(waterCannonPR * reporterPresentPRAmplifier);
 

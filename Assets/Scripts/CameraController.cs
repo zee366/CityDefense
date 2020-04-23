@@ -105,6 +105,31 @@ public class CameraController : MonoBehaviour
             Camera.main.transform.position = new Vector3(OrthoOffset.x, maxHeight, OrthoOffset.z);
             Camera.main.transform.localRotation = strategicViewOrientation;
             Camera.main.orthographicSize = orthoSize;
+
+            switch (Surveillance.current)
+            {
+                case Surveillance.SurveillanceLevel.Level_0:
+                    Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Reporter"));
+                    Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Rioters"));
+                    Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("BuildingDmg"));
+                    break;
+                case Surveillance.SurveillanceLevel.Level_1:
+                    Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Reporter");
+                    Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Rioters"));
+                    Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("BuildingDmg"));
+                    break;
+                case Surveillance.SurveillanceLevel.Level_2:
+                    Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Reporter");
+                    Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("BuildingDmg");
+                    Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Rioters")); 
+                    break;
+                case Surveillance.SurveillanceLevel.Level_3:
+                    Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Reporter");
+                    Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("BuildingDmg");
+                    Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Rioters");
+                    break;
+            }
+
         }
 
         // Squad View
@@ -114,6 +139,9 @@ public class CameraController : MonoBehaviour
             DisableMinimap(false);
             Camera.main.transform.localRotation = squadViewOrientation;
             Camera.main.orthographic = false;
+            Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("BuildingDmg"));
+            Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Reporter");
+            Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Rioters");
 
             Vector3 newPos = new Vector3((target.transform.position + _cameraOffset).x, Camera.main.transform.position.y, (target.transform.position + _cameraOffset).z);
 

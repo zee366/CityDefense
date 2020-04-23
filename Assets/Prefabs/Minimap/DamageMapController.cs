@@ -41,6 +41,7 @@ public class DamageMapController : MonoBehaviour
             rect.GetComponent<MeshRenderer>().material = Brown;
             rect.transform.position = new Vector3(d.transform.position.x, gameObject.transform.position.y - Destroyed_Offset, d.transform.position.z);
             rect.name = "DestroyedMark " + counter;
+            rect.layer = 13;
             counter++;
         }
     }
@@ -51,7 +52,7 @@ public class DamageMapController : MonoBehaviour
         foreach (var d in destructibles)
         {
             GameObject rect = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            
+            rect.layer = 13;
             rect.name = "Marker " + counter;
             counter++;
             
