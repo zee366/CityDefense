@@ -4,6 +4,8 @@ public class InputHandler : MonoBehaviour
 {
     public UIPoliceAbilities abilityBar;
     public CameraController cameraController;
+    public Tooltip tooltip;
+    private Destructible _selected;
 
     void Update()
     {
@@ -79,6 +81,19 @@ public class InputHandler : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.DownArrow)) {
             // FaceDown()
+        }
+        if(Input.GetMouseButtonDown(0)) {
+            if(_selected) {
+                tooltip.gameObject.SetActive(false);
+            }
+            RaycastHit rayHit;
+            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out rayHit)) {
+                _selected = rayHit.collider.GetComponent<Destructible>();
+                if(_selected) {
+                    tooltip.SetTarget(_selected);
+                    tooltip.gameObject.SetActive(true);
+                }
+            }
         }
         if(Input.GetKey(KeyCode.Mouse2)) {
             cameraController.OrbitDrag(Input.GetAxis("Mouse X"));
