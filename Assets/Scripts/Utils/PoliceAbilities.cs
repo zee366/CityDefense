@@ -69,12 +69,15 @@ public class PoliceAbilities : MonoBehaviour
     private int smokeGrenadePR = 0;
     [SerializeField]
     private int waterCannonPR = 0;
-
     //Accessors and mutators for certain properties
     public int CostForFireBullets { get; set; }
     public int CostForSmokeGrenade { get => costForSmokeGrenade; set => costForSmokeGrenade = value; }
     public int CostForWaterCannon { get => costForWaterCannon; set => costForWaterCannon = value; }
     public int CostForReinforcement { get => costForReinforcement; set => costForReinforcement = value; }
+    // Hand holding
+    [Header("Hand")]
+    public GameObject lamp;
+    public GameObject gun;
 
     // Start is called before the first frame update
     void Start()
@@ -103,9 +106,7 @@ public class PoliceAbilities : MonoBehaviour
             rioterTarget = null;
         }
     }
-
     
-
     public void Arrest()
     {
         //reporter present logic
@@ -267,4 +268,14 @@ public class PoliceAbilities : MonoBehaviour
         Flock f = FindObjectOfType<Flock>();
         f.AddAgent();
     }
+
+    public void equipWeapon() {
+        lamp.SetActive(false);
+        gun.SetActive(true);
+    }
+    public void equipLamp() {
+        lamp.SetActive(true);
+        gun.SetActive(false);
+    }
+
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3633247173251377503}
   - component: {fileID: 8630313091423601657}
   - component: {fileID: 385766985332136669}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1587876810282100205}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AnchorPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

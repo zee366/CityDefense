@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using LightType = UnityEngine.LightType;
 using Random = UnityEngine.Random;
 
@@ -40,6 +41,7 @@ public class Flock : MonoBehaviour
     [Range(0, 20000)] public int intensity = 2;
     [Range(0, 40)] public int height = 19;
     public Color color = new Color(55,55,55);
+    public bool SpotLightOnAgentO = false; 
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
     private Light _spotLight;
@@ -62,6 +64,7 @@ public class Flock : MonoBehaviour
                 transform
                 );
             newAgent.name = "Agent " + i;
+            if ( SpotLightOnAgentO && i == 0 ) newAgent.GetComponent<PoliceAbilities>().equipLamp();
             newAgent.Initialize(this);
             agents.Add(newAgent);
         }
@@ -79,14 +82,19 @@ public class Flock : MonoBehaviour
         newLight.intensity               = intensity;
         newLight.transform.localPosition = new Vector3(0, height, 0);
         newLight.color = color;
-        newLight.transform.rotation      = Quaternion.Euler(new Vector3(90, 0, 0));
+        if (!SpotLightOnAgentO) newLight.transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
         _spotLight = newLight;
     }
 
 
     private void UpdateParentPositionOfLight(Transform newOwner) {
         _spotLight.transform.parent = newOwner;
-        _spotLight.transform.localPosition = new Vector3(0, 19, 0);
+        if ( SpotLightOnAgentO ) {
+            _spotLight.transform.localPosition = new Vector3(0.36f, 0.7f, 0.65f);
+            
+        } else {
+            _spotLight.transform.localPosition = new Vector3(0, 19, 0);
+        }
     }
 
     // Update is called once per frame
@@ -94,7 +102,7 @@ public class Flock : MonoBehaviour
         // This update the "owner" of the light
         // Not sure what is the best solution? Right now it sets the position of the light with Agent 0
         // It could be with the avg position but then it creates weird behaviour when a squad splits in two
-        if ( agents.Count != 0 ) {
+        if ( agents.Count != 0) {
             UpdateParentPositionOfLight(agents[0].transform);
         }
         
