@@ -7,8 +7,8 @@ public class Surveillance : MonoBehaviour
 {
     public Image surveillanceImg;
     public Button surveillanceButton;
-    private PublicRelations publicRelations;
-    private Camera miniMapCam;
+    public PublicRelations publicRelations;
+    public Camera miniMapCam;
     public enum SurveillanceLevel { Level_0, Level_1, Level_2, Level_3};
     public static SurveillanceLevel current = SurveillanceLevel.Level_0;
     public int Level1Cost = 200;
@@ -18,11 +18,11 @@ public class Surveillance : MonoBehaviour
     public Text level_1;
     public Text level_2;
     public Text level_3;
-    void Start()
-    {
-        miniMapCam = GameObject.Find("Minimap Camera").GetComponent<Camera>();
-        publicRelations = FindObjectOfType<PublicRelations>();
-    }
+    //void Start()
+    //{
+    //    miniMapCam = GameObject.Find("Minimap Camera").GetComponent<Camera>();
+    //    publicRelations = FindObjectOfType<PublicRelations>();
+    //}
 
     void Update()
     {

@@ -66,7 +66,7 @@ public class FlockAgent : MonoBehaviour
                 animator.SetBool("IsRunning",false);
             }
             if(partOfFlock){
-                if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+                if (Input.GetMouseButtonDown(1) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
                     StopAllCoroutines();
                     navMeshAgent.isStopped=false;
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
