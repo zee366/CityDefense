@@ -116,10 +116,14 @@ public class Flock : MonoBehaviour
 
             if(SquadisFormed()){
                 if(Time.time > .2f) {
-                    agent.navMeshAgent.enabled=true;
-                    agent.navMeshAgent.speed=20f;
-                    if(move!=agent.transform.position){
-                        agent.Move(move);
+                    if (agent.navMeshAgent)
+                    {
+                        agent.navMeshAgent.enabled = true;
+                        agent.navMeshAgent.speed = 20f;
+                        if (move != agent.transform.position)
+                        {
+                            agent.Move(move);
+                        }
                     }
                 }
             }
