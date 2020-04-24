@@ -34,7 +34,7 @@ public class InputHandler : MonoBehaviour
             return;
         }
         if(Input.GetKeyDown(KeyCode.Alpha5)) {
-            abilityBar.OnSmokeGrendadeButtonClicked();
+            abilityBar.OnSmokeGrenadeButtonClicked();
             return;
         }
         if(Input.GetKeyDown(KeyCode.Alpha6)) {
@@ -42,7 +42,7 @@ public class InputHandler : MonoBehaviour
             return;
         }
         if(Input.GetKeyDown(KeyCode.Alpha7)) {
-            abilityBar.OnLethalForceButtonClicked();
+            abilityBar.OnLethalBulletsButtonClicked();
             return;
         }
         if(Input.GetKeyDown(KeyCode.Alpha8)) {

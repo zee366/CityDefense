@@ -25,6 +25,10 @@ public class UIPoliceAbilities : MonoBehaviour
     private PublicRelations publicRelations;
 
     //Disabling button UI system
+    private bool rubberBulletsSelected;
+    private bool lethalBulletsSelected;
+    public Button rubberBullets;
+    public Button lethalBullets;
     public Button fireBulletButton;
     public Button smokeGButton;
     public Button waterCButton;
@@ -46,17 +50,14 @@ public class UIPoliceAbilities : MonoBehaviour
 
         reinforceTimer = 2.0f;
         reinforceCoolDown = false;
+
+        rubberBulletsSelected = true;
+        lethalBulletsSelected = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Only needed if rioters use Flock too...
-        //if ( policeSquadLeader == null ) {
-        //    GameObject go = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
-        //    if(go != null)
-        //        policeSquadLeader = go.GetComponent<PoliceAbilities>();
-        //}
 
         if (policeSquad.Count != flock.agents.Count)
         {
@@ -67,6 +68,8 @@ public class UIPoliceAbilities : MonoBehaviour
                     policeSquad.Add(fA.gameObject.GetComponent<PoliceAbilities>());
             }
         }
+
+        CheckWhaBulletIsSelected(rubberBullets, lethalBullets);
 
         CheckIfEnoughFundingForButtons(fireBulletButton, smokeGButton, waterCButton, reinforcementButton);
 
@@ -118,6 +121,13 @@ public class UIPoliceAbilities : MonoBehaviour
 
     public void OnRubberBulletsButtonClicked()
     {
+        //check to make sure only one bullet is selected at a time
+        if (!rubberBulletsSelected)
+        {
+            rubberBulletsSelected = true;
+            lethalBulletsSelected = false;
+        }
+
         //Logic of rubber bullets selected for police
         foreach (PoliceAbilities pA in policeSquad)
             pA.UseRubberBullets();
@@ -129,7 +139,7 @@ public class UIPoliceAbilities : MonoBehaviour
         foreach (PoliceAbilities pA in policeSquad)
             pA.FireBullets();
     }
-    public void OnSmokeGrendadeButtonClicked()
+    public void OnSmokeGrenadeButtonClicked()
     {
         //Logic of smoke grenade selected for police
         if (!smokeGrenadeCoolDown)
@@ -149,8 +159,15 @@ public class UIPoliceAbilities : MonoBehaviour
             waterCannonCoolDown = true;
         }
     }
-    public void OnLethalForceButtonClicked()
+    public void OnLethalBulletsButtonClicked()
     {
+        //check to make sure only one bullet is selected at a time
+        if (!lethalBulletsSelected)
+        {
+            rubberBulletsSelected = false;
+            lethalBulletsSelected = true;
+        }
+
         //Logic of lethal force selected for police
         foreach (PoliceAbilities pA in policeSquad)
             pA.UseLethalBullets();
@@ -170,8 +187,8 @@ public class UIPoliceAbilities : MonoBehaviour
         }
     }
 
-    //Function checks whether the police squad has enough funding to use abilities with a cost
-    public void CheckIfEnoughFundingForButtons(Button type1, Button type2, Button type3, Button type4)
+    //Helper function checks whether the police squad has enough funding to use abilities with a cost
+    private void CheckIfEnoughFundingForButtons(Button type1, Button type2, Button type3, Button type4)
     {
         int totalFireBulletsCostAmongPoliceFlock = 0;
         int totalSmokeGCostAmongPoliceFlock = 0;
@@ -206,20 +223,18 @@ public class UIPoliceAbilities : MonoBehaviour
 
     }
 
-    //Not used, but will keep for now in case of rioters flock interfering with police flock
-    GameObject GetChildWithName(GameObject obj, string name)
+    //Helper function for checking which bullets are selected
+    private void CheckWhaBulletIsSelected(Button rb, Button lb)
     {
-        // Source: http://answers.unity.com/answers/1355797/view.html
-
-        Transform trans = obj.transform;
-        Transform childTrans = trans.Find(name);
-        if (childTrans != null)
-        {
-            return childTrans.gameObject;
-        }
+        if (rubberBulletsSelected)
+            rb.interactable = false;
         else
-        {
-            return null;
-        }
+            rb.interactable = true;
+
+
+        if (lethalBulletsSelected)
+            lb.interactable = false;
+        else
+            lb.interactable = true;
     }
 }

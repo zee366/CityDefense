@@ -933,7 +933,7 @@ PrefabInstance:
     - target: {fileID: 8960776230131711888, guid: 1800054e85d2efb47b750cb886e6135a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnLethalForceButtonClicked
+      value: OnLethalBulletsButtonClicked
       objectReference: {fileID: 0}
     - target: {fileID: 8960776230131711891, guid: 1800054e85d2efb47b750cb886e6135a,
         type: 3}
@@ -1155,6 +1155,8 @@ MonoBehaviour:
   smokeGButtonImg: {fileID: 484540987}
   waterCButtonImg: {fileID: 484540985}
   reinforceButtonImg: {fileID: 484540983}
+  rubberBullets: {fileID: 2134986410}
+  lethalBullets: {fileID: 591360068}
   fireBulletButton: {fileID: 1549515910}
   smokeGButton: {fileID: 484540986}
   waterCButton: {fileID: 484540984}
@@ -1229,6 +1231,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &591360068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8960776230131711888, guid: 1800054e85d2efb47b750cb886e6135a,
+    type: 3}
+  m_PrefabInstance: {fileID: 484540978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &619872613
@@ -11725,12 +11739,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2015937298618452701, guid: a141593304bafa647a077da7ed754423,
         type: 3}
-      propertyPath: behaviors.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1b3aa820665119d47905f4d7752f1adf,
-        type: 2}
-    - target: {fileID: 2015937298618452701, guid: a141593304bafa647a077da7ed754423,
-        type: 3}
       propertyPath: neighborRadius
       value: 2.5
       objectReference: {fileID: 0}
@@ -12057,6 +12065,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2134986410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8960776228979489598, guid: 1800054e85d2efb47b750cb886e6135a,
+    type: 3}
+  m_PrefabInstance: {fileID: 484540978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2143997796 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1683876537236766829, guid: 55b8a2321a45dcb47a1ca504aef78fa2,
