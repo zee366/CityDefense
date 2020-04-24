@@ -198,13 +198,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21819496}
-  m_LocalRotation: {x: 0.19080858, y: 0.01177929, z: -0.0022897788, w: 0.9815539}
-  m_LocalPosition: {x: 0.26522732, y: 29.185616, z: -173.15927}
+  m_LocalRotation: {x: 0.38265586, y: 0.0110854665, z: -0.00459175, w: 0.92381305}
+  m_LocalPosition: {x: 0.5, y: 18.6, z: -162.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 1.3750001, z: 0}
 --- !u!114 &21819500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,8 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d7683e84f1ecb4c81a85ca8f4e5ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OrthoOffset: {x: 0, y: 0, z: 0}
-  minHeight: 15
+  OrthoOffset: {x: 0, y: 0, z: -47}
+  minHeight: 10
   maxHeight: 100
   maxHeight_epsilon: 3
   orthoSize: 250
@@ -226,6 +226,7 @@ MonoBehaviour:
   RotationSpeed: 5
   LookAtPlayer: 0
   RotateAroundPlayer: 1
+  playerCamOffset: 15
 --- !u!114 &21819501
 MonoBehaviour:
   m_ObjectHideFlags: 0

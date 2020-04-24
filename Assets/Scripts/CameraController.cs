@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
     public float RotationSpeed = 5.0f;
     public bool LookAtPlayer = false;
     public bool RotateAroundPlayer = true;
+    public float playerCamOffset = 15f;
 
     private Vector3 _cameraOffset;
     private GameObject target;
@@ -31,7 +32,6 @@ public class CameraController : MonoBehaviour
 
         if (target != null)
         {
-            float playerCamOffset = 50f;
             transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - playerCamOffset);
             _cameraOffset = transform.position - target.transform.position;
         }
