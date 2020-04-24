@@ -11,6 +11,12 @@ public class PublicRelations : MonoBehaviour
     public Text Level_text;
     public Text Accumulated_text;
 
+    public int Best = 100;
+    public int Good = 50;
+    public int Neutral = 25;
+    public int Bad = 20;
+    public int Worst = 15; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,27 +34,27 @@ public class PublicRelations : MonoBehaviour
     {
         if (_PRlevel >= 100)
         {
-            _PRrate = 25;
+            _PRrate = Best;
             Level_text.text = "Best ($" + _PRrate + "/s)";
         }
         else if (_PRlevel >= 75)
         {
-            _PRrate = 20;
+            _PRrate = Good;
             Level_text.text = "Good ($" + _PRrate + "/s)";
         }
         else if (_PRlevel >= 50)
         {
-            _PRrate = 15;
+            _PRrate = Neutral;
             Level_text.text = "Neutral ($" + _PRrate + "/s)";
         }
         else if (_PRlevel >= 25)
         {
-            _PRrate = 10;
+            _PRrate = Bad;
             Level_text.text = "Bad ($" + _PRrate + "/s)";
         }
         else
         {
-            _PRrate = 5;
+            _PRrate = Worst;
             Level_text.text = "Worst ($" + _PRrate + "/s)";
         }
     }
