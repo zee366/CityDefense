@@ -25,6 +25,10 @@ public class UIPoliceAbilities : MonoBehaviour
     private PublicRelations publicRelations;
 
     //Disabling button UI system
+    private bool rubberBulletsSelected;
+    private bool lethalBulletsSelected;
+    public Button rubberBullets;
+    public Button lethalBullets;
     public Button fireBulletButton;
     public Button smokeGButton;
     public Button waterCButton;
@@ -46,6 +50,9 @@ public class UIPoliceAbilities : MonoBehaviour
 
         reinforceTimer = 2.0f;
         reinforceCoolDown = false;
+
+        rubberBulletsSelected = true;
+        lethalBulletsSelected = false;
     }
 
     // Update is called once per frame
@@ -71,6 +78,8 @@ public class UIPoliceAbilities : MonoBehaviour
                 }
             }
         }
+
+        CheckWhaBulletIsSelected(rubberBullets, lethalBullets);
 
         CheckIfEnoughFundingForButtons(fireBulletButton, smokeGButton, waterCButton, reinforcementButton);
 
@@ -122,6 +131,13 @@ public class UIPoliceAbilities : MonoBehaviour
 
     public void OnRubberBulletsButtonClicked()
     {
+        //check to make sure only one bullet is selected at a time
+        if (!rubberBulletsSelected)
+        {
+            rubberBulletsSelected = true;
+            lethalBulletsSelected = false;
+        }
+
         //Logic of rubber bullets selected for police
         foreach (PoliceAbilities pA in policeSquad)
             pA.UseRubberBullets();
@@ -133,7 +149,7 @@ public class UIPoliceAbilities : MonoBehaviour
         foreach (PoliceAbilities pA in policeSquad)
             pA.FireBullets();
     }
-    public void OnSmokeGrendadeButtonClicked()
+    public void OnSmokeGrenadeButtonClicked()
     {
         //Logic of smoke grenade selected for police
         if (!smokeGrenadeCoolDown)
@@ -153,8 +169,15 @@ public class UIPoliceAbilities : MonoBehaviour
             waterCannonCoolDown = true;
         }
     }
-    public void OnLethalForceButtonClicked()
+    public void OnLethalBulletsButtonClicked()
     {
+        //check to make sure only one bullet is selected at a time
+        if (!lethalBulletsSelected)
+        {
+            rubberBulletsSelected = false;
+            lethalBulletsSelected = true;
+        }
+
         //Logic of lethal force selected for police
         foreach (PoliceAbilities pA in policeSquad)
             pA.UseLethalBullets();
@@ -174,8 +197,8 @@ public class UIPoliceAbilities : MonoBehaviour
         }
     }
 
-    //Function checks whether the police squad has enough funding to use abilities with a cost
-    public void CheckIfEnoughFundingForButtons(Button type1, Button type2, Button type3, Button type4)
+    //Helper function checks whether the police squad has enough funding to use abilities with a cost
+    private void CheckIfEnoughFundingForButtons(Button type1, Button type2, Button type3, Button type4)
     {
         int totalFireBulletsCostAmongPoliceFlock = 0;
         int totalSmokeGCostAmongPoliceFlock = 0;
@@ -208,5 +231,20 @@ public class UIPoliceAbilities : MonoBehaviour
         else
             type4.interactable = true;
 
+    }
+
+    //Helper function for checking which bullets are selected
+    private void CheckWhaBulletIsSelected(Button rb, Button lb)
+    {
+        if (rubberBulletsSelected)
+            rb.interactable = false;
+        else
+            rb.interactable = true;
+
+
+        if (lethalBulletsSelected)
+            lb.interactable = false;
+        else
+            lb.interactable = true;
     }
 }
