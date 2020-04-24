@@ -47,13 +47,13 @@ MonoBehaviour:
     type: 3}
   agents: []
   behaviors:
-  - {fileID: 11400000, guid: afee89b5981998440ba378800b12c719, type: 2}
+  - {fileID: 11400000, guid: 1b3aa820665119d47905f4d7752f1adf, type: 2}
   weights:
   - 2
   startingCount: 8
   driveFactor: 10
   maxSpeed: 5
-  neighborRadius: 1.5
+  neighborRadius: 2.5
   avoidanceRadiusMultiplier: 0.5
   spawnPoint: {fileID: 0}
   donutSpawnPoint: {fileID: 0}
@@ -62,3 +62,4 @@ MonoBehaviour:
   intensity: 11000
   height: 19
   color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0}
+  SpotLightOnAgentO: 0
