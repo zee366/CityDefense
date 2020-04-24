@@ -64,6 +64,7 @@ public class Flock : MonoBehaviour
                 transform
                 );
             newAgent.name = "Agent " + i;
+            if(i == 0) newAgent.GetComponent<PoliceAbilities>().EnableFiringSquad();
             if ( SpotLightOnAgentO && i == 0 ) newAgent.GetComponent<PoliceAbilities>().equipLamp();
             newAgent.Initialize(this);
             agents.Add(newAgent);

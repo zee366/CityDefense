@@ -24,6 +24,7 @@ public class PoliceAbilities : MonoBehaviour
     public List<GameObject> bulletTypes;
     GameObject bulletSetType;
     float bulletDamage;
+    FiringSquad firingSquadFX;
 
     //water cannon
     public GameObject waterCannon;
@@ -105,6 +106,10 @@ public class PoliceAbilities : MonoBehaviour
             }
             rioterTarget = null;
         }
+    }
+
+    public void EnableFiringSquad() {
+        firingSquadFX = GetComponentInChildren<FiringSquad>();
     }
     
     public void Arrest()
@@ -196,6 +201,8 @@ public class PoliceAbilities : MonoBehaviour
             {
                 if (!Physics.Raycast(start, direction.normalized, out hit, distance, layerMask))
                 {
+                    if(firingSquadFX)
+                        firingSquadFX.Fire(rioterTarget.transform.position);
                     rioterTarget.TakeDamage(bulletDamage);
                 }
             }
