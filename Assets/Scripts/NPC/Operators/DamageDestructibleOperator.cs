@@ -14,7 +14,7 @@ namespace Rioters.Operators {
                 // Setting animation
                 c.anim.SetBool("IsAttacking",true);
                 c.CurrentTarget.TakeDamage(Time.deltaTime * c.DPS);
-                //GameController.gameController.DamageCity(Time.deltaTime * c.DPS); // gameController has running total of damage dealt to city. Uncomment when implemented
+                GameController.instance.DamageCity(Time.deltaTime * c.DPS); // gameController has running total of damage dealt to city. Uncomment when implemented
 
                 // Check if totally destroyed
                 if ( c.CurrentTarget.IsDead || _attackTime >= c.MaxAttackActionLength ) {

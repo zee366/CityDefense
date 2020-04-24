@@ -24,7 +24,8 @@ public class Tooltip : MonoBehaviour
 
     void Update()
     {
-        transform.position = Camera.main.WorldToScreenPoint(_destructible.anchorPoint.position);
+        if(_destructible)
+            transform.position = Camera.main.WorldToScreenPoint(_destructible.anchorPoint.position);
         SetHealthUI();
     }
 
