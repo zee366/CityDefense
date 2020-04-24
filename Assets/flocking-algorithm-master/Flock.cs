@@ -138,9 +138,12 @@ public class Flock : MonoBehaviour
             }
             if(SquadisFormed()){
                 if(Time.time > .2f) {
-                    agent.navMeshAgent.enabled=true;
-                    //agent.navMeshAgent.destination=agent.hit.point;
-                    agent.navMeshAgent.speed=20f;
+                    if (agent.navMeshAgent)
+                    {
+                        agent.navMeshAgent.enabled = true;
+                        //agent.navMeshAgent.destination=agent.hit.point;
+                        agent.navMeshAgent.speed = 20f;
+                    }
                 }
                 //print(agent.name+" is idling");
             }
