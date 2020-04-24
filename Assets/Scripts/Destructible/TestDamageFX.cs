@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class TestDamageFX : MonoBehaviour
 {
     public float damage;
+    public Destructible target;
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)) {
-            if(!GameController.instance.gamePaused)
-                GameController.instance.DamageCity(damage);
+            target.TakeDamage(damage);
+            //if(!GameController.instance.gamePaused)
+            //    GameController.instance.DamageCity(damage);
         }
 
         if(Input.GetKeyDown(KeyCode.Z))

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameController : MonoBehaviour
     public Slider cityHealthSlider;
     public Image cityHealthFillImage;
     public GameObject escapeMenu;
+    public UIFader fadeToBlackPanel;
 
     private Color fullHealthColor = Color.green;
     private Color zeroHealthColor = Color.red;
@@ -33,6 +35,7 @@ public class GameController : MonoBehaviour
                 GameController.instance = this;
             }
         }
+        gameRunning = true;
         //DontDestroyOnLoad(this.gameObject);
     }
 
@@ -48,18 +51,32 @@ public class GameController : MonoBehaviour
     }
 
     private void ProcessGameTime() {
-        gameTimer -= Time.deltaTime;
-        if(gameTimer < 0f) {
-            sceneLoader.LoadScene("ClosingScene");
+        if(gameRunning) {
+            gameTimer -= Time.deltaTime;
+            if(gameTimer < 0f) {
+                gameRunning = false;
+                StartCoroutine(EndGame(fadeToBlackPanel.fadeDuration));
+                fadeToBlackPanel.StartFade();
+            }
+            timerText.text = System.TimeSpan.FromSeconds((double)gameTimer).ToString(@"mm\:ss");
         }
-        timerText.text = System.TimeSpan.FromSeconds((double)gameTimer).ToString(@"mm\:ss");
+    }
+
+    IEnumerator EndGame(float time) {
+        yield return new WaitForSeconds(time);
+        sceneLoader.LoadScene("ClosingScene");
+        yield return null;
     }
 
     private void ProcessCityHealth() {
-        cityHealthSlider.value = MAX_CITY_HEALTH - currentCityDamage;
-        cityHealthFillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, cityHealthSlider.value / MAX_CITY_HEALTH);
-        if(currentCityDamage > MAX_CITY_HEALTH) {
-            sceneLoader.LoadScene("ClosingScene");
+        if(gameRunning) {
+            cityHealthSlider.value = MAX_CITY_HEALTH - currentCityDamage;
+            cityHealthFillImage.color = Color.Lerp(zeroHealthColor, fullHealthColor, cityHealthSlider.value / MAX_CITY_HEALTH);
+            if(currentCityDamage > MAX_CITY_HEALTH) {
+                gameRunning = false;
+                StartCoroutine(EndGame(fadeToBlackPanel.fadeDuration));
+                fadeToBlackPanel.StartFade();
+            }
         }
     }
 

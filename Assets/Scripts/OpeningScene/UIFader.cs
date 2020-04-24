@@ -1,18 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIFader : MonoBehaviour
 {
     private CanvasGroup canvasGroup;
-    private float duration = 2f;
+    public float fadeDuration;
+    public bool delayStart;
 
     void Start()
     {
-        Invoke("StartFade", 5f);
+        if(delayStart)
+            Invoke("StartFade", 5f);
     }
 
-    void StartFade() {
+    public void StartFade() {
         canvasGroup = GetComponent<CanvasGroup>();
         StartCoroutine(Fade(canvasGroup));
     }
@@ -22,9 +23,9 @@ public class UIFader : MonoBehaviour
         float start = 0f;
         float end = 1f;
 
-        while(counter < duration) {
-            counter += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(start, end, counter / duration);
+        while(counter < fadeDuration) {
+            counter += Time.fixedDeltaTime;
+            canvasGroup.alpha = Mathf.Lerp(start, end, counter / fadeDuration);
             yield return new WaitForFixedUpdate();
         }
         yield return null;
