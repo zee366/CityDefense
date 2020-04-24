@@ -136,12 +136,13 @@ public class Flock : MonoBehaviour
             }
             
         }
-
+        /*
         if (newAgents.Count != 0)
         {
             int size = newAgents.Count;
             for (int i = 0; i < size; i++)
             {
+                size=newAgents.Count;
                 if (newAgents[i].navMeshAgent)
                 {
                     newAgents[i].navMeshAgent.destination = AveragePositionOfFlock();
@@ -155,7 +156,7 @@ public class Flock : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 
     private bool SquadisFormed()
@@ -171,14 +172,16 @@ public class Flock : MonoBehaviour
         
             foreach(FlockAgent agent in agents)
             {
-                meanVector += agent.gameObject.transform.position;
-                meanDitance+= agent.Distance();
+                if(agent.partOfFlock){
+                    meanVector += agent.gameObject.transform.position;
+                    meanDitance+= agent.Distance();
+                }
             }
             avgDistance = (meanDitance/agents.Count);
             centre = (meanVector / agents.Count);
             foreach(FlockAgent agent in agents)
             {
-                if((agent.gameObject.transform.position-centre).magnitude<agents.Count*2f){
+                if((agent.gameObject.transform.position-centre).magnitude<agents.Count*2f&&agent.partOfFlock){
                     count++;
                     agent.centre=new Vector3();
                 }
@@ -221,6 +224,7 @@ public class Flock : MonoBehaviour
         newAgent.name = "Agent " + agents.Count;
         newAgent.isdestroyable=true;
         newAgents.Add(newAgent);
+        StartCoroutine(Reinforcement(newAgent));
         //agents.Add(newAgent);
 
     }
@@ -247,5 +251,20 @@ public class Flock : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(centre, startingCount*2f);
     }
+    IEnumerator Reinforcement(FlockAgent agent) {
+        while(!agent.navMeshAgent){
+            yield return new WaitForFixedUpdate();
+        }
+        agent.navMeshAgent.destination = AveragePositionOfFlock();
+        agent.navMeshAgent.speed = 40f;
+        while ((agent.transform.position - agent.navMeshAgent.destination).magnitude <= 2.0f)
+        {
+            yield return new WaitForFixedUpdate();
 
+        }
+        agents.Add(agent);
+        agent.Initialize(this);
+        newAgents.Remove(agent);
+        yield return null;
+    }
 }

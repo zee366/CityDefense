@@ -58,14 +58,24 @@ public class UIPoliceAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (policeSquad.Count != flock.agents.Count)
         {
+            //removal of a squad member
+            for(int i = 0; i < policeSquad.Count; i++)
+            {
+                if (!flock.agents.Contains(policeSquad[i].gameObject.GetComponent<FlockAgent>()))
+                    policeSquad.Remove(policeSquad[i]);
+            }
+
+            //addition of a squad member
             foreach (FlockAgent fA in flock.agents)
             {
                 PoliceAbilities pA = fA.gameObject.GetComponent<PoliceAbilities>();
-                if (!policeSquad.Contains(pA))
-                    policeSquad.Add(fA.gameObject.GetComponent<PoliceAbilities>());
+                if (fA.partOfFlock)
+                {
+                    if (!policeSquad.Contains(pA))
+                        policeSquad.Add(fA.gameObject.GetComponent<PoliceAbilities>());
+                }
             }
         }
 
