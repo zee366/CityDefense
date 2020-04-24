@@ -117,34 +117,6 @@ public class Flock : MonoBehaviour
             
             Vector3 avoidancemove = behaviors[0].CalculateMove(agent, context, this);
             Vector3 move = agent.transform.position+avoidancemove;
-            //Vector3 move = agent.transform.position;
-
-
-        //iterate through behaviors
-        /*
-            for (int i = 0; i < behaviors.Length; i++)
-            {
-                Vector3 partialMove = behaviors[i].CalculateMove(agent, context, this) * weights[i];
-                Debug.Log("Partial move vector: "+ partialMove);
-
-                if (partialMove != agent.transform.position)
-                {
-                    if (partialMove.sqrMagnitude > weights[i] * weights[i])
-                    {
-                        partialMove.Normalize();
-                        partialMove *= weights[i];
-                    }
-
-                    move += partialMove;
-
-                }
-            }
-            move *= driveFactor;
-            if (move.sqrMagnitude > squareMaxSpeed)
-            {
-                move = move.normalized * maxSpeed;
-            }
-            */
             if(SquadisFormed()){
                 if(Time.time > .2f) {
                     agent.navMeshAgent.enabled=true;
