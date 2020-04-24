@@ -111,48 +111,24 @@ public class Flock : MonoBehaviour
             
             List<Transform> context = GetNearbyObjects(agent);
             
-            //Vector3 move = behavior.CalculateMove(agent, context, this);
-            Vector3 move = Vector3.zero;
+            Vector3 avoidancemove = behaviors[0].CalculateMove(agent, context, this);
+            Vector3 move = agent.gameObject.transform.position+avoidancemove;
 
-        //iterate through behaviors
-            for (int i = 0; i < behaviors.Length; i++)
-            {
-                Vector3 partialMove = behaviors[i].CalculateMove(agent, context, this) * weights[i];
-
-                if (partialMove != Vector3.zero)
-                {
-                    if (partialMove.sqrMagnitude > weights[i] * weights[i])
-                    {
-                        partialMove.Normalize();
-                        partialMove *= weights[i];
-                    }
-
-                    move += partialMove;
-
-                }
-            }
-            move *= driveFactor;
-            if (move.sqrMagnitude > squareMaxSpeed)
-            {
-                move = move.normalized * maxSpeed;
-            }
             if(SquadisFormed()){
                 if(Time.time > .2f) {
                     agent.navMeshAgent.enabled=true;
-                    //agent.navMeshAgent.destination=agent.hit.point;
                     agent.navMeshAgent.speed=20f;
+                    if(move!=agent.transform.position){
+                        agent.Move(move);
+                    }
                 }
-                //print(agent.name+" is idling");
             }
             else if(!SquadisFormed()){
-                //print(agent.name + " total distance is " + agent.Distance());
                 if(agent.Distance()>avgDistance*1.5&&Time.time > .2f){
                     if (agent.navMeshAgent)
                         agent.navMeshAgent.speed = 40f;
                 }
-                if(Time.time > .2f) {
-                    //agent.Move(move);
-                }
+
             }
             
         }
@@ -198,7 +174,7 @@ public class Flock : MonoBehaviour
             centre = (meanVector / agents.Count);
             foreach(FlockAgent agent in agents)
             {
-                if((agent.gameObject.transform.position-centre).magnitude<startingCount*2f){
+                if((agent.gameObject.transform.position-centre).magnitude<agents.Count*2f){
                     count++;
                     agent.centre=new Vector3();
                 }
@@ -206,7 +182,7 @@ public class Flock : MonoBehaviour
                     agent.centre=centre;
                 }
             }
-            if(count==startingCount){
+            if(count==agents.Count){
                 return true;
             }
             else
@@ -239,9 +215,14 @@ public class Flock : MonoBehaviour
                 transform
                 );
         newAgent.name = "Agent " + agents.Count;
+        newAgent.isdestroyable=true;
         newAgents.Add(newAgent);
         //agents.Add(newAgent);
 
+    }
+
+    public void RemoveAgent(FlockAgent agent){
+        agents.Remove(agent);
     }
 
     private Vector3 AveragePositionOfFlock()
