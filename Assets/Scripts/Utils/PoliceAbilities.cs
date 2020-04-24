@@ -39,9 +39,8 @@ public class PoliceAbilities : MonoBehaviour
     //PR logic
     //PR object
     private PublicRelations publicRelations;
-    //report object
-    //private GameObject reporter;
-    private Reporter reporter;
+    //reporter object
+    private Reporter[] reporters;
     //report PR amplifier
     private int reporterPresentPRAmplifier;
 
@@ -85,7 +84,7 @@ public class PoliceAbilities : MonoBehaviour
     {
         infoBubble = FindObjectOfType<ScreenSpaceTargetBubble>();
         publicRelations = FindObjectOfType<PublicRelations>();
-        reporter = FindObjectOfType<Reporter>();
+        reporters = FindObjectsOfType<Reporter>();
         reporterPresentPRAmplifier = 1;
         bulletSetType = bulletTypes[0];
         bulletDamage = 5.0f;
@@ -116,9 +115,14 @@ public class PoliceAbilities : MonoBehaviour
     {
         //reporter present logic
         //if reporter's physics overlap returns this PoliceAbilities object
-        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
-            reporterPresentPRAmplifier = 3;
-
+        foreach (Reporter r in reporters)
+        {
+            if (r.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            {
+                reporterPresentPRAmplifier = 3;
+                break;
+            }
+        }
         //show appropriate arresting image based on success/fail
         if (rioterTarget && rioterTarget.health <= 25.0f)
         {
@@ -142,9 +146,14 @@ public class PoliceAbilities : MonoBehaviour
     public void AggressiveArrest()
     {
         //reporter present logic
-        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
-            reporterPresentPRAmplifier = 3;
-
+        foreach (Reporter r in reporters)
+        {
+            if (r.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            {
+                reporterPresentPRAmplifier = 3;
+                break;
+            }
+        }
         //show appropriate aggressive arresting image based on success/fail
         if (rioterTarget)
         {
@@ -171,8 +180,14 @@ public class PoliceAbilities : MonoBehaviour
         publicRelations.CostOfAction(CostForFireBullets);
 
         //reporter present logic
-        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
-            reporterPresentPRAmplifier = 2;
+        foreach (Reporter r in reporters)
+        {
+            if (r.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            {
+                reporterPresentPRAmplifier = 2;
+                break;
+            }
+        }
 
         //logic for PR system cost
         if (bulletSetType == bulletTypes[0])
@@ -225,8 +240,14 @@ public class PoliceAbilities : MonoBehaviour
         publicRelations.CostOfAction(costForSmokeGrenade);
 
         //reporter present logic
-        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
-            reporterPresentPRAmplifier = 2;
+        foreach (Reporter r in reporters)
+        {
+            if (r.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            {
+                reporterPresentPRAmplifier = 2;
+                break;
+            }
+        }
 
         //logic for more points deducted from PR
         publicRelations.WorsenPR(smokeGrenadePR * reporterPresentPRAmplifier);
@@ -244,9 +265,15 @@ public class PoliceAbilities : MonoBehaviour
         publicRelations.CostOfAction(costForWaterCannon);
 
         //reporter present logic
-        if (reporter.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
-            reporterPresentPRAmplifier = 2;
-        //Debug.Log("water cannon PR rate: " + waterCannonPR * reporterPresentPRAmplifier);
+        foreach (Reporter r in reporters)
+        {
+            if (r.CheckIfNearPoliceAndRioters().Contains(this.gameObject))
+            {
+                reporterPresentPRAmplifier = 2;
+                break;
+            }
+        }
+        
         //logic for PR system cost
         publicRelations.ImprovePR(waterCannonPR * reporterPresentPRAmplifier);
 
@@ -280,6 +307,8 @@ public class PoliceAbilities : MonoBehaviour
         lamp.SetActive(false);
         gun.SetActive(true);
     }
+
+    //Function for equipping flashlight
     public void equipLamp() {
         lamp.SetActive(true);
         gun.SetActive(false);
