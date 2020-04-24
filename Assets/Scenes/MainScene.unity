@@ -10788,17 +10788,17 @@ PrefabInstance:
     - target: {fileID: 6309705260553219458, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -199.00648
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6309705260553219458, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 283.71167
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 6309705260553219458, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.978817
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6309705260553219458, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
         type: 3}
@@ -10844,6 +10844,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DamageMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309705260553219460, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6309705260553219461, guid: 1547ca56b45bb4a4aa218b82b8631ee6,
         type: 3}
@@ -11270,6 +11275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   surveillanceImg: {fileID: 4175515357137829272}
   surveillanceButton: {fileID: 4175515357137829278}
+  publicRelations: {fileID: 2132081481}
+  miniMapCam: {fileID: 133370528}
   Level1Cost: 200
   Level2Cost: 400
   Level3Cost: 800
@@ -12048,12 +12055,12 @@ PrefabInstance:
     - target: {fileID: 2841976254042198658, guid: 95236a2c741806d4c8d7803e76063815,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.47
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 2841976254042198658, guid: 95236a2c741806d4c8d7803e76063815,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 300
+      value: 570
       objectReference: {fileID: 0}
     - target: {fileID: 2841976254042198685, guid: 95236a2c741806d4c8d7803e76063815,
         type: 3}
@@ -12063,7 +12070,7 @@ PrefabInstance:
     - target: {fileID: 2841976254042198687, guid: 95236a2c741806d4c8d7803e76063815,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4699917019662066679, guid: 95236a2c741806d4c8d7803e76063815,
         type: 3}
@@ -12281,7 +12288,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1754145572}
         m_MethodName: OnSurveillanceButtonClicked
         m_Mode: 1
         m_Arguments:
