@@ -1123,7 +1123,7 @@ PrefabInstance:
     - target: {fileID: 8960776230824461017, guid: 1800054e85d2efb47b750cb886e6135a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSmokeGrendadeButtonClicked
+      value: OnSmokeGrenadeButtonClicked
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1800054e85d2efb47b750cb886e6135a, type: 3}
