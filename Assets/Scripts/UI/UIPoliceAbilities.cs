@@ -51,20 +51,24 @@ public class UIPoliceAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Only needed if rioters use Flock too...
-        //if ( policeSquadLeader == null ) {
-        //    GameObject go = GetChildWithName(GameObject.Find("PoliceFlock"), "Agent 0");
-        //    if(go != null)
-        //        policeSquadLeader = go.GetComponent<PoliceAbilities>();
-        //}
-
         if (policeSquad.Count != flock.agents.Count)
         {
+            //removal of a squad member
+            for(int i = 0; i < policeSquad.Count; i++)
+            {
+                if (!flock.agents.Contains(policeSquad[i].gameObject.GetComponent<FlockAgent>()))
+                    policeSquad.Remove(policeSquad[i]);
+            }
+
+            //addition of a squad member
             foreach (FlockAgent fA in flock.agents)
             {
                 PoliceAbilities pA = fA.gameObject.GetComponent<PoliceAbilities>();
-                if (!policeSquad.Contains(pA))
-                    policeSquad.Add(fA.gameObject.GetComponent<PoliceAbilities>());
+                if (fA.partOfFlock)
+                {
+                    if (!policeSquad.Contains(pA))
+                        policeSquad.Add(fA.gameObject.GetComponent<PoliceAbilities>());
+                }
             }
         }
 
@@ -204,22 +208,5 @@ public class UIPoliceAbilities : MonoBehaviour
         else
             type4.interactable = true;
 
-    }
-
-    //Not used, but will keep for now in case of rioters flock interfering with police flock
-    GameObject GetChildWithName(GameObject obj, string name)
-    {
-        // Source: http://answers.unity.com/answers/1355797/view.html
-
-        Transform trans = obj.transform;
-        Transform childTrans = trans.Find(name);
-        if (childTrans != null)
-        {
-            return childTrans.gameObject;
-        }
-        else
-        {
-            return null;
-        }
     }
 }

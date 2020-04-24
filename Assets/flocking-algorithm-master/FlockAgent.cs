@@ -48,6 +48,8 @@ public class FlockAgent : MonoBehaviour
         if(isdestroyable&&lifecycle<0){
             partOfFlock=false;
             navMeshAgent.isStopped=false;
+            //remove from flock
+            agentFlock.RemoveAgent(this);
             StartCoroutine(DissolveandDestroy());
         }
         if(this.GetComponent<Rigidbody>().velocity.magnitude>2){
@@ -147,8 +149,6 @@ public class FlockAgent : MonoBehaviour
         }
         timetodie-=Time.deltaTime;
         if (timetodie<=0){
-            //remove from flock
-            agentFlock.RemoveAgent(this);
             //destroy reinforcement
             Destroy(gameObject);
         }
