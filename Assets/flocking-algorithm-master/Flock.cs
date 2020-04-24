@@ -130,7 +130,7 @@ public class Flock : MonoBehaviour
             }
             else if(!SquadisFormed()){
                 //print(agent.name + " total distance is " + agent.Distance());
-                if(agent.Distance()>avgDistance*1.5&&Time.time > .2f){
+                if(agent.Distance()>avgDistance*2&&Time.time > .2f){
                     if (agent.navMeshAgent)
                         agent.navMeshAgent.speed = 40f;
                 }
