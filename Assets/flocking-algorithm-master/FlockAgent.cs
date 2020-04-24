@@ -53,7 +53,7 @@ public class FlockAgent : MonoBehaviour
             partOfFlock=false;
             DissolveandDestroy();
         }
-        if(this.GetComponent<Rigidbody>().velocity.magnitude>2){
+        if(this.GetComponent<Rigidbody>().velocity.magnitude>3){
             animator.SetBool("IsRunning",true);
         }
         else{
@@ -84,7 +84,7 @@ public class FlockAgent : MonoBehaviour
             ////////////////////////////////////////////
            /////////////LINE FORMATION//////////////////
           ///////////////////////////////////////////// 
-          if(gameObject.name=="Agent 0"){
+          /*if(gameObject.name=="Agent 0"){
             if(Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift)){
                 if(Input.GetKeyDown(KeyCode.LeftArrow)&&formationtoggletime<0){
                     //Line formation facing left
@@ -133,7 +133,7 @@ public class FlockAgent : MonoBehaviour
                     agentFlock.FormCircle();
                     //FaceAway();
                 }
-          }
+          }*/
             ////////////////////////////////////////////
            /////////////SIMPLE ROTATION////////////////
           ///////////////////////////////////////////// 
@@ -198,6 +198,7 @@ public class FlockAgent : MonoBehaviour
                 yield return new WaitForFixedUpdate();
             }
         //navMeshAgent.destination=gameObject.transform.position;
+        agentFlock.CR_running=false;
         yield return null;
     }
 
@@ -260,12 +261,12 @@ public class FlockAgent : MonoBehaviour
     public void Move(Vector3 velocity)
     {
 
-        if(centre!=new Vector3()){
+        //if(centre!=new Vector3()){
             //navMeshAgent.destination=centre;
-            navMeshAgent.speed=15f;
-        }
-        //transform.forward = velocity;
-       //transform.position += (Vector3)velocity * Time.deltaTime;
+            //navMeshAgent.speed=15f;
+      //  }
+      //Debug.Log(velocity);
+        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position,velocity,0.2f*Time.deltaTime);
     }
 
     public float Distance(){

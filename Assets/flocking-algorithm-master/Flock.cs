@@ -43,6 +43,8 @@ public class Flock : MonoBehaviour
     public bool SpotLightOnAgentO = false; 
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
+    public bool CR_running=false;
+
     private Light _spotLight;
     private bool isrotating=false;
 
@@ -113,15 +115,19 @@ public class Flock : MonoBehaviour
             
             List<Transform> context = GetNearbyObjects(agent);
             
-            //Vector3 move = behavior.CalculateMove(agent, context, this);
-            Vector3 move = Vector3.zero;
+            Vector3 avoidancemove = behaviors[0].CalculateMove(agent, context, this);
+            Vector3 move = agent.transform.position+avoidancemove;
+            //Vector3 move = agent.transform.position;
+
 
         //iterate through behaviors
+        /*
             for (int i = 0; i < behaviors.Length; i++)
             {
                 Vector3 partialMove = behaviors[i].CalculateMove(agent, context, this) * weights[i];
+                Debug.Log("Partial move vector: "+ partialMove);
 
-                if (partialMove != Vector3.zero)
+                if (partialMove != agent.transform.position)
                 {
                     if (partialMove.sqrMagnitude > weights[i] * weights[i])
                     {
@@ -138,11 +144,15 @@ public class Flock : MonoBehaviour
             {
                 move = move.normalized * maxSpeed;
             }
+            */
             if(SquadisFormed()){
                 if(Time.time > .2f) {
                     agent.navMeshAgent.enabled=true;
                     //agent.navMeshAgent.destination=agent.hit.point;
                     agent.navMeshAgent.speed=20f;
+                    if(move!=agent.transform.position){
+                        agent.Move(move);
+                    }
                 }
                 //print(agent.name+" is idling");
             }
@@ -153,7 +163,6 @@ public class Flock : MonoBehaviour
                         agent.navMeshAgent.speed = 40f;
                 }
                 if(Time.time > .2f) {
-                    //agent.Move(move);
                 }
             }
             
@@ -179,6 +188,8 @@ public class Flock : MonoBehaviour
             }
         }
     }
+
+
 
     private bool SquadisFormed()
     {
@@ -223,7 +234,7 @@ public class Flock : MonoBehaviour
         Collider[] contextColliders = Physics.OverlapSphere(agent.transform.position, neighborRadius);
         foreach (Collider c in contextColliders)
         {
-            if (c != agent.AgentCollider)
+            if (c != agent.AgentCollider&& c.gameObject.GetComponent<FlockAgent>()!=null)
             {
                 context.Add(c.transform);
             }
@@ -275,7 +286,7 @@ public class Flock : MonoBehaviour
     {   
         StopCoroutines();
         Vector3 leaderposition = agents[0].transform.position;
-        float radius = 1.5f;
+        float radius = neighborRadius;
         int halfcount = agents.Count/2;
          for (int i = 0; i < agents.Count; i++)
         {
@@ -302,10 +313,10 @@ public class Flock : MonoBehaviour
         {
             agents[i].navMeshAgent.isStopped=false;
             if(i<halfcount){
-                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(-1.0f*i,0,0));
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(neighborRadius*i,0,0));
             }
             else{
-                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(1.0f*(i-halfcount+1),0,0));
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(neighborRadius*(i-halfcount+1),0,0));
             }
         }
         StartCoroutine(LineRotate(rotation));
@@ -320,10 +331,10 @@ public class Flock : MonoBehaviour
         {
             agents[i].navMeshAgent.isStopped=false;
             if(i<halfcount){
-                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,-1.0f*i));
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,neighborRadius*i));
             }
             else{
-                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,1.0f*(i-halfcount+1)));
+                agents[i].navMeshAgent.destination=leaderposition+(new Vector3(0,0,neighborRadius*(i-halfcount+1)));
             }
         }
         StartCoroutine(LineRotate(rotation));
@@ -331,6 +342,7 @@ public class Flock : MonoBehaviour
 
     public IEnumerator LineRotate(Quaternion rotation) 
     {
+        CR_running=true;
         for (int i = 0; i < agents.Count; i++)
         {
             while((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude>1f&&agents[i].navMeshAgent.velocity.magnitude>1f){
@@ -340,10 +352,11 @@ public class Flock : MonoBehaviour
                 StartCoroutine(agents[i].Rotate(rotation));
             }
         }
-        yield return null;  
+        yield return null; 
     }
     public IEnumerator CircleRotate() 
     {
+        CR_running=true;
         for (int i = 0; i < agents.Count; i++)
         {
             if(i==0){
@@ -353,7 +366,6 @@ public class Flock : MonoBehaviour
                 yield return new WaitForFixedUpdate();
              }
             if((agents[i].transform.position-agents[i].navMeshAgent.destination).magnitude<2f){
-                print(agents[i].name+" is in position");
                 Quaternion rotation = Quaternion.LookRotation(agents[i].transform.position-agents[0].transform.position);
                 StartCoroutine(agents[i].Rotate(rotation));
             }

@@ -21,6 +21,7 @@ public class AvoidanceBehavior : FilteredFlockBehavior
             {
                 nAvoid++;
                 avoidanceMove += (Vector3)(agent.transform.position - item.position);
+                Debug.Log(avoidanceMove);
             }
         }
         if (nAvoid > 0)
