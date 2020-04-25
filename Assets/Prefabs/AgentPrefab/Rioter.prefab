@@ -578,7 +578,7 @@ MonoBehaviour:
   _domainDefinition: {fileID: 11400000, guid: c060ca0827f1ab84daae60f2f9b0fc87, type: 2}
   _sensingInterval: 1
   _sensingRange: 30
-  _damagePerSecond: 2
+  _damagePerSecond: 3
   logPlan: 0
 --- !u!136 &8660303050548343789
 CapsuleCollider:
