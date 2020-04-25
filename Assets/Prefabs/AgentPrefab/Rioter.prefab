@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5512983459247903308}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000016292068}
-  m_LocalPosition: {x: -0.12464062, y: 98, z: -15.301667}
+  m_LocalPosition: {x: 0, y: 98, z: 0}
   m_LocalScale: {x: 4.5, y: 0.1, z: 4.5}
   m_Children:
   - {fileID: 1080374173919470777}
@@ -578,7 +578,7 @@ MonoBehaviour:
   _domainDefinition: {fileID: 11400000, guid: c060ca0827f1ab84daae60f2f9b0fc87, type: 2}
   _sensingInterval: 1
   _sensingRange: 30
-  _damagePerSecond: 2
+  _damagePerSecond: 3
   logPlan: 0
 --- !u!136 &8660303050548343789
 CapsuleCollider:
