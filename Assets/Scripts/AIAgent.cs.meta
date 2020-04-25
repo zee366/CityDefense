@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/AIAgent.cs.meta
+guid: d91f6a22cea59c6449dbac62accf386f
+=======
+guid: 52e5263dfa036c645b57a871a410bdff
+>>>>>>> develop:Assets/Scripts/Destructible/Destructible.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
